@@ -24,3 +24,9 @@ name|version
 --|--
 Ruby | 3.1.3
 Ruby on Rails | 7.0.4.2
+
+### 導入済みgem
+
+- [pry-rails](https://github.com/pry/pry-rails)
+- [rspec-rails](https://github.com/rspec/rspec-rails)
+- [factory_bot_rails](https://github.com/thoughtbot/factory_bot_rails)

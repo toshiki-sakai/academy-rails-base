@@ -1,24 +1,26 @@
-# README
+## Railsプロジェクトベース
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### 環境構築
+- （初回のみ）docker image build && db create
 
-Things you may want to cover:
+```
+docker compose build --no-cache
+docker compose run web rails db:create
+```
 
-* Ruby version
+- docker run
 
-* System dependencies
+```
+docker compose up -d
+```
 
-* Configuration
+#### 以下URLにアクセスしサーバーが立ち上がればOK
 
-* Database creation
+- http://localhost:3000
 
-* Database initialization
+### バージョン情報
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+name|version
+--|--
+Ruby | 3.1.3
+Ruby on Rails | 7.0.4.2

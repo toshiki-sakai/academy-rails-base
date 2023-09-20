@@ -22,7 +22,7 @@ docker compose up -d
 
 name|version
 --|--
-Ruby | 3.1.3
+Ruby | 3.1.4
 Ruby on Rails | 7.0.4.2
 
 ### 導入済みgem

@@ -18,6 +18,16 @@ docker compose up -d
 
 - http://localhost:3000
 
+
+### Railsコマンドを使いたい時は
+
+```
+docker compose exec web bash
+
+// 以下の表示になればOK
+myapp#
+```
+
 ### バージョン情報
 
 name|version

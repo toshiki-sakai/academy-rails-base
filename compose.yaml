@@ -1,14 +1,12 @@
-version: '3'
+version: "3"
 services:
   db:
-    image: mysql:5.7
+    image: postgres
     environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: root
-    ports:
-      - "3306:3306"
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
     volumes:
-      - ./tmp/db:/var/lib/mysql
+      - ./tmp/db:/var/lib/postgresql/data
 
   web:
     build: .

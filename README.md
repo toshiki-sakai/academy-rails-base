@@ -1,7 +1,7 @@
 ## Railsプロジェクトベース
 
 ### 環境構築
-- （初回のみ）docker image build && db create
+- 以下は初回のみ実施
 
 ```
 docker compose build --no-cache

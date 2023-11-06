@@ -40,3 +40,13 @@ Ruby on Rails | 7.0.4.2
 - [pry-rails](https://github.com/pry/pry-rails)
 - [rspec-rails](https://github.com/rspec/rspec-rails)
 - [factory_bot_rails](https://github.com/thoughtbot/factory_bot_rails)
+
+### DBをGUIで操作したい時は
+
+DBをGUIで操作したい場合、以下のようなツールがあります。
+実務でもよく使われるため、インストールして今から使い方に慣れておきましょう。
+
+※Macを使用している方は、Sequel Aceがおすすめです。
+- [Sequel Pro](https://www.sequelpro.com/)
+- [Sequel Ace](https://sequel-ace.com/)
+- [dbeaver](https://dbeaver.io/)

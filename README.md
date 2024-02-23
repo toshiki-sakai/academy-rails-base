@@ -50,3 +50,27 @@ DBをGUIで操作したい場合、以下のようなツールがあります。
 - [Sequel Pro](https://www.sequelpro.com/)
 - [Sequel Ace](https://sequel-ace.com/)
 - [dbeaver](https://dbeaver.io/)
+
+### Debug方法
+Railsのデバッグ方法としてrails consoleと debugger がよく利用される。
+そのデバッグ方法を記述しておく。
+#### rails console(rails c)の起動方法
+1. アプリケーションのあるディレクトリで下記のコマンドを順にうつ。
+```
+docker compose exec web
+rails c
+```
+2. rails consoleが起動するので、そこでデバッグを行える。
+
+#### debuggerの利用方法
+
+1. アプリケーションのあるディレクトリで下記のコマンドをうつ。（このウインドウにログが流れます）
+```
+ docker attach academy-rails-base-web-1
+```
+
+2. コードで検証したい箇所にdebugger を仕込む（コントローラのアクションの中など）
+3. debugger を仕込んだ箇所が通るようにブラウザでアプリケーションを操作
+4. 仕込んだ箇所でブラウザが止まるのを確認
+5. 1.で開いたウインドウを確認。そこで変数の確認など、デバッグを行える。
+

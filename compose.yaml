@@ -17,3 +17,5 @@ services:
       - "3000:3000"
     depends_on:
       - db
+    tty: true  # デバッガーでのインタラクティブなセッションが可能になります
+    stdin_open: true  # Dockerコンテナの標準入力を開く

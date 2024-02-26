@@ -62,6 +62,8 @@ rails c
 ```
 2. rails consoleが起動するので、そこでデバッグを行える。
 
+https://github.com/prum-jp/academy-rails-base/assets/54013280/e73d8bca-2280-4367-9702-fc3119ba226c
+
 #### debuggerの利用方法
 
 1. アプリケーションのあるディレクトリで下記のコマンドをうつ。（このウインドウにログが流れます）
@@ -74,3 +76,4 @@ rails c
 4. 仕込んだ箇所でブラウザが止まるのを確認
 5. 1.で開いたウインドウを確認。そこで変数の確認など、デバッグを行える。
 
+https://github.com/prum-jp/academy-rails-base/assets/54013280/3767cf7f-d2be-415d-9ac6-a878b802dc32

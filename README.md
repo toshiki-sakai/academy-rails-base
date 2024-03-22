@@ -1,6 +1,7 @@
 ## Railsプロジェクトベース
 
 ### 環境構築
+
 - 以下は初回のみ実施
 
 ```
@@ -18,7 +19,6 @@ docker compose up -d
 
 - http://localhost:3000
 
-
 ### Railsコマンドを使いたい時は
 
 ```
@@ -30,10 +30,10 @@ myapp#
 
 ### バージョン情報
 
-name|version
---|--
-Ruby | 3.1.4
-Ruby on Rails | 7.0.4.2
+| name          | version |
+| ------------- | ------- |
+| Ruby          | 3.1.4   |
+| Ruby on Rails | 7.0.4.2 |
 
 ### 導入済みgem
 
@@ -47,19 +47,25 @@ DBをGUIで操作したい場合、以下のようなツールがあります。
 実務でもよく使われるため、インストールして今から使い方に慣れておきましょう。
 
 ※Macを使用している方は、Sequel Aceがおすすめです。
+
 - [Sequel Pro](https://www.sequelpro.com/)
 - [Sequel Ace](https://sequel-ace.com/)
 - [dbeaver](https://dbeaver.io/)
 
 ### Debug方法
+
 Railsのデバッグ方法としてrails consoleと debugger がよく利用される。
 そのデバッグ方法を記述しておく。
+
 #### rails console(rails c)の起動方法
+
 1. アプリケーションのあるディレクトリで下記のコマンドを順にうつ。
+
 ```
 docker compose exec web
 rails c
 ```
+
 2. rails consoleが起動するので、そこでデバッグを行える。
 
 https://github.com/prum-jp/academy-rails-base/assets/54013280/e73d8bca-2280-4367-9702-fc3119ba226c
@@ -67,6 +73,7 @@ https://github.com/prum-jp/academy-rails-base/assets/54013280/e73d8bca-2280-4367
 #### debuggerの利用方法
 
 1. アプリケーションのあるディレクトリで下記のコマンドをうつ。（このウインドウにログが流れます）
+
 ```
  docker attach academy-rails-base-web-1
 ```

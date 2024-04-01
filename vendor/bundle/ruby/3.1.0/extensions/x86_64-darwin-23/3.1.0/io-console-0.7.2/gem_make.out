@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/io-console-0.7.2/ext/io/console
-=======
-current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/io-console-0.7.2/ext/io/console
->>>>>>> f666f17d00e244dfef96e58ac0144236e0ce2361
 /Users/sakaitoshiki/.rbenv/versions/3.1.4/bin/ruby -I /Users/sakaitoshiki/.rbenv/versions/3.1.4/lib/ruby/3.1.0 extconf.rb
 checking for rb_io_path()... no
 checking for rb_io_descriptor()... yes
@@ -15,29 +11,15 @@ checking for sys/ioctl.h... yes
 checking for HAVE_RUBY_FIBER_SCHEDULER_H... yes
 creating Makefile
 
-<<<<<<< HEAD
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/io-console-0.7.2/ext/io/console
-make DESTDIR\= sitearchdir\=./.gem.20240401-57888-5xx3t4 sitelibdir\=./.gem.20240401-57888-5xx3t4 clean
+make DESTDIR\= sitearchdir\=./.gem.20240401-66370-t2m05t sitelibdir\=./.gem.20240401-66370-t2m05t clean
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/io-console-0.7.2/ext/io/console
-make DESTDIR\= sitearchdir\=./.gem.20240401-57888-5xx3t4 sitelibdir\=./.gem.20240401-57888-5xx3t4
-=======
-current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/io-console-0.7.2/ext/io/console
-make DESTDIR\= sitearchdir\=./.gem.20240322-47902-4xbo00 sitelibdir\=./.gem.20240322-47902-4xbo00 clean
-
-current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/io-console-0.7.2/ext/io/console
-make DESTDIR\= sitearchdir\=./.gem.20240322-47902-4xbo00 sitelibdir\=./.gem.20240322-47902-4xbo00
->>>>>>> f666f17d00e244dfef96e58ac0144236e0ce2361
+make DESTDIR\= sitearchdir\=./.gem.20240401-66370-t2m05t sitelibdir\=./.gem.20240401-66370-t2m05t
 compiling console.c
 linking shared-object io/console.bundle
 ld: warning: ignoring duplicate libraries: '-lruby.3.1'
 
-<<<<<<< HEAD
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/io-console-0.7.2/ext/io/console
-make DESTDIR\= sitearchdir\=./.gem.20240401-57888-5xx3t4 sitelibdir\=./.gem.20240401-57888-5xx3t4 install
-/usr/local/bin/ginstall -c -m 0755 console.bundle ./.gem.20240401-57888-5xx3t4/io
-=======
-current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/io-console-0.7.2/ext/io/console
-make DESTDIR\= sitearchdir\=./.gem.20240322-47902-4xbo00 sitelibdir\=./.gem.20240322-47902-4xbo00 install
-/usr/local/bin/ginstall -c -m 0755 console.bundle ./.gem.20240322-47902-4xbo00/io
->>>>>>> f666f17d00e244dfef96e58ac0144236e0ce2361
+make DESTDIR\= sitearchdir\=./.gem.20240401-66370-t2m05t sitelibdir\=./.gem.20240401-66370-t2m05t install
+/usr/local/bin/ginstall -c -m 0755 console.bundle ./.gem.20240401-66370-t2m05t/io

@@ -1,34 +1,16 @@
-<<<<<<< HEAD
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/websocket-driver-0.7.6/ext/websocket-driver
 /Users/sakaitoshiki/.rbenv/versions/3.1.4/bin/ruby -I /Users/sakaitoshiki/.rbenv/versions/3.1.4/lib/ruby/3.1.0 extconf.rb
 creating Makefile
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/websocket-driver-0.7.6/ext/websocket-driver
-make DESTDIR\= sitearchdir\=./.gem.20240401-57888-xu2jy2 sitelibdir\=./.gem.20240401-57888-xu2jy2 clean
+make DESTDIR\= sitearchdir\=./.gem.20240401-66370-3ucaot sitelibdir\=./.gem.20240401-66370-3ucaot clean
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/websocket-driver-0.7.6/ext/websocket-driver
-make DESTDIR\= sitearchdir\=./.gem.20240401-57888-xu2jy2 sitelibdir\=./.gem.20240401-57888-xu2jy2
-=======
-current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/websocket-driver-0.7.6/ext/websocket-driver
-/Users/sakaitoshiki/.rbenv/versions/3.1.4/bin/ruby -I /Users/sakaitoshiki/.rbenv/versions/3.1.4/lib/ruby/3.1.0 extconf.rb
-creating Makefile
-
-current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/websocket-driver-0.7.6/ext/websocket-driver
-make DESTDIR\= sitearchdir\=./.gem.20240322-47902-i2biiy sitelibdir\=./.gem.20240322-47902-i2biiy clean
-
-current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/websocket-driver-0.7.6/ext/websocket-driver
-make DESTDIR\= sitearchdir\=./.gem.20240322-47902-i2biiy sitelibdir\=./.gem.20240322-47902-i2biiy
->>>>>>> f666f17d00e244dfef96e58ac0144236e0ce2361
+make DESTDIR\= sitearchdir\=./.gem.20240401-66370-3ucaot sitelibdir\=./.gem.20240401-66370-3ucaot
 compiling websocket_mask.c
 linking shared-object websocket_mask.bundle
 ld: warning: ignoring duplicate libraries: '-lruby.3.1'
 
-<<<<<<< HEAD
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/websocket-driver-0.7.6/ext/websocket-driver
-make DESTDIR\= sitearchdir\=./.gem.20240401-57888-xu2jy2 sitelibdir\=./.gem.20240401-57888-xu2jy2 install
-/usr/local/bin/ginstall -c -m 0755 websocket_mask.bundle ./.gem.20240401-57888-xu2jy2
-=======
-current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/websocket-driver-0.7.6/ext/websocket-driver
-make DESTDIR\= sitearchdir\=./.gem.20240322-47902-i2biiy sitelibdir\=./.gem.20240322-47902-i2biiy install
-/usr/local/bin/ginstall -c -m 0755 websocket_mask.bundle ./.gem.20240322-47902-i2biiy
->>>>>>> f666f17d00e244dfef96e58ac0144236e0ce2361
+make DESTDIR\= sitearchdir\=./.gem.20240401-66370-3ucaot sitelibdir\=./.gem.20240401-66370-3ucaot install
+/usr/local/bin/ginstall -c -m 0755 websocket_mask.bundle ./.gem.20240401-66370-3ucaot

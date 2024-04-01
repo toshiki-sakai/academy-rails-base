@@ -1,34 +1,16 @@
-<<<<<<< HEAD
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/racc-1.7.3/ext/racc/cparse
 /Users/sakaitoshiki/.rbenv/versions/3.1.4/bin/ruby -I /Users/sakaitoshiki/.rbenv/versions/3.1.4/lib/ruby/3.1.0 extconf.rb
 creating Makefile
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/racc-1.7.3/ext/racc/cparse
-make DESTDIR\= sitearchdir\=./.gem.20240401-57888-cx8g2o sitelibdir\=./.gem.20240401-57888-cx8g2o clean
+make DESTDIR\= sitearchdir\=./.gem.20240401-66370-cz8uvf sitelibdir\=./.gem.20240401-66370-cz8uvf clean
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/racc-1.7.3/ext/racc/cparse
-make DESTDIR\= sitearchdir\=./.gem.20240401-57888-cx8g2o sitelibdir\=./.gem.20240401-57888-cx8g2o
-=======
-current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/racc-1.7.3/ext/racc/cparse
-/Users/sakaitoshiki/.rbenv/versions/3.1.4/bin/ruby -I /Users/sakaitoshiki/.rbenv/versions/3.1.4/lib/ruby/3.1.0 extconf.rb
-creating Makefile
-
-current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/racc-1.7.3/ext/racc/cparse
-make DESTDIR\= sitearchdir\=./.gem.20240322-47902-x90lgg sitelibdir\=./.gem.20240322-47902-x90lgg clean
-
-current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/racc-1.7.3/ext/racc/cparse
-make DESTDIR\= sitearchdir\=./.gem.20240322-47902-x90lgg sitelibdir\=./.gem.20240322-47902-x90lgg
->>>>>>> f666f17d00e244dfef96e58ac0144236e0ce2361
+make DESTDIR\= sitearchdir\=./.gem.20240401-66370-cz8uvf sitelibdir\=./.gem.20240401-66370-cz8uvf
 compiling cparse.c
 linking shared-object racc/cparse.bundle
 ld: warning: ignoring duplicate libraries: '-lruby.3.1'
 
-<<<<<<< HEAD
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/racc-1.7.3/ext/racc/cparse
-make DESTDIR\= sitearchdir\=./.gem.20240401-57888-cx8g2o sitelibdir\=./.gem.20240401-57888-cx8g2o install
-/usr/local/bin/ginstall -c -m 0755 cparse.bundle ./.gem.20240401-57888-cx8g2o/racc
-=======
-current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/racc-1.7.3/ext/racc/cparse
-make DESTDIR\= sitearchdir\=./.gem.20240322-47902-x90lgg sitelibdir\=./.gem.20240322-47902-x90lgg install
-/usr/local/bin/ginstall -c -m 0755 cparse.bundle ./.gem.20240322-47902-x90lgg/racc
->>>>>>> f666f17d00e244dfef96e58ac0144236e0ce2361
+make DESTDIR\= sitearchdir\=./.gem.20240401-66370-cz8uvf sitelibdir\=./.gem.20240401-66370-cz8uvf install
+/usr/local/bin/ginstall -c -m 0755 cparse.bundle ./.gem.20240401-66370-cz8uvf/racc

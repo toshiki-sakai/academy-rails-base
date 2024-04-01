@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/nio4r-2.7.1/ext/nio4r
-=======
-current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/nio4r-2.7.1/ext/nio4r
->>>>>>> f666f17d00e244dfef96e58ac0144236e0ce2361
 /Users/sakaitoshiki/.rbenv/versions/3.1.4/bin/ruby -I /Users/sakaitoshiki/.rbenv/versions/3.1.4/lib/ruby/3.1.0 extconf.rb
 checking for unistd.h... yes
 checking for rb_io_descriptor()... yes
@@ -17,19 +13,11 @@ checking for port_event_t in port.h... no
 checking for sys/resource.h... yes
 creating Makefile
 
-<<<<<<< HEAD
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/nio4r-2.7.1/ext/nio4r
-make DESTDIR\= sitearchdir\=./.gem.20240401-57888-308rl1 sitelibdir\=./.gem.20240401-57888-308rl1 clean
+make DESTDIR\= sitearchdir\=./.gem.20240401-66370-k0i9uq sitelibdir\=./.gem.20240401-66370-k0i9uq clean
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/nio4r-2.7.1/ext/nio4r
-make DESTDIR\= sitearchdir\=./.gem.20240401-57888-308rl1 sitelibdir\=./.gem.20240401-57888-308rl1
-=======
-current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/nio4r-2.7.1/ext/nio4r
-make DESTDIR\= sitearchdir\=./.gem.20240322-47902-xp5kxl sitelibdir\=./.gem.20240322-47902-xp5kxl clean
-
-current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/nio4r-2.7.1/ext/nio4r
-make DESTDIR\= sitearchdir\=./.gem.20240322-47902-xp5kxl sitelibdir\=./.gem.20240322-47902-xp5kxl
->>>>>>> f666f17d00e244dfef96e58ac0144236e0ce2361
+make DESTDIR\= sitearchdir\=./.gem.20240401-66370-k0i9uq sitelibdir\=./.gem.20240401-66370-k0i9uq
 compiling bytebuffer.c
 compiling monitor.c
 compiling nio4r_ext.c
@@ -287,12 +275,6 @@ compiling selector.c
 linking shared-object nio4r_ext.bundle
 ld: warning: ignoring duplicate libraries: '-lruby.3.1'
 
-<<<<<<< HEAD
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/nio4r-2.7.1/ext/nio4r
-make DESTDIR\= sitearchdir\=./.gem.20240401-57888-308rl1 sitelibdir\=./.gem.20240401-57888-308rl1 install
-/usr/local/bin/ginstall -c -m 0755 nio4r_ext.bundle ./.gem.20240401-57888-308rl1
-=======
-current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/nio4r-2.7.1/ext/nio4r
-make DESTDIR\= sitearchdir\=./.gem.20240322-47902-xp5kxl sitelibdir\=./.gem.20240322-47902-xp5kxl install
-/usr/local/bin/ginstall -c -m 0755 nio4r_ext.bundle ./.gem.20240322-47902-xp5kxl
->>>>>>> f666f17d00e244dfef96e58ac0144236e0ce2361
+make DESTDIR\= sitearchdir\=./.gem.20240401-66370-k0i9uq sitelibdir\=./.gem.20240401-66370-k0i9uq install
+/usr/local/bin/ginstall -c -m 0755 nio4r_ext.bundle ./.gem.20240401-66370-k0i9uq

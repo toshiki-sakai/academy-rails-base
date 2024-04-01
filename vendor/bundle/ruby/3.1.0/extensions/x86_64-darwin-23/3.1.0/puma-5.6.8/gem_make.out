@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/puma-5.6.8/ext/puma_http11
-=======
-current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/puma-5.6.8/ext/puma_http11
->>>>>>> f666f17d00e244dfef96e58ac0144236e0ce2361
 /Users/sakaitoshiki/.rbenv/versions/3.1.4/bin/ruby -I /Users/sakaitoshiki/.rbenv/versions/3.1.4/lib/ruby/3.1.0 extconf.rb
 checking for BIO_read() in -lcrypto... yes
 checking for SSL_CTX_new() in -lssl... yes
@@ -17,31 +13,17 @@ checking for SSL_get1_peer_certificate() in openssl/ssl.h... yes
 checking for Random.bytes... yes
 creating Makefile
 
-<<<<<<< HEAD
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/puma-5.6.8/ext/puma_http11
-make DESTDIR\= sitearchdir\=./.gem.20240401-57888-ye19ak sitelibdir\=./.gem.20240401-57888-ye19ak clean
+make DESTDIR\= sitearchdir\=./.gem.20240401-66370-ydhhfj sitelibdir\=./.gem.20240401-66370-ydhhfj clean
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/puma-5.6.8/ext/puma_http11
-make DESTDIR\= sitearchdir\=./.gem.20240401-57888-ye19ak sitelibdir\=./.gem.20240401-57888-ye19ak
-=======
-current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/puma-5.6.8/ext/puma_http11
-make DESTDIR\= sitearchdir\=./.gem.20240322-47902-p35ic3 sitelibdir\=./.gem.20240322-47902-p35ic3 clean
-
-current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/puma-5.6.8/ext/puma_http11
-make DESTDIR\= sitearchdir\=./.gem.20240322-47902-p35ic3 sitelibdir\=./.gem.20240322-47902-p35ic3
->>>>>>> f666f17d00e244dfef96e58ac0144236e0ce2361
+make DESTDIR\= sitearchdir\=./.gem.20240401-66370-ydhhfj sitelibdir\=./.gem.20240401-66370-ydhhfj
 compiling http11_parser.c
 compiling mini_ssl.c
 compiling puma_http11.c
 linking shared-object puma/puma_http11.bundle
 ld: warning: ignoring duplicate libraries: '-lruby.3.1'
 
-<<<<<<< HEAD
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/puma-5.6.8/ext/puma_http11
-make DESTDIR\= sitearchdir\=./.gem.20240401-57888-ye19ak sitelibdir\=./.gem.20240401-57888-ye19ak install
-/usr/local/bin/ginstall -c -m 0755 puma_http11.bundle ./.gem.20240401-57888-ye19ak/puma
-=======
-current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/puma-5.6.8/ext/puma_http11
-make DESTDIR\= sitearchdir\=./.gem.20240322-47902-p35ic3 sitelibdir\=./.gem.20240322-47902-p35ic3 install
-/usr/local/bin/ginstall -c -m 0755 puma_http11.bundle ./.gem.20240322-47902-p35ic3/puma
->>>>>>> f666f17d00e244dfef96e58ac0144236e0ce2361
+make DESTDIR\= sitearchdir\=./.gem.20240401-66370-ydhhfj sitelibdir\=./.gem.20240401-66370-ydhhfj install
+/usr/local/bin/ginstall -c -m 0755 puma_http11.bundle ./.gem.20240401-66370-ydhhfj/puma

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/pg-1.5.6/ext
-=======
-current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/pg-1.5.6/ext
->>>>>>> f666f17d00e244dfef96e58ac0144236e0ce2361
 /Users/sakaitoshiki/.rbenv/versions/3.1.4/bin/ruby -I /Users/sakaitoshiki/.rbenv/versions/3.1.4/lib/ruby/3.1.0 extconf.rb
 Calling libpq with GVL unlocked
 checking for pg_config... yes
@@ -29,19 +25,11 @@ checking for C99 variable length arrays... yes
 creating extconf.h
 creating Makefile
 
-<<<<<<< HEAD
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/pg-1.5.6/ext
-make DESTDIR\= sitearchdir\=./.gem.20240401-57888-wr3ivy sitelibdir\=./.gem.20240401-57888-wr3ivy clean
+make DESTDIR\= sitearchdir\=./.gem.20240401-66370-jx5en0 sitelibdir\=./.gem.20240401-66370-jx5en0 clean
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/pg-1.5.6/ext
-make DESTDIR\= sitearchdir\=./.gem.20240401-57888-wr3ivy sitelibdir\=./.gem.20240401-57888-wr3ivy
-=======
-current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/pg-1.5.6/ext
-make DESTDIR\= sitearchdir\=./.gem.20240322-47902-7gydtf sitelibdir\=./.gem.20240322-47902-7gydtf clean
-
-current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/pg-1.5.6/ext
-make DESTDIR\= sitearchdir\=./.gem.20240322-47902-7gydtf sitelibdir\=./.gem.20240322-47902-7gydtf
->>>>>>> f666f17d00e244dfef96e58ac0144236e0ce2361
+make DESTDIR\= sitearchdir\=./.gem.20240401-66370-jx5en0 sitelibdir\=./.gem.20240401-66370-jx5en0
 compiling gvl_wrappers.c
 In file included from gvl_wrappers.c:6:
 In file included from ./pg.h:60:
@@ -258,13 +246,7 @@ In file included from ./pg.h:60:
 linking shared-object pg_ext.bundle
 ld: warning: ignoring duplicate libraries: '-lruby.3.1'
 
-<<<<<<< HEAD
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/pg-1.5.6/ext
-make DESTDIR\= sitearchdir\=./.gem.20240401-57888-wr3ivy sitelibdir\=./.gem.20240401-57888-wr3ivy install
-/usr/local/bin/ginstall -c -m 0755 pg_ext.bundle ./.gem.20240401-57888-wr3ivy
-=======
-current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/pg-1.5.6/ext
-make DESTDIR\= sitearchdir\=./.gem.20240322-47902-7gydtf sitelibdir\=./.gem.20240322-47902-7gydtf install
-/usr/local/bin/ginstall -c -m 0755 pg_ext.bundle ./.gem.20240322-47902-7gydtf
->>>>>>> f666f17d00e244dfef96e58ac0144236e0ce2361
+make DESTDIR\= sitearchdir\=./.gem.20240401-66370-jx5en0 sitelibdir\=./.gem.20240401-66370-jx5en0 install
+/usr/local/bin/ginstall -c -m 0755 pg_ext.bundle ./.gem.20240401-66370-jx5en0
 installing pg_ext libraries

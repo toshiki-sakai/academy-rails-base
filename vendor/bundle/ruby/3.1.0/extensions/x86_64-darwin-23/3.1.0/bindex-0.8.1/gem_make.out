@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/bindex-0.8.1/ext/skiptrace
 /Users/sakaitoshiki/.rbenv/versions/3.1.4/bin/ruby -I /Users/sakaitoshiki/.rbenv/versions/3.1.4/lib/ruby/3.1.0 extconf.rb
 creating Makefile
@@ -7,10 +8,27 @@ make DESTDIR\= sitearchdir\=./.gem.20240401-55505-thhze5 sitelibdir\=./.gem.2024
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/bindex-0.8.1/ext/skiptrace
 make DESTDIR\= sitearchdir\=./.gem.20240401-55505-thhze5 sitelibdir\=./.gem.20240401-55505-thhze5
+=======
+current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/bindex-0.8.1/ext/skiptrace
+/Users/sakaitoshiki/.rbenv/versions/3.1.4/bin/ruby -I /Users/sakaitoshiki/.rbenv/versions/3.1.4/lib/ruby/3.1.0 extconf.rb
+creating Makefile
+
+current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20240322-38870-rveso6 sitelibdir\=./.gem.20240322-38870-rveso6 clean
+
+current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20240322-38870-rveso6 sitelibdir\=./.gem.20240322-38870-rveso6
+>>>>>>> f666f17d00e244dfef96e58ac0144236e0ce2361
 compiling cruby.c
 linking shared-object skiptrace/internal/cruby.bundle
 ld: warning: ignoring duplicate libraries: '-lruby.3.1'
 
+<<<<<<< HEAD
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/bindex-0.8.1/ext/skiptrace
 make DESTDIR\= sitearchdir\=./.gem.20240401-55505-thhze5 sitelibdir\=./.gem.20240401-55505-thhze5 install
 /usr/local/bin/ginstall -c -m 0755 cruby.bundle ./.gem.20240401-55505-thhze5/skiptrace/internal
+=======
+current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20240322-38870-rveso6 sitelibdir\=./.gem.20240322-38870-rveso6 install
+/usr/local/bin/ginstall -c -m 0755 cruby.bundle ./.gem.20240322-38870-rveso6/skiptrace/internal
+>>>>>>> f666f17d00e244dfef96e58ac0144236e0ce2361

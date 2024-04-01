@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/nio4r-2.5.8/ext/nio4r
+=======
+current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/nio4r-2.5.8/ext/nio4r
+>>>>>>> f666f17d00e244dfef96e58ac0144236e0ce2361
 /Users/sakaitoshiki/.rbenv/versions/3.1.4/bin/ruby -I /Users/sakaitoshiki/.rbenv/versions/3.1.4/lib/ruby/3.1.0 extconf.rb
 checking for unistd.h... yes
 checking for linux/aio_abi.h... no
@@ -12,11 +16,19 @@ checking for port_event_t in port.h... no
 checking for sys/resource.h... yes
 creating Makefile
 
+<<<<<<< HEAD
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/nio4r-2.5.8/ext/nio4r
 make DESTDIR\= sitearchdir\=./.gem.20240401-55505-980qfn sitelibdir\=./.gem.20240401-55505-980qfn clean
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/nio4r-2.5.8/ext/nio4r
 make DESTDIR\= sitearchdir\=./.gem.20240401-55505-980qfn sitelibdir\=./.gem.20240401-55505-980qfn
+=======
+current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/nio4r-2.5.8/ext/nio4r
+make DESTDIR\= sitearchdir\=./.gem.20240322-41718-2w1a7f sitelibdir\=./.gem.20240322-41718-2w1a7f clean
+
+current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/nio4r-2.5.8/ext/nio4r
+make DESTDIR\= sitearchdir\=./.gem.20240322-41718-2w1a7f sitelibdir\=./.gem.20240322-41718-2w1a7f
+>>>>>>> f666f17d00e244dfef96e58ac0144236e0ce2361
 compiling bytebuffer.c
 bytebuffer.c:308:20: warning: implicit conversion loses integer precision: 'ssize_t' (aka 'long') to 'int' [-Wshorten-64-to-32]
     return INT2NUM(bytes_read);

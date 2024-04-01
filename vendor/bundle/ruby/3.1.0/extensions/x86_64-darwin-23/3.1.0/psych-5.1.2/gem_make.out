@@ -1,17 +1,31 @@
+<<<<<<< HEAD
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/psych-5.1.2/ext/psych
+=======
+current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/psych-5.1.2/ext/psych
+>>>>>>> f666f17d00e244dfef96e58ac0144236e0ce2361
 /Users/sakaitoshiki/.rbenv/versions/3.1.4/bin/ruby -I /Users/sakaitoshiki/.rbenv/versions/3.1.4/lib/ruby/3.1.0 extconf.rb
 checking for yaml.h... yes
 checking for yaml_get_version() in -lyaml... yes
 creating Makefile
 
+<<<<<<< HEAD
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/psych-5.1.2/ext/psych
 make DESTDIR\= sitearchdir\=./.gem.20240401-57888-qfne9n sitelibdir\=./.gem.20240401-57888-qfne9n clean
+=======
+current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/psych-5.1.2/ext/psych
+make DESTDIR\= sitearchdir\=./.gem.20240322-47902-i9q4dx sitelibdir\=./.gem.20240322-47902-i9q4dx clean
+>>>>>>> f666f17d00e244dfef96e58ac0144236e0ce2361
 cd libyaml && /Library/Developer/CommandLineTools/usr/bin/make clean
 /bin/sh: line 0: cd: libyaml: No such file or directory
 make: [clean-so] Error 1 (ignored)
 
+<<<<<<< HEAD
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/psych-5.1.2/ext/psych
 make DESTDIR\= sitearchdir\=./.gem.20240401-57888-qfne9n sitelibdir\=./.gem.20240401-57888-qfne9n
+=======
+current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/psych-5.1.2/ext/psych
+make DESTDIR\= sitearchdir\=./.gem.20240322-47902-i9q4dx sitelibdir\=./.gem.20240322-47902-i9q4dx
+>>>>>>> f666f17d00e244dfef96e58ac0144236e0ce2361
 compiling psych.c
 compiling psych_emitter.c
 compiling psych_parser.c
@@ -20,6 +34,12 @@ compiling psych_yaml_tree.c
 linking shared-object psych.bundle
 ld: warning: ignoring duplicate libraries: '-lruby.3.1', '-lyaml'
 
+<<<<<<< HEAD
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/psych-5.1.2/ext/psych
 make DESTDIR\= sitearchdir\=./.gem.20240401-57888-qfne9n sitelibdir\=./.gem.20240401-57888-qfne9n install
 /usr/local/bin/ginstall -c -m 0755 psych.bundle ./.gem.20240401-57888-qfne9n
+=======
+current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/psych-5.1.2/ext/psych
+make DESTDIR\= sitearchdir\=./.gem.20240322-47902-i9q4dx sitelibdir\=./.gem.20240322-47902-i9q4dx install
+/usr/local/bin/ginstall -c -m 0755 psych.bundle ./.gem.20240322-47902-i9q4dx
+>>>>>>> f666f17d00e244dfef96e58ac0144236e0ce2361

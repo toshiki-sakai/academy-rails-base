@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.18.3/ext/bootsnap
+=======
+current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.18.3/ext/bootsnap
+>>>>>>> f666f17d00e244dfef96e58ac0144236e0ce2361
 /Users/sakaitoshiki/.rbenv/versions/3.1.4/bin/ruby -I /Users/sakaitoshiki/.rbenv/versions/3.1.4/lib/ruby/3.1.0 extconf.rb
 checking for fdatasync() in unistd.h... yes
 checking for whether -D_GNU_SOURCE is accepted as CPPFLAGS... yes
@@ -6,15 +10,29 @@ checking for whether -O3 is accepted as CFLAGS... yes
 checking for whether -std=c99 is accepted as CFLAGS... yes
 creating Makefile
 
+<<<<<<< HEAD
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.18.3/ext/bootsnap
 make DESTDIR\= sitearchdir\=./.gem.20240401-57888-8e63j7 sitelibdir\=./.gem.20240401-57888-8e63j7 clean
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.18.3/ext/bootsnap
 make DESTDIR\= sitearchdir\=./.gem.20240401-57888-8e63j7 sitelibdir\=./.gem.20240401-57888-8e63j7
+=======
+current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.18.3/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20240322-47902-aejaf6 sitelibdir\=./.gem.20240322-47902-aejaf6 clean
+
+current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.18.3/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20240322-47902-aejaf6 sitelibdir\=./.gem.20240322-47902-aejaf6
+>>>>>>> f666f17d00e244dfef96e58ac0144236e0ce2361
 compiling bootsnap.c
 linking shared-object bootsnap/bootsnap.bundle
 ld: warning: ignoring duplicate libraries: '-lruby.3.1'
 
+<<<<<<< HEAD
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.18.3/ext/bootsnap
 make DESTDIR\= sitearchdir\=./.gem.20240401-57888-8e63j7 sitelibdir\=./.gem.20240401-57888-8e63j7 install
 /usr/local/bin/ginstall -c -m 0755 bootsnap.bundle ./.gem.20240401-57888-8e63j7/bootsnap
+=======
+current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.18.3/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20240322-47902-aejaf6 sitelibdir\=./.gem.20240322-47902-aejaf6 install
+/usr/local/bin/ginstall -c -m 0755 bootsnap.bundle ./.gem.20240322-47902-aejaf6/bootsnap
+>>>>>>> f666f17d00e244dfef96e58ac0144236e0ce2361

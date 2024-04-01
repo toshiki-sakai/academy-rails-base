@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/debug-1.7.1/ext/debug
 /Users/sakaitoshiki/.rbenv/versions/3.1.4/bin/ruby -I /Users/sakaitoshiki/.rbenv/versions/3.1.4/lib/ruby/3.1.0 extconf.rb
 creating Makefile
@@ -7,11 +8,28 @@ make DESTDIR\= sitearchdir\=./.gem.20240401-55505-cnf8i sitelibdir\=./.gem.20240
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/debug-1.7.1/ext/debug
 make DESTDIR\= sitearchdir\=./.gem.20240401-55505-cnf8i sitelibdir\=./.gem.20240401-55505-cnf8i
+=======
+current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/debug-1.7.1/ext/debug
+/Users/sakaitoshiki/.rbenv/versions/3.1.4/bin/ruby -I /Users/sakaitoshiki/.rbenv/versions/3.1.4/lib/ruby/3.1.0 extconf.rb
+creating Makefile
+
+current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/debug-1.7.1/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20240322-38870-ixlqam sitelibdir\=./.gem.20240322-38870-ixlqam clean
+
+current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/debug-1.7.1/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20240322-38870-ixlqam sitelibdir\=./.gem.20240322-38870-ixlqam
+>>>>>>> f666f17d00e244dfef96e58ac0144236e0ce2361
 compiling debug.c
 compiling iseq_collector.c
 linking shared-object debug/debug.bundle
 ld: warning: ignoring duplicate libraries: '-lruby.3.1'
 
+<<<<<<< HEAD
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/debug-1.7.1/ext/debug
 make DESTDIR\= sitearchdir\=./.gem.20240401-55505-cnf8i sitelibdir\=./.gem.20240401-55505-cnf8i install
 /usr/local/bin/ginstall -c -m 0755 debug.bundle ./.gem.20240401-55505-cnf8i/debug
+=======
+current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/debug-1.7.1/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20240322-38870-ixlqam sitelibdir\=./.gem.20240322-38870-ixlqam install
+/usr/local/bin/ginstall -c -m 0755 debug.bundle ./.gem.20240322-38870-ixlqam/debug
+>>>>>>> f666f17d00e244dfef96e58ac0144236e0ce2361

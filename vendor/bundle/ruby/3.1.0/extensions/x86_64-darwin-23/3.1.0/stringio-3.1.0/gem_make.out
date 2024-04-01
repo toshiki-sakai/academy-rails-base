@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/stringio-3.1.0/ext/stringio
 /Users/sakaitoshiki/.rbenv/versions/3.1.4/bin/ruby -I /Users/sakaitoshiki/.rbenv/versions/3.1.4/lib/ruby/3.1.0 extconf.rb
 creating Makefile
@@ -7,10 +8,27 @@ make DESTDIR\= sitearchdir\=./.gem.20240401-57888-k0nrnk sitelibdir\=./.gem.2024
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/stringio-3.1.0/ext/stringio
 make DESTDIR\= sitearchdir\=./.gem.20240401-57888-k0nrnk sitelibdir\=./.gem.20240401-57888-k0nrnk
+=======
+current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/stringio-3.1.0/ext/stringio
+/Users/sakaitoshiki/.rbenv/versions/3.1.4/bin/ruby -I /Users/sakaitoshiki/.rbenv/versions/3.1.4/lib/ruby/3.1.0 extconf.rb
+creating Makefile
+
+current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/stringio-3.1.0/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20240322-47902-mpvenl sitelibdir\=./.gem.20240322-47902-mpvenl clean
+
+current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/stringio-3.1.0/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20240322-47902-mpvenl sitelibdir\=./.gem.20240322-47902-mpvenl
+>>>>>>> f666f17d00e244dfef96e58ac0144236e0ce2361
 compiling stringio.c
 linking shared-object stringio.bundle
 ld: warning: ignoring duplicate libraries: '-lruby.3.1'
 
+<<<<<<< HEAD
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/stringio-3.1.0/ext/stringio
 make DESTDIR\= sitearchdir\=./.gem.20240401-57888-k0nrnk sitelibdir\=./.gem.20240401-57888-k0nrnk install
 /usr/local/bin/ginstall -c -m 0755 stringio.bundle ./.gem.20240401-57888-k0nrnk
+=======
+current directory: /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/stringio-3.1.0/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20240322-47902-mpvenl sitelibdir\=./.gem.20240322-47902-mpvenl install
+/usr/local/bin/ginstall -c -m 0755 stringio.bundle ./.gem.20240322-47902-mpvenl
+>>>>>>> f666f17d00e244dfef96e58ac0144236e0ce2361

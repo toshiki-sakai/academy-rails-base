@@ -1,0 +1,21 @@
+databases:
+  - name: database_academy_rails_base_db
+    databaseName: dpg-co79qqv109ks7384rv00-a
+    user: academy-rails-base
+    region: singapore
+
+services:
+  - type: web
+    name: academy-rails-base
+    env: ruby
+    region: singapore
+    plan: free
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: atabase_academy_rails_base_db
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false

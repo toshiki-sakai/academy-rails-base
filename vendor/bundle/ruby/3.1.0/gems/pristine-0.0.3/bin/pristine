@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+unless $LOAD_PATH.include?(File.dirname(__FILE__) + '/../lib/')
+  $LOAD_PATH << File.dirname(__FILE__) + '/../lib'
+end
+
+require 'pristine/config'
+require 'pristine/daemon'
+
+Pristine::Config.load ARGV
+Pristine::Daemon.run

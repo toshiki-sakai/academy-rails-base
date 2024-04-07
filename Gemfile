@@ -8,6 +8,10 @@ gem "rails", "~> 7.0.4", ">= 7.0.4.2"
 
 gem "pg"
 
+gem 'devise'
+
+gem 'rake', '~> 13.1'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
@@ -39,7 +43,7 @@ gem "jbuilder"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 # Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", require: false
+gem "bootsnap", '>= 1.16.0', require: false
 
 # Use Sass to process CSS
 # gem "sassc-rails"

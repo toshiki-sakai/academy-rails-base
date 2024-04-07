@@ -1,0 +1,20 @@
+current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/debug-1.9.2/ext/debug
+/Users/sakaitoshiki/.rbenv/versions/3.1.4/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/debug-1.9.2/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20240406-12824-wrvgq4 sitelibdir\=./.gem.20240406-12824-wrvgq4 clean
+
+current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/debug-1.9.2/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20240406-12824-wrvgq4 sitelibdir\=./.gem.20240406-12824-wrvgq4
+compiling debug.c
+compiling iseq_collector.c
+linking shared-object debug/debug.bundle
+ld: warning: ignoring duplicate libraries: '-lruby.3.1'
+
+current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/debug-1.9.2/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20240406-12824-wrvgq4 sitelibdir\=./.gem.20240406-12824-wrvgq4 install
+/usr/local/bin/ginstall -c -m 0755 debug.bundle ./.gem.20240406-12824-wrvgq4/debug
+
+current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/debug-1.9.2/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20240406-12824-wrvgq4 sitelibdir\=./.gem.20240406-12824-wrvgq4 clean

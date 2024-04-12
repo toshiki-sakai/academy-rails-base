@@ -86,7 +86,7 @@ warnflags = -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplici
 cppflags = 
 CCDLFLAGS = -fno-common
 CFLAGS   = $(CCDLFLAGS) $(cflags)  -fno-common -pipe -fvisibility=hidden $(ARCH_FLAG)
-INCFLAGS = -I. -I$(arch_hdrdir) -I$(hdrdir)/ruby/backward -I$(hdrdir) -I$(srcdir) -I/Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/prism-0.24.0/include -I/Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/prism-0.24.0/ext
+INCFLAGS = -I. -I$(arch_hdrdir) -I$(hdrdir)/ruby/backward -I$(hdrdir) -I$(srcdir) -I/Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/prism-0.24.0/include -I/Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/prism-0.24.0/ext
 DEFS     = 
 CPPFLAGS =  -I/usr/local/opt/gmp/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT $(DEFS) $(cppflags)
 CXXFLAGS = $(CCDLFLAGS) -fdeclspec $(ARCH_FLAG)
@@ -138,7 +138,7 @@ DISTCLEANDIRS =
 extout = 
 extout_prefix = 
 target_prefix = /prism
-LOCAL_LIBS =  /Users/sakaitoshiki/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/prism-0.24.0/build/libprism.a
+LOCAL_LIBS =  /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/prism-0.24.0/build/libprism.a
 LIBS = $(LIBRUBYARG_SHARED)   
 ORIG_SRCS = api_node.c api_pack.c extension.c
 SRCS = $(ORIG_SRCS) 

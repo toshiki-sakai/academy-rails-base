@@ -2,12 +2,12 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>新規登録</title>
     <link rel="stylesheet" href="costom.scss">
 </head>
 <body>
     <header>
         <h1>My Portfolio</h1>
+        <button class= button_white type="submit">ログイン</button>
     </header>
     <div class="signup-container">
         <h2>新規登録</h2>
@@ -24,7 +24,9 @@
                 <label for="password">パスワード</label>
                 <input type="password" id="password" name="password" required>
             </div>
-            <button type="submit">登録する</button>
+            <form action="top_page.html" method="post">
+              <button class="button_blue" type="submit">登録する</button>
+            </form>
         </form>
     </div>
     <footer>

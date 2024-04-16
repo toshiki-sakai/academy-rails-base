@@ -1,10 +1,10 @@
 version: "3"
 services:
   db:
-    image: postgres
+    image: s
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "password"
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
 

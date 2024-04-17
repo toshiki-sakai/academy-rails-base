@@ -12,25 +12,29 @@
   <div class="signup-container">
     <h2>新規登録</h2>
     <%= form_with(model: @user) do |f| %>
-      <%= render 'shared/error_messages' %>
-      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
       <div class="input-group">
-        <label for="name">氏名</label>
-        <input type="text" id="user_name" name="user[name]" required>
-        <span class="error-message" id="name-error"></span>
+        <%= f.label :name, '氏名' %>
+        <%= f.text_field :name, id: 'user_name', required: true %>
+        <% if @user.errors[:name].any? %>
+          <span class="error-message"><%= @user.errors[:name].first %></span>
+        <% end %>
       </div>
       <div class="input-group">
-        <label for="email">メールアドレス</label>
-        <input type="email" id="user_email" name="user[email]" required>
-        <span class="error-message" id="email-error"></span>
+        <%= f.label :email, 'メールアドレス' %>
+        <%= f.email_field :email, id: 'user_email', required: true %>
+        <% if @user.errors[:email].any? %>
+          <span class="error-message"><%= @user.errors[:email].first %></span>
+        <% end %>
       </div>
       <div class="input-group">
-        <label for="password">パスワード</label>
-        <input type="password" id="user_password" name="user[password]" required>
-        <span class="error-message" id="password-error"></span>
+        <%= f.label :password, 'パスワード' %>
+        <%= f.password_field :password, id: 'user_password', required: true %>
+        <% if @user.errors[:password].any? %>
+          <span class="error-message"><%= @user.errors[:password].first %></span>
+        <% end %>
       </div>
-      <button class="button_blue" type="submit">登録する</button>
-    </form>
+      <%= f.submit "登録する", class: "button_blue" %>
+    <% end %>
   </div>
   <footer>
     <p>Portfolio Site</p>

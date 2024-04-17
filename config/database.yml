@@ -27,4 +27,5 @@ production:
   password: <%= ENV["POSTGRES_PASSWORD"] %>
   adapter: postgresql
   encoding: unicode
+  url: <%= ENV['DATABASE_URL'] %>
   pool: 5

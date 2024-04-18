@@ -8,7 +8,6 @@ body{
 
 header{
   background-color: #1B5678;
-  width: 1,440px;
   height: 120px;
   padding: 0px 40px;
   display: flex;
@@ -18,7 +17,7 @@ header{
 h1{
   font-family: Roboto;
   font-size: 36px;
-  font-weight: 700px;
+  font-weight: 700;
   color: white;
   margin-top: 30px;
 }
@@ -35,60 +34,59 @@ h1{
 }
 
 .signup-container {
-  background-color: white;
-  width: 480px;
-  height: 341px;
   margin: 50px auto;
-  padding: 20px;
-  text-align: center;
 }
 
 h2 {
   font-family: Roboto;
-  height: 48px;
   font-size: 36px;
   font-weight: 400;
   text-align: center;
 }
 
 .input-group {
-  margin-bottom: 20px;
+  width: 480px;
   text-align: left;
+  position: relative;
+  top: 72px;
 }
 
 .input-group input {
   width: 100%;
-  padding: 10px;
+  height: 36px;
   border: none;
   border-bottom: 1px solid black;
 }
 
+.input{
+  padding-bottom: 48px;
+}
+
 .button_blue {
-  width: 232px;
-  height: 53px;
-  padding: 16px, 80px;
+  display: block;
+  width: 232px!important;
+  height: 53px!important;
+  margin: 12px auto;
   background-color: #1B5678;
   color: white;
   font-size: 18px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  margin-top: 32px;
 }
 
 footer {
   background-color: #1B5678;
   color: white;
-  width: 100%;
   height: 40px;
-  bottom: 0;
   justify-content: space-between;
-  position: fixed;
+  margin-top: 360px;
 }
 
 footer p {
   font-family: Roboto;
   font-size: 18px;
+  padding-top: 7px;
   margin: 0;
   text-align: center;
 }

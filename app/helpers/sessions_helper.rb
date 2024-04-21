@@ -11,4 +11,10 @@ module SessionsHelper
       @current_user ||= User.find_by(id: session[:user_id])
     end
   end
+
+  # 現在のユーザーをログアウトする
+  def log_out
+    reset_session
+    @current_user = nil   # 安全のため
+  end
 end

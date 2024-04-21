@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <%= stylesheet_link_tag 'custom', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <header>
+    <h3>My Portfolio</h3>
+  </header>
+  <div class="login-container">
+    <h4>ログイン</h4>
+    <%= form_with(model: @user) do |f| %>
+      <div class="input-group">
+        <div class="input">
+          <%= f.label :email, 'メールアドレス' %>
+          <%= f.email_field :email, id: 'user_email', required: true %>
+          <% if @user.errors[:email].any? %>
+            <span class="error-message"><%= @user.errors[:email].first %></span>
+          <% end %>
+        </div>
+        <div class="input">
+          <%= f.label :password, 'パスワード' %>
+          <%= f.password_field :password, id: 'user_password', required: true %>
+          <% if @user.errors[:password].any? %>
+            <span class="error-message"><%= @user.errors[:password].first %></span>
+          <% end %>
+        </div>
+        <%= f.submit "ログインする", class: "button_blue" %>
+        <%= f.submit "新規登録する", class: "button_blue" %>
+      </div>
+    <% end %>
+  </div>
+  <footer>
+    <p>portfolio site</p>
+  </footer>
+</body>
+</html>

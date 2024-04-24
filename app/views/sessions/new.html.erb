@@ -27,9 +27,7 @@
         </div>
         <%= f.submit "ログインする", class: "button_login" %>
       <% end %>
-      <%= form_with(model: @user) do |f| %>
-        <%= f.submit "新規登録する", class: "button_new" %>
-      <% end %>
+      <%= link_to "新規登録する", new_user_path, class: "button_new" %>
     </div>
   </div>
   <footer>

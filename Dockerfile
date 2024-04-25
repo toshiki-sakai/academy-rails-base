@@ -6,6 +6,7 @@ COPY Gemfile /myapp/Gemfile
 COPY Gemfile.lock /myapp/Gemfile.lock
 
 RUN gem update --system
+RUN bundle update --bundler
 
 RUN bundle install
 COPY . /myapp

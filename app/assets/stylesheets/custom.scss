@@ -169,3 +169,66 @@ h4 {
 #flash-messages {
   color: red;
 }
+
+
+// TOPページ
+
+.toppage-container{
+  margin: 50px auto;
+}
+
+.button_logout {
+  width: 152px;
+  height: 53px;
+  margin-top: 32px;
+  border-radius: 4px;
+  background-color: white;
+  color: black;
+  font-size: 18px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+h5{
+  font-family: Roboto;
+  font-size: 36px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.button_myedit{
+  display: block;
+  width: 232px!important;
+  height: 53px!important;
+  margin: 12px auto;
+  background-color: #1B5678;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+h6 {
+  font-family: Roboto;
+  font-size: 36px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.button_edit{
+  display: block;
+  width: 232px!important;
+  height: 53px!important;
+  margin: 12px auto;
+  background-color: #1B5678;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

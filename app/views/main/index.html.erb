@@ -10,18 +10,29 @@
     <%= link_to "ログアウト", logout_path, class: "button_logout", data: { "turbo-method": :delete } %>
   </header>
   <div class="toppage-container">
-    <h5>自己紹介</h5>
-    <%= form_with(model: @user) do |f| %>
-      <div class="input-group">
-        <%= f.submit "自己紹介を編集する", class: "button_myedit" %>
+    <div class="profile">
+      <div class="content">
+        <h5>自己紹介</h5>
+        <div class="text">
+        </div>
+        <%= form_with(model: @user) do |f| %>
+          <div class="input-group">
+            <%= f.submit "自己紹介を編集する", class: "button_myedit" %>
+          </div>
+        <% end %>
       </div>
-    <% end %>
-    <h6>学習チャート</h6>
-    <%= form_with(model: @user) do |f| %>
-      <div class="input-group">
-        <%= f.submit "編集する", class: "button_edit" %>
+      <div class="avatar"></div>
+    </div>
+    <div class="chart">
+      <div class="frame1">
+        <h6>学習チャート</h6>
+        <%= form_with(model: @user) do |f| %>
+          <div class="input-group">
+            <%= f.submit "編集する", class: "button_edit" %>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
   <footer>
     <p>portfolio site</p>

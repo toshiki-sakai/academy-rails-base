@@ -30,8 +30,13 @@ h1{
   margin-top: 32px;
   border-radius: 4px;
   background-color: white;
+  color: black;
   font-size: 18px;
   border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
   cursor: pointer;
 }
 

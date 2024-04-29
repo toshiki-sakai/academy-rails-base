@@ -8,8 +8,7 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX , message: 'メールアドレスが正しい形式ではありません'},
                     uniqueness: { message: 'そのメールアドレスはすでに存在しています' }
   has_secure_password
-  VALID_PASSWORD_REGEX =/\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])\w{6,12}\z/
+  VALID_PASSWORD_REGEX =/(?=.{8,})(?=.*\d+.*)(?=.*[a-zA-Z]+.*)[a-zA-Z0-9.,?!@#$%&-]/i
   validates :password, presence: { message: 'パスワードは必ず入力してください' },
-                       length: { minimum: 8, message: '英数字8文字以上で入力してください' },
-                       format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: '英数字8文字以上で入力してください'}
+                       format: { with: VALID_PASSWORD_REGEX, message: '英数字8文字以上で入力してください'}
 end

@@ -4,19 +4,14 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if params[:session][:email].blank? && params[:session][:password].blank?
-      flash[:danger] = 'メールアドレスとパスワードを入力してください'
-      render :new, status: :unprocessable_entity
+    @user= User.find_by(email: params[:session][:email].downcase)
+    if @user&.authenticate(params[:session][:password])
+      reset_session
+      session[:user_id] = @user.id
+      redirect_to root_path
     else
-      @user= User.find_by(email: params[:session][:email].downcase)
-      if @user&.authenticate(params[:session][:password])
-        reset_session
-        session[:user_id] = @user.id
-        redirect_to root_path
-      else
-        flash[:danger] = 'メールアドレス、もしくはパスワードが間違っています'
-        render :new, status: :unprocessable_entity
-      end
+      flash[:danger] = 'メールアドレス、もしくはパスワードが間違っています'
+      render :new, status: :unprocessable_entity
     end
   end
 

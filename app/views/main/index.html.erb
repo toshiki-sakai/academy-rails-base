@@ -12,6 +12,11 @@
   <div class="toppage-container">
     <div class="profile">
       <div class="content">
+        <% provide(:title, @user.name) %>
+        <div>
+          <%= gravatar_for @user %>
+          <%= @user.name %>
+        </div>
         <h5>自己紹介</h5>
         <div class="text">
         </div>

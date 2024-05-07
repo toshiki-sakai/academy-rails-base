@@ -1,6 +1,8 @@
 class User < ApplicationRecord
+  include Gravtastic
+  gravtastic
   before_save { self.email = email.downcase }
-  has_one_attached :image
+  has_one_attached :avatar
   validates :name, presence: { message: '氏名は必ず入力してください' },
                    length: { maximum: 255, message: '氏名は255文字以内で入力してください' }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
@@ -12,4 +14,7 @@ class User < ApplicationRecord
   VALID_PASSWORD_REGEX =/(?=.{8,})(?=.*\d+.*)(?=.*[a-zA-Z]+.*)[a-zA-Z0-9.,?!@#$%&-]/i
   validates :password, presence: { message: 'パスワードは必ず入力してください' },
                        format: { with: VALID_PASSWORD_REGEX, message: '英数字8文字以上で入力してください'}
+  validates :avatar, content_type: { in: %w[image/jpeg image/gif image/png],
+                     message: "有効なフォーマットではありません" },
+                     size: { less_than: 5.megabytes, message: " 5MBを超える画像はアップロードできません" }
 end

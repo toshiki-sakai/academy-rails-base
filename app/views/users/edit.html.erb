@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <%= stylesheet_link_tag 'custom', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <header>
+    <h3>自己紹介を編集する</h3>
+  </header>
+  <div class="login-container">
+    <%= link_to "ログアウト", logout_path, class: "button_white" %>
+    <div id="flash-messages">
+      <% if flash[:error].blank? %>
+        <% flash.each do |key, message| %>
+          <div class="flash <%= key %>"><%= message %></div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="input-group">
+      <%= form_with(url: login_path, model: @user, scope: :session) do |f| %>
+        <div class="input">
+          <%= f.text_area :introduction, '自己紹介文' %>
+        </div>
+        <span class="image">
+          <%= f.file_field :image %>
+        </span>
+      <% end %>
+      <%= link_to "新規登録する", new_user_path, class: "button_new" %>
+    </div>
+  </div>
+  <footer>
+    <p>portfolio site</p>
+  </footer>
+</body>
+</html>

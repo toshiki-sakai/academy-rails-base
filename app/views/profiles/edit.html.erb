@@ -9,7 +9,7 @@
     <h3>自己紹介を編集する</h3>
   </header>
   <div class="login-container">
-    <%= link_to "ログアウト", logout_path, class: "button_white" %>
+    <%= link_to "ログアウト", logout_path, class: "button-white" %>
     <div id="flash-messages">
       <% if flash[:error].blank? %>
         <% flash.each do |key, message| %>
@@ -23,10 +23,11 @@
           <%= f.text_area :introduction, '自己紹介文' %>
         </div>
         <span class="image">
-          <%= f.file_field :image %>
+          <%= f.label :avatar, 'アバター画像' %><br>
+          <%= f.file_field :avatar, '画像ファイルを添付する', accept: "image/jpeg,image/gif,image/png" %>
         </span>
       <% end %>
-      <%= link_to "新規登録する", new_user_path, class: "button_new" %>
+      <%= link_to "自己紹介を確定する", new_user_path, class: "button-edit" %>
     </div>
   </div>
   <footer>

@@ -7,14 +7,16 @@
 <body>
   <header>
     <h1>My Portfolio</h1>
-    <%= link_to "ログアウト", logout_path, class: "button_logout", data: { "turbo-method": :delete } %>
+    <%= link_to "ログアウト", logout_path, class: "button-logout", data: { "turbo-method": :delete } %>
   </header>
   <div class="toppage-container">
     <div class="profile">
       <div class="content">
-        <div>
-          <%= gravatar_for @user %>
-          <%= @user.name %>
+        <div class="avatar">
+            <%= image_tag @user.avatar, width: 200%>
+          <% else %>
+            <%= image_tag("default.png") %>
+          <% end %>
         </div>
         <h5>自己紹介</h5>
         <div class="text">
@@ -25,7 +27,9 @@
           </div>
         <% end %>
       </div>
-      <div class="avatar"></div>
+      <div class="avatar-name">
+        <%= @user.name %>
+      </div>
     </div>
     <div class="chart">
       <div class="frame1">

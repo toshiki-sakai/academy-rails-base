@@ -13,20 +13,18 @@
     <div class="profile">
       <div class="content">
         <div>
-          <%= gravatar_for @user %>
-          <%= @user.name %>
+          <%= image_tag @user.image if @user.image.attached? %>
         </div>
         <h5>自己紹介</h5>
         <div class="text">
         </div>
         <%= form_with(model: @user) do |f| %>
           <div class="input-group">
-            <%= f.submit "自己紹介を編集する", class: "button_myedit" %>
+            <%= f.submit "自己紹介を編集する", edit_user_path(@user), method: :get, class: "button_myedit" %>
           </div>
         <% end %>
       </div>
       <div class="avatar-name">
-        <%= @user.name %>
       </div>
     </div>
     <div class="chart">

@@ -23,8 +23,8 @@
           <%= f.text_area :introduction, '自己紹介文' %>
         </div>
         <span class="image">
-          <%= f.label :avatar, 'アバター画像' %><br>
-          <%= f.file_field :avatar, '画像ファイルを添付する', accept: "image/jpeg,image/gif,image/png" %>
+          <%= f.label :image, 'アバター画像' %><br>
+          <%= f.file_field :image, '画像ファイルを添付する' %>
         </span>
       <% end %>
       <%= link_to "自己紹介を確定する", new_user_path, class: "button-edit" %>

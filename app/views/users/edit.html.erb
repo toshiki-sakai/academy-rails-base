@@ -6,10 +6,11 @@
 </head>
 <body>
   <header>
-    <h3>自己紹介を編集する</h3>
+    <h1>My Portfolio</h1>
+    <%= link_to "ログアウト", logout_path, class: "button_logout", data: { "turbo-method": :delete } %>
   </header>
   <div class="login-container">
-    <%= link_to "ログアウト", logout_path, class: "button-white" %>
+    <h2>自己紹介を編集する</h2>
     <div id="flash-messages">
       <% if flash[:error].blank? %>
         <% flash.each do |key, message| %>
@@ -18,16 +19,19 @@
       <% end %>
     </div>
     <div class="input-group">
-      <%= form_with(url: login_path, model: @user, scope: :session) do |f| %>
-        <div class="input">
-          <%= f.text_area :introduction, '自己紹介文' %>
+      <form action="main#index">
+        <div>
+          <span>
+            <label for="introduction">自己紹介文</label>
+            <input type="text" id="introduction">
+          </span>
         </div>
-        <span class="image">
-          <%= f.label :image, 'アバター画像' %><br>
-          <%= f.file_field :image, '画像ファイルを添付する' %>
+        <span>
+          <label for="image">アバター画像</label>
+          <input type="file" id="image" name="画像ファイルを添付する">
         </span>
-      <% end %>
-      <%= link_to "自己紹介を確定する", new_user_path, class: "button-edit" %>
+      </form>
+      <%= link_to "自己紹介を確定する", root_path, class: "button-edit" %>
     </div>
   </div>
   <footer>

@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_action :authenticate_user, only: [:new, :create]
+
   def new
     @user = User.new
   end
@@ -22,6 +24,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    reset_session
     session.delete(:user_id)
     redirect_to login_url, notice: "ログアウトしました。"
   end

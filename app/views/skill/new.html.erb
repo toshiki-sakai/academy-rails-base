@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <%= stylesheet_link_tag 'custom', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <header>
+    <h1>My Portfolio</h1>
+    <%= link_to "ログアウト", logout_path, class: "button_logout", data: { "turbo-method": :delete } %>
+  </header>
+  <div class="login-container">
+    <h2>{カテゴリー名}に項目を追加</h2>
+    <div id="flash-messages">
+      <% if flash[:error].blank? %>
+        <% flash.each do |key, message| %>
+          <div class="flash <%= key %>"><%= message %></div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="input-group">
+      <form action="main#index">
+        <div>
+          <span>
+            <label for="introduction">自己紹介文</label>
+            <input type="text" id="introduction">
+          </span>
+        </div>
+        <span>
+          <label for="image">アバター画像</label>
+          <input type="file" id="image" name="画像ファイルを添付する">
+        </span>
+      </form>
+      <%= link_to "自己紹介を確定する", root_path, class: "button-edit" %>
+    </div>
+  </div>
+  <footer>
+    <p>portfolio site</p>
+  </footer>
+</body>
+</html>

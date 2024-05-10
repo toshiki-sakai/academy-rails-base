@@ -30,7 +30,7 @@
           <h6>学習チャート</h6>
           <%= form_with(model: @user) do |f| %>
             <div class="input-group">
-              <%= f.submit "編集する", class: "button_edit" %>
+              <%= link_to "自己紹介を編集する", edit_skill_path(@user), class: "button_edit" %>
             </div>
           <% end %>
         </div>

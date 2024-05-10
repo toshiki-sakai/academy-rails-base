@@ -243,3 +243,23 @@ h6 {
   border-radius: 4px;
   cursor: pointer;
 }
+
+
+//skillページ
+.button_edit{
+  display: block;
+  width: 232px!important;
+  height: 53px!important;
+  margin: 12px auto;
+  background-color: #1B5678;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}

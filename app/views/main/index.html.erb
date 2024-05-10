@@ -12,8 +12,12 @@
     <div class="toppage-container">
       <div class="profile">
         <div class="content">
-          <div>
-            <%= image_tag @user.image if @user.image.attached? %>
+          <div class="image">
+            <% if @user&.image&.attached? %>
+              <%= image_tag @user.image, class: 'profile-image' %>
+            <% else %>
+              <%= image_tag 'default_image.jpg', class: 'profile-default' %>
+            <% end %>
           </div>
           <h5>自己紹介</h5>
           <div class="text">

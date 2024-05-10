@@ -183,6 +183,23 @@ h4 {
   margin: 50px auto;
 }
 
+.profile-image {
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-default {
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background-color: #ccc;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+}
+
 .button_logout {
   width: 152px;
   height: 53px;

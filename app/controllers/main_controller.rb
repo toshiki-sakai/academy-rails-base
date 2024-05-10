@@ -3,7 +3,7 @@ class MainController < ApplicationController
     if logged_in?
       @user = current_user
     else
-      render :new, status: :unprocessable_entity
+      redirect_to login_path
     end
   end
 

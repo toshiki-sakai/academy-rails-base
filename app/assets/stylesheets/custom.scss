@@ -234,37 +234,40 @@ h3 {
   font-family: Roboto;
   font-size: 20px;
   color: #000000;
-  margin-top: 20px;
+  margin-top: 32px;
   text-align: center;
 }
 
 .content{
   text-align: left;
-  padding-left: 20px;
+  margin-left: 80px;
   width: 520px;
   height: 256px;
   position: relative;
-  // top: 52px;
-  // left: 440px;
 }
 
 h4{
   font-family: Roboto;
   font-size: 36px;
-  font-weight: 400;
-  text-align: center;
+  font-weight: 400px;
+  margin-left: 0;
+  width: 240px;
+  height: 58px;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.75);
+  padding-bottom: 10px;
 }
 
 .text{
   font-family: Roboto;
   font-size: 18px;
+  margin-top: -16px;
+  color: rgba(0, 0, 0, 0.75);
 }
 
 .button_myedit{
   display: block;
   width: 232px!important;
   height: 53px!important;
-  margin: 12px auto;
   background-color: #1B5678;
   color: white;
   font-size: 18px;
@@ -276,47 +279,41 @@ h4{
   align-items: center;
   text-decoration: none;
   cursor: pointer;
+  margin-top: -42px;
 }
 
 .chart-group{
-
-}
-
-.input-group{
-
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: -84px;
 }
 
 .chart-frame{
 
 }
 
+.input-group{
+  width: 400px;
+  height: 151px;
+}
+
 h5 {
   font-family: Roboto;
   font-size: 36px;
-  font-weight: 400;
+  font-weight: 400px;
   text-align: center;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.75);
+  padding-bottom: 10px;
 }
 
-.button_edit{
+.button-edit{
   display: block;
-  width: 232px!important;
+  width: 152px!important;
   height: 53px!important;
-  margin: 12px auto;
-  background-color: #1B5678;
-  color: white;
-  font-size: 18px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-
-//skillページ
-.button_edit{
-  display: block;
-  width: 232px!important;
-  height: 53px!important;
-  margin: 12px auto;
+  margin: 0 auto;
+  width: 40px;
   background-color: #1B5678;
   color: white;
   font-size: 18px;
@@ -327,5 +324,18 @@ h5 {
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  cursor: pointer;
 }
+
+.chart-title{
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: 900;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 164px;
+  color: rgb(100, 100, 100);
+}
+
+
+//skillページ

@@ -10,33 +10,40 @@
     <%= link_to "ログアウト", logout_path, class: "button_logout", data: { "turbo-method": :delete } %>
     </header>
     <div class="toppage-container">
-      <div class="profile">
-        <div class="content">
-          <div class="image">
-            <% if @user&.image&.attached? %>
-              <%= image_tag @user.image, class: 'profile-image' %>
-            <% else %>
-              <%= image_tag 'default_image.jpg', class: 'profile-default' %>
-            <% end %>
+      <div class="profile-group">
+        <div class="profile">
+          <div class="avatar">
+            <div class="image">
+              <% if @user&.image&.attached? %>
+                <%= image_tag @user.image, class: 'avatar-image' %>
+              <% else %>
+                <%= image_tag 'default_image.jpg', class: 'avatar-default' %>
+              <% end %>
+            </div>
+            <div class="avatar-name">アカデミー花子</div>
           </div>
-          <h5>自己紹介</h5>
-          <div class="text">
+          <div class="content">
+            <h4>自己紹介</h4>
+            <div class="text">
+              自分の自己紹介文章が入ります。自分の自己紹介文章が入ります。自分の自己紹介文章が入ります。自分の自己紹介文章が入ります。自分の自己紹介文章が入ります。
+              <%= @user.introduction %>
+            </div>
+            <div class="input-group">
+              <%= link_to "自己紹介を編集する", edit_user_path(@user), class: "button_myedit" %>
+           </div>
           </div>
-          <div class="input-group">
-            <%= link_to "自己紹介を編集する", edit_user_path(@user), class: "button_myedit" %>
-          </div>
-        </div>
-        <div class="avatar-name">
         </div>
       </div>
-      <div class="chart">
-        <div class="frame1">
-          <h6>学習チャート</h6>
-          <%= form_with(model: @user) do |f| %>
-            <div class="input-group">
-              <%= link_to "自己紹介を編集する", edit_skill_path(@user), class: "button_edit" %>
-            </div>
-          <% end %>
+      <div class="chart-group">
+        <div class="chart-frame">
+          <div class="input-group">
+            <h5>学習チャート</h5>
+            <%= link_to "編集する", edit_skill_path(@user), class: "button_edit" %>
+          </div>
+          <div class="">
+          </div>
+        </div>
+        <div class="chart">
         </div>
       </div>
     </div>

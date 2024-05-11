@@ -20,7 +20,9 @@
                 <%= image_tag 'default_image.jpg', class: 'avatar-default' %>
               <% end %>
             </div>
-            <div class="avatar-name">アカデミー花子</div>
+            <div class="avatar-name">
+              <%= current_user.name %>
+            </div>
           </div>
           <div class="content">
             <h4>自己紹介</h4>

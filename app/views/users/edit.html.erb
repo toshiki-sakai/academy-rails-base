@@ -21,15 +21,15 @@
     <div class="input-group">
       <form action="main#index">
         <div class="field">
-          <label for="introduction">自己紹介</label>
+          <label for="introduction">自己紹介文</label>
           <input type="text" id="introduction" name="user[introduction]">
         </div>
         <span>
           <label for="image">アバター画像</label>
-          <input type="file" id="image" name="画像ファイルを添付する">
+          <input type="file" id="image" name="user[image]">
         </span>
       </form>
-      <%= link_to "自己紹介を確定する", root_path, class: "button-edit" %>
+      <%= link_to "自己紹介を確定する", root_path, class: "button-profile" %>
     </div>
   </div>
   <footer>

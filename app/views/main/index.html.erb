@@ -27,8 +27,7 @@
           <div class="content">
             <h4>自己紹介</h4>
             <div class="text">
-              自分の自己紹介文章が入ります。自分の自己紹介文章が入ります。自分の自己紹介文章が入ります。自分の自己紹介文章が入ります。自分の自己紹介文章が入ります。
-              <%= @user.introduction %>
+              <%= current_user.introduction %>
             </div>
             <div class="input-group">
               <%= link_to "自己紹介を編集する", edit_user_path(@user), class: "button_myedit" %>

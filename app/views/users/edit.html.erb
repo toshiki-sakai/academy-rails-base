@@ -22,12 +22,12 @@
       <form action="main#index">
         <div class="text-field">
           <label for="introduction">自己紹介文</label>
-          <input type="text" id="introduction" name="user[introduction]">
+          <textarea id="introduction" rows="5" maxlength="200"></textarea>
           <span>50文字以上、200文字以下で入力してください</span>
         </div>
         <div class="image-field">
           <label for="image">アバター画像</label>
-          <input type="file" id="image" name="user[image]">
+          <input type="file" id="image">
         </div>
       </form>
       <%= link_to "自己紹介を確定する", root_path, class: "button-profile" %>

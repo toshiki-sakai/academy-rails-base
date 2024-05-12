@@ -20,14 +20,15 @@
     </div>
     <div class="input-group">
       <form action="main#index">
-        <div class="field">
+        <div class="text-field">
           <label for="introduction">自己紹介文</label>
           <input type="text" id="introduction" name="user[introduction]">
+          <span>50文字以上、200文字以下で入力してください</span>
         </div>
-        <span>
+        <div class="image-field">
           <label for="image">アバター画像</label>
           <input type="file" id="image" name="user[image]">
-        </span>
+        </div>
       </form>
       <%= link_to "自己紹介を確定する", root_path, class: "button-profile" %>
     </div>

@@ -21,13 +21,21 @@
     <div class="input-group">
       <form action="main#index">
         <div class="text-field">
-          <label for="introduction">自己紹介文</label>
+          <span class="field-title">自己紹介文</span>
           <textarea id="introduction" rows="5" maxlength="200"></textarea>
-          <span>50文字以上、200文字以下で入力してください</span>
+          <span class="field-title">50文字以上、200文字以下で入力してください</span>
         </div>
         <div class="image-field">
-          <label for="image">アバター画像</label>
+          <span class="field-title">アバター画像</span>
+          <label for="image">画像ファイルを添付する</label>
           <input type="file" id="image">
+          <div class="file-name">
+            <% if @user.image.present? %>
+              <span class="select-image"><%= @user.image.filename %></span>
+            <% else %>
+              <span class="select-image">選択されていません</span>
+            <% end %>
+          </div>
         </div>
       </form>
       <%= link_to "自己紹介を確定する", root_path, class: "button-profile" %>

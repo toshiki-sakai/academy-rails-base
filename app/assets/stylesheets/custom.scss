@@ -341,7 +341,7 @@ h5 {
 
 //skillページ
 
-.input-group{
+.input-group2{
   width: 960px;
   height: 342px;
 
@@ -349,6 +349,11 @@ h5 {
     color: rgb(100, 100, 100);
     font-size: 12px;
   }
+}
+
+.field-title{
+  color: rgb(100, 100, 100);
+  font-size: 12px;
 }
 
 .text-field{
@@ -360,11 +365,6 @@ h5 {
     width: 480px;
     height: 95px;
     margin: 0 auto;
-  }
-
-  span{
-    color: rgb(100, 100, 100);
-    font-size: 12px;
   }
 }
 
@@ -379,18 +379,48 @@ h5 {
   border: none;
   border-bottom: 1px solid black;
   resize: none;
+  cursor: pointer;
 }
 
 .image-field{
   width: 480px;
   height: 48px;
   margin: 0 auto;
-  margin-top: 64px;
+  margin-top: 48px;
+
+  label{
+    display: block;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 400;
+    color: #000000;
+    background: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    border-radius:4px;
+    width: 202px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+  }
+
+  label:hover {
+    opacity: 0.8;
+  }
 
   input[type="file"] {
-    font-size: 16px;
+    display: none;
+    font-family: Roboto;
+    color: rgb(100, 100, 100);
+    font-size: 12px;
     border: none;
   }
+}
+
+.file-name{
+  color: rgb(100, 100, 100);
+  font-size: 12px;
 }
 
 .button-profile{

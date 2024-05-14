@@ -12,9 +12,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.image.attach(params[:user][:image])
     if @user.save
-        redirect_to login_path, notice: "アカウントを作成しました。"
+        redirect_to login_path
     else
         render :new, status: :unprocessable_entity
     end
@@ -25,9 +24,9 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to user_path(@user), notice: 'プロフィールが更新されました。'
+      redirect_to root_path
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 

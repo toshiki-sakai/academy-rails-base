@@ -19,7 +19,7 @@
       <% end %>
     </div>
     <div class="input-group">
-      <%= form_with url: main_index_path, local: true do |form| %>
+      <%= form_with url: root_path, local: true do |form| %>
         <div class="text-field">
           <span class="field-title">自己紹介文</span>
           <%= form.text_area :introduction, id: "introduction", rows: 5, maxlength: 200 %>

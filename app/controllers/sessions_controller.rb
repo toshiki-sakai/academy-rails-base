@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
   def destroy
     reset_session
     session.delete(:user_id)
-    redirect_to login_url, notice: "ログアウトしました。"
+    redirect_to logout_url, notice: "ログアウトしました。"
   end
 
   private

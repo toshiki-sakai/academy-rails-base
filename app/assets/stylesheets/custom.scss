@@ -391,19 +391,14 @@ h5 {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: .3s;
   }
 
   label:hover {
     opacity: 0.8;
   }
 
-  input[type="file"] {
+  #image {
     display: none;
-    font-family: Roboto;
-    color: rgb(100, 100, 100);
-    font-size: 12px;
-    border: none;
   }
 }
 

@@ -23,7 +23,9 @@
         <div class="text-field">
           <span class="field-title">自己紹介文</span>
           <%= form.text_area :introduction, id: "introduction", rows: 5, maxlength: 200 %>
-          <span class="field-title">50文字以上、200文字以下で入力してください</span>
+          <% if @user.errors[:introduction].any? %>
+            <span class="error-message"><%= @user.errors[:introduction].first %></span>
+          <% end %>
         </div>
         <div class="image-field">
           <span class="field-title">アバター画像</span>

@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       if @user&.authenticate(params[:session][:password])
         reset_session
         session[:user_id] = @user.id
-        redirect_to root_path
+        redirect_to user_path(@user)
       else
         @user = User.new(session_params)
         flash[:danger] = 'メールアドレス、もしくはパスワードが間違っています'

@@ -1,13 +1,10 @@
 Rails.application.routes.draw do
-  root to: 'main#index'
+  root to: 'sessions#new'
 
-  get 'main/index', to: 'main#index'
-  patch 'main/index', to: 'main#update'
-
-  patch '/users/:id/update', to: 'main#update'
   get '/signup', to: 'users#new'
   post '/signup', to: "users#create"
 
+  get '/users/:id', to: 'users#show'
   get '/users/:id/edit', to: 'users#edit'
   patch '/users/:id/update', to: 'users#update'
 
@@ -18,7 +15,6 @@ Rails.application.routes.draw do
   get 'skill/:id/edit', to: 'skill#edit'
   get 'skill/:id/new', to: 'skill#new'
 
-  resources :mains
   resources :users
   resources :sessions
   resources :skill

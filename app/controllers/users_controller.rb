@@ -4,6 +4,11 @@ class UsersController < ApplicationController
   skip_before_action :authenticate_user, only: [:new, :create]
 
   def show
+    if logged_in?
+      @user = current_user
+    else
+      redirect_to login_path
+    end
   end
 
   def new

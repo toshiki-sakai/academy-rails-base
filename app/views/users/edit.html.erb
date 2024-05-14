@@ -19,26 +19,25 @@
       <% end %>
     </div>
     <div class="input-group">
-      <form action="main#index">
+      <%= form_with url: main_index_path, local: true do |form| %>
         <div class="text-field">
           <span class="field-title">自己紹介文</span>
-          <textarea id="introduction" rows="5" maxlength="200"></textarea>
+          <%= form.text_area :introduction, id: "introduction", rows: 5, maxlength: 200 %>
           <span class="field-title">50文字以上、200文字以下で入力してください</span>
         </div>
         <div class="image-field">
           <span class="field-title">アバター画像</span>
-          <label for="image">画像ファイルを添付する</label>
-          <input type="file" id="image">
+          <%= form.label :image, "画像ファイルを添付する" %>
+          <%= form.file_field :image, id: "image" %>
           <div class="file-name">
-            <% if @user.image.present? %>
-              <span class="select-image"><%= @user.image.filename %></span>
+            <% if @user.image.attached? %>
+              <span class="select-image"><%= @user.image.filename.to_s %></span>
             <% else %>
               <span class="select-image">選択されていません</span>
             <% end %>
           </div>
-        </div>
-      </form>
-      <%= link_to "自己紹介を確定する", root_path, class: "button-profile" %>
+        <%= form.submit "自己紹介を確定する", class: "button-profile" %>
+      <% end %>
     </div>
   </div>
   <footer>

@@ -10,6 +10,7 @@ class MainController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :avatar, :email, :password, :password_confirmation, :content, :image)
+    params.require(:user).permit(:name, :avatar, :email, :password,
+      :password_confirmation, :content, :image, :introduction)
   end
 end

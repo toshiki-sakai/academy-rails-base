@@ -12,4 +12,5 @@ class User < ApplicationRecord
   VALID_PASSWORD_REGEX =/(?=.{8,})(?=.*\d+.*)(?=.*[a-zA-Z]+.*)[a-zA-Z0-9.,?!@#$%&-]/i
   validates :password, presence: { message: 'パスワードは必ず入力してください' },
                        format: { with: VALID_PASSWORD_REGEX, message: '英数字8文字以上で入力してください'}
+  validates :introduction, length: { minimum: 50, maximum: 200 }
 end

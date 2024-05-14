@@ -24,12 +24,18 @@ class UsersController < ApplicationController
   end
 
   def update
+    if @user.update(user_params)
+      redirect_to user_path(@user), notice: 'プロフィールが更新されました。'
+    else
+      render :edit
+    end
   end
 
   private
 
     def user_params
-      params.require(:user).permit(:name, :avatar, :email, :password, :password_confirmation, :content, :image)
+      params.require(:user).permit(:name, :avatar, :email, :password,
+        :password_confirmation, :content, :image, :introduction)
     end
 
     def set_user

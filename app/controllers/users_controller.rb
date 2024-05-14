@@ -4,11 +4,6 @@ class UsersController < ApplicationController
   skip_before_action :authenticate_user, only: [:new, :create]
 
   def show
-    if logged_in?
-      @user = current_user
-    else
-      redirect_to login_path
-    end
   end
 
   def new
@@ -31,6 +26,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to user_path(@user)
     else
+      Rails.logger.info(@user.errors.full_messages)
       render :edit, status: :unprocessable_entity
     end
   end
@@ -38,8 +34,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:name, :avatar, :email, :password,
-        :password_confirmation, :content, :image, :introduction)
+      params.require(:user).permit(:name, :avatar, :image, :introduction)
     end
 
     def set_user

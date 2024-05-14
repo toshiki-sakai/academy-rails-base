@@ -11,6 +11,11 @@ class User < ApplicationRecord
   has_secure_password
   VALID_PASSWORD_REGEX =/(?=.{8,})(?=.*\d+.*)(?=.*[a-zA-Z]+.*)[a-zA-Z0-9.,?!@#$%&-]/i
   validates :password, presence: { message: 'パスワードは必ず入力してください' },
-                       format: { with: VALID_PASSWORD_REGEX, message: '英数字8文字以上で入力してください'}
+                       format: { with: VALID_PASSWORD_REGEX, message: '英数字8文字以上で入力してください'},
+                       if: :password_required?
   validates :introduction, presence: { message: '自己紹介は必ず入力してください' }, length: { minimum: 50, maximum: 200, message: "自己紹介は50文字以上200文字以下で入力してください"}
+
+  def password_required?
+    new_record? || password.present?
+  end
 end

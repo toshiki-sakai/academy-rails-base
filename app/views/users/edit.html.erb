@@ -32,13 +32,9 @@
           <span class="field-title">アバター画像</span>
           <%= form.label :image, "画像ファイルを添付する", for: "image" %>
           <%= form.file_field :image, id: "image" %>
-          <div class="file-name">
-            <% if @user.image.attached? %>
-              <span class="select-image"><%= @user.image.filename.to_s %></span>
-            <% else %>
-              <span class="select-image">選択されていません</span>
-            <% end %>
-          </div>
+          <span id="file-name"></span>
+          <script src="<%= asset_path 'script.js' %>"></script>
+        </div>
         <%= form.submit "自己紹介を確定する", class: "button-profile" %>
       <% end %>
     </div>

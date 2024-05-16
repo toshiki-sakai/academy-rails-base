@@ -276,15 +276,21 @@ h4{
   text-decoration: none;
   cursor: pointer;
   margin-top: -42px;
+  z-index: 10;
 }
 
 .chart-group{
   margin: 0 auto;
-  margin-top: 32px;
+  padding-top: 48px;
   display: flex;
   justify-content: center;
   position: relative;
   top: -84px;
+  z-index: -10;
+}
+
+.chart-frame{
+
 }
 
 .input-group{

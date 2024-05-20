@@ -61,7 +61,7 @@ h2 {
 
 .input-group input {
   width: 100%;
-  height: q16px;
+  height: 48px;
   border: none;
   border-bottom: 1px solid gray;
 }
@@ -240,7 +240,7 @@ h3 {
   h4{
     font-family: Roboto;
     font-size: 36px;
-    font-weight: 400px;
+    // font-weight: 400px;
     margin-left: 0;
     width: 240px;
     height: 58px;
@@ -254,7 +254,7 @@ h3 {
     margin-top: -16px;
     color: rgba(0, 0, 0, 0.75);
     width: 520px;
-    height: 81px;
+    // height: 81px;
     overflow-wrap: break-word;
   }
 }
@@ -277,16 +277,13 @@ h3 {
 }
 
 .chart-group{
-  margin: 0 auto;
   display: flex;
   justify-content: center;
-  position: relative;
-  top: -70px;
+  margin-bottom: -120px;
 }
 
 .input-group{
   width: 400px;
-  height: 151px;
 }
 
 h5 {

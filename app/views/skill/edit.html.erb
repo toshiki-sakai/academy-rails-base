@@ -10,51 +10,54 @@
     <%= link_to "ログアウト", logout_path, class: "button_logout", data: { "turbo-method": :delete } %>
   </header>
   <div class="wrapper-skill">
-    <div>pull-down-button</div>
+    <%= form_with model: @user, url: user_path(@user), local: true, html: { multipart: true } do |form| %>
+      <div>pull-down-button</div>
 
-    <div class="category1">
-      <div class="content">
-        <div class="title-group">
-          <div class="title"></div>
-          <div class="button_blue"></div>
-        </div>
-        <div class="teble-group">
-          <div class="teble-header"></div>
-          <div class="teble-row1"></div>
-          <div class="teble-row2"></div>
-          <div class="teble-row3"></div>
+      <div class="category1">
+        <div class="content">
+          <div class="title-group">
+            <div class="title"></div>
+            <div class="button_blue"></div>
+          </div>
+          <div class="teble-group">
+            <div class="teble-header"></div>
+            <div class="teble-row1"></div>
+            <div class="teble-row2"></div>
+            <div class="teble-row3"></div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="category2">
-      <div class="content">
-        <div class="title-group">
-          <div class="title"></div>
-          <div class="button_blue"></div>
-        </div>
-        <div class="teble-group">
-          <div class="teble-header"></div>
-          <div class="teble-row1"></div>
-          <div class="teble-row2"></div>
+      <div class="category2">
+        <div class="content">
+          <div class="title-group">
+            <div class="title"></div>
+            <div class="button_blue"></div>
+          </div>
+          <div class="teble-group">
+            <div class="teble-header"></div>
+            <div class="teble-row1"></div>
+            <div class="teble-row2"></div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="category3">
-      <div class="content">
-        <div class="title-group">
-          <div class="title"></div>
-          <div class="button_blue"></div>
-        </div>
-        <div class="teble-group">
-          <div class="teble-header"></div>
-          <div class="teble-row1"></div>
-          <div class="teble-row2"></div>
-          <div class="teble-row3"></div>
+      <div class="category3">
+        <div class="content">
+          <div class="title-group">
+            <div class="title"></div>
+            <div class="button_blue"></div>
+          </div>
+          <div class="teble-group">
+            <div class="teble-header"></div>
+            <div class="teble-row1"></div>
+            <div class="teble-row2"></div>
+            <div class="teble-row3"></div>
+          </div>
         </div>
       </div>
-    </div>
+      <%= form.submit "プロフィール画面に戻る", class: "button-profile" %>
+    <% end %>
 
   </div>
   <footer>

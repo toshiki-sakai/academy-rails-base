@@ -428,4 +428,113 @@ h5 {
 }
 
 
-//skill一覧ページ
+//skill編集ページ
+
+.wrapper-skill{
+  margin: 40px auto;
+}
+
+#month-select{
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: 1px solid rgba(221, 221, 221, 1);
+  font-weight: 700;
+  font-family: Roboto;
+}
+
+.category{
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  width: 960px;
+  height: 436px;
+  padding: 40px;
+  margin: 40px auto;
+
+  .content{
+    padding:0;
+
+    .title-group{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .title{
+        width: 240px;
+        height: 44px;
+        font-size: 24px;
+        font-weight: 700;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+      }
+
+      .button_blue{
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+    }
+
+    .teble-group{
+      border-collapse: collapse;
+      border-radius: 4px 0px 0px 0px;
+      background: rgba(255, 255, 255, 1);
+      box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.14);
+      margin: 32px auto;
+      text-align: left;
+
+      th, td {
+        border-bottom: 1px solid #ddd;
+        border-top: 0.3px solid #ddd;
+      }
+
+      tr{
+
+      }
+
+      th{
+        height: 32px;
+        width: 240px;
+        padding: 16px 32px 16px 52px;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.87);
+        font-family: Roboto;
+      }
+
+      td{
+        height: 62px;
+        padding: 16px 16px 16px 48px;
+        font-family: Roboto;
+
+        .time-select{
+          width: 160px;
+          height: 40px;
+          padding: 5px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          cursor: pointer;
+          color: rgba(0, 0, 0, 0.54);
+          font-size: 14px;
+        }
+
+        .button-blue-save{
+          background-color: white;
+          color: rgba(27, 86, 120, 1);
+          border: 1px solid rgba(27, 86, 120, 1);
+          padding: 8px 16px;
+          cursor: pointer;
+          border-radius: 4px;
+        }
+
+        .button-red{
+          background-color: rgba(238, 105, 105, 1);
+          color: white;
+          border: none;
+          padding: 8px 16px;
+          cursor: pointer;
+          border-radius: 4px;
+        }
+      }
+    }
+  }
+}

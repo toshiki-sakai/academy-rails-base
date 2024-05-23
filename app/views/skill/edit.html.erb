@@ -10,58 +10,180 @@
     <%= link_to "ログアウト", logout_path, class: "button_logout", data: { "turbo-method": :delete } %>
   </header>
   <div class="wrapper-skill">
-    <%= form_with model: @user, url: user_path(@user), local: true, html: { multipart: true } do |form| %>
-      <div>pull-down-button</div>
+      <div>
+        <select id="month-select"></select>
+      </div>
 
-      <div class="category1">
+      <div class="category">
         <div class="content">
           <div class="title-group">
-            <div class="title"></div>
-            <div class="button_blue"></div>
+            <div class="title">バックエンド</div>
+            <button class="button_blue">項目を追加する</button>
           </div>
-          <div class="teble-group">
-            <div class="teble-header"></div>
-            <div class="teble-row1"></div>
-            <div class="teble-row2"></div>
-            <div class="teble-row3"></div>
-          </div>
+          <table class="teble-group">
+            <thead>
+              <tr>
+                <th>項目名</th>
+                <th>学習時間</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Ruby</td>
+                <td>
+                  <select class="time-select">
+                    <% (1..60).each do |minute| %>
+                      <option value="<%= minute %>"><%= minute %></option>
+                    <% end %>
+                  </select>
+                </td>
+                <td><button class="button-blue-save">学習時間を保存する</button></td>
+                <td><button class="button-red">削除する</button></td>
+              </tr>
+              <tr>
+                <td>Rails</td>
+                <td>
+                  <select class="time-select">
+                    <% (1..60).each do |minute| %>
+                      <option value="<%= minute %>"><%= minute %></option>
+                    <% end %>
+                  </select>
+                </td>
+                <td><button class="button-blue-save">学習時間を保存する</button></td>
+                <td><button class="button-red">削除する</button></td>
+              </tr>
+              <tr>
+                <td>MySQL</td>
+                <td>
+                  <select class="time-select">
+                    <% (1..60).each do |minute| %>
+                      <option value="<%= minute %>"><%= minute %></option>
+                    <% end %>
+                  </select>
+                </td>
+                <td><button class="button-blue-save">学習時間を保存する</button></td>
+                <td><button class="button-red">削除する</button></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
 
-      <div class="category2">
+      <div class="category">
         <div class="content">
           <div class="title-group">
-            <div class="title"></div>
-            <div class="button_blue"></div>
+            <div class="title">フロントエンド</div>
+            <button class="button_blue">項目を追加する</button>
           </div>
-          <div class="teble-group">
-            <div class="teble-header"></div>
-            <div class="teble-row1"></div>
-            <div class="teble-row2"></div>
-          </div>
+          <table class="teble-group">
+            <thead>
+              <tr>
+                <th>項目名</th>
+                <th>学習時間</th>
+                <th></th>
+               <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>HTML</td>
+                <td>
+                  <select class="time-select">
+                    <% (1..60).each do |minute| %>
+                      <option value="<%= minute %>"><%= minute %></option>
+                    <% end %>
+                  </select>
+                </td>
+                <td><button class="button-blue-save">学習時間を保存する</button></td>
+                <td><button class="button-red">削除する</button></td>
+              </tr>
+              <tr>
+                <td>CSS</td>
+                <td>
+                  <select class="time-select">
+                    <% (1..60).each do |minute| %>
+                      <option value="<%= minute %>"><%= minute %></option>
+                    <% end %>
+                  </select>
+                </td>
+                <td><button class="button-blue-save">学習時間を保存する</button></td>
+                <td><button class="button-red">削除する</button></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
 
-      <div class="category3">
+      <div class="category">
         <div class="content">
           <div class="title-group">
-            <div class="title"></div>
-            <div class="button_blue"></div>
+            <div class="title">インフラ</div>
+            <button class="button_blue">項目を追加する</button>
           </div>
-          <div class="teble-group">
-            <div class="teble-header"></div>
-            <div class="teble-row1"></div>
-            <div class="teble-row2"></div>
-            <div class="teble-row3"></div>
-          </div>
+          <table class="teble-group">
+            <thead>
+              <tr>
+                <th>項目名</th>
+                <th>学習時間</th>
+                <th></th>
+               <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Heroku</td>
+                <td>
+                  <select class="time-select">
+                    <% (1..60).each do |minute| %>
+                      <option value="<%= minute %>"><%= minute %></option>
+                    <% end %>
+                  </select>
+                </td>
+                <td><button class="button-blue-save">学習時間を保存する</button></td>
+                <td><button class="button-red">削除する</button></td>
+              </tr>
+              <tr>
+                <td>AWS</td>
+                <td>
+                  <select class="time-select">
+                    <% (1..60).each do |minute| %>
+                      <option value="<%= minute %>"><%= minute %></option>
+                    <% end %>
+                  </select>
+                </td>
+                <td><button class="button-blue-save">学習時間を保存する</button></td>
+                <td><button class="button-red">削除する</button></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-      <%= form.submit "プロフィール画面に戻る", class: "button-profile" %>
-    <% end %>
 
   </div>
   <footer>
     <p>portfolio site</p>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      function populateMonthSelect() {
+        const monthSelect = document.getElementById('month-select');
+        const now = new Date();
+        const months = ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"];
+        for (let i = 0; i < 3; i++) {
+          const month = new Date(now.getFullYear(), now.getMonth() - i, 1);
+          const option = document.createElement('option');
+          option.value = `${month.getFullYear()}-${('0' + (month.getMonth() + 1)).slice(-2)}`;
+          option.textContent = months[month.getMonth()];
+          monthSelect.appendChild(option);
+        }
+        monthSelect.value = `${now.getFullYear()}-${('0' + (now.getMonth() + 1)).slice(-2)}`;
+      }
+
+      populateMonthSelect();
+    });
+  </script>
 </body>
 </html>

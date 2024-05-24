@@ -6,7 +6,7 @@
 </head>
 <body>
   <header>
-    <h1>My Portfolio</h1>
+    <h6><a href="<%= user_path(@user) %>">My Portfolio</a></h6>
     <%= link_to "ログアウト", logout_path, class: "button_logout", data: { "turbo-method": :delete } %>
   </header>
   <div class="wrapper-skill">

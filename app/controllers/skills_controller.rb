@@ -1,4 +1,4 @@
-class SkillController < ApplicationController
+class SkillsController < ApplicationController
 
   def new
     @user = User.new
@@ -6,6 +6,8 @@ class SkillController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @current_month = Date.today.month
+    @skills = Skill.where(user: @user, month: @current_month)
   end
 
   private

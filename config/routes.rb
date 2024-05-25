@@ -12,10 +12,10 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  get 'skill/:id/edit', to: 'skill#edit'
-  get 'skill/:id/new', to: 'skill#new'
+  get 'skills/:id/edit', to: 'skills#edit'
+  get 'skills/:id/new', to: 'skills#new'
 
   resources :users
   resources :sessions
-  resources :skill
+  resources :skills
 end

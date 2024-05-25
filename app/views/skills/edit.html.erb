@@ -99,18 +99,6 @@
                 <td><button class="button-blue-save">学習時間を保存する</button></td>
                 <td><button class="button-red">削除する</button></td>
               </tr>
-              <tr>
-                <td>CSS</td>
-                <td>
-                  <select class="time-select">
-                    <% (1..60).each do |minute| %>
-                      <option value="<%= minute %>"><%= minute %></option>
-                    <% end %>
-                  </select>
-                </td>
-                <td><button class="button-blue-save">学習時間を保存する</button></td>
-                <td><button class="button-red">削除する</button></td>
-              </tr>
             </tbody>
           </table>
         </div>
@@ -144,18 +132,6 @@
                 <td><button class="button-blue-save">学習時間を保存する</button></td>
                 <td><button class="button-red">削除する</button></td>
               </tr>
-              <tr>
-                <td>AWS</td>
-                <td>
-                  <select class="time-select">
-                    <% (1..60).each do |minute| %>
-                      <option value="<%= minute %>"><%= minute %></option>
-                    <% end %>
-                  </select>
-                </td>
-                <td><button class="button-blue-save">学習時間を保存する</button></td>
-                <td><button class="button-red">削除する</button></td>
-              </tr>
             </tbody>
           </table>
         </div>
@@ -175,14 +151,26 @@
         for (let i = 0; i < 3; i++) {
           const month = new Date(now.getFullYear(), now.getMonth() - i, 1);
           const option = document.createElement('option');
-          option.value = `${month.getFullYear()}-${('0' + (month.getMonth() + 1)).slice(-2)}`;
+          option.value = month.getMonth() + 1;
           option.textContent = months[month.getMonth()];
           monthSelect.appendChild(option);
         }
-        monthSelect.value = `${now.getFullYear()}-${('0' + (now.getMonth() + 1)).slice(-2)}`;
+        monthSelect.value = now.getMonth() + 1;
+      }
+
+      function updateTables(month) {
+        // ここでAJAXリクエストを使用してサーバーからデータを取得し、テーブルを更新する処理を実装します。
+        console.log(`Selected month: ${month}`);
+        // デモ用にコンソールに出力していますが、ここでデータを更新する処理を追加します。
       }
 
       populateMonthSelect();
+
+      document.getElementById('month-select').addEventListener('change', function() {
+        updateTables(this.value);
+      });
+
+      updateTables(document.getElementById('month-select').value);
     });
   </script>
 </body>

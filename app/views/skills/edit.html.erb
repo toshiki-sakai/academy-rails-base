@@ -39,7 +39,7 @@
                     <% end %>
                   </select>
                 </td>
-                <td><button class="button-blue-save">学習時間を保存する</button></td>
+                <td><button class="button-blue-save" data-skill-id="<%= skill.id %>">学習時間を保存する</button></td>
                 <td><button class="button-red">削除する</button></td>
               </tr>
               <tr>
@@ -171,6 +171,40 @@
       });
 
       updateTables(document.getElementById('month-select').value);
+
+      document.querySelectorAll('.button-blue-save').forEach(button => {
+        button.addEventListener('click', function() {
+          const skillId = this.dataset.skillId;
+          const timeSelect = document.querySelector(`.time-select[data-skill-id='${skillId}']`);
+          const time = timeSelect.value;
+          const monthSelect = document.getElementById('month-select');
+          const month = monthSelect.value;
+
+          fetch('/skills/create_learning_data', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
+            },
+            body: JSON.stringify({
+              learning_data: {
+                skill: skillId,
+                time: time,
+                month: month
+              }
+            })
+          })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              alert('学習時間が保存されました。');
+            } else {
+              alert('エラーが発生しました: ' + data.errors.join(', '));
+            }
+          })
+          .catch(error => console.error('Error:', error));
+        });
+      });
     });
   </script>
 </body>

@@ -3,6 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <%= stylesheet_link_tag 'custom', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const monthSelect = document.getElementById('month-select');
+      const currentDate = new Date();
+      const currentMonth = currentDate.getMonth() + 1;
+
+      for (let i = 0; i < 3; i++) {
+        const option = document.createElement('option');
+        let displayMonth = currentMonth - i;
+
+        if (displayMonth <= 0) {
+          displayMonth += 12;
+        }
+
+        option.value = displayMonth;
+        option.text = displayMonth + '月';
+
+        if (i === 0) {
+          option.selected = true;
+        }
+
+        monthSelect.appendChild(option);
+      }
+    });
+  </script>
 </head>
 <body>
   <header>
@@ -10,202 +35,131 @@
     <%= link_to "ログアウト", logout_path, class: "button_logout", data: { "turbo-method": :delete } %>
   </header>
   <div class="wrapper-skill">
-      <div>
-        <select id="month-select"></select>
-      </div>
+    <div>
+      <select id="month-select"></select>
+    </div>
 
-      <div class="category">
-        <div class="content">
-          <div class="title-group">
-            <div class="title">バックエンド</div>
-            <button class="button_blue">項目を追加する</button>
-          </div>
-          <table class="teble-group">
-            <thead>
-              <tr>
-                <th>項目名</th>
-                <th>学習時間</th>
-                <th></th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Ruby</td>
-                <td>
-                  <select class="time-select">
-                    <% (1..60).each do |minute| %>
-                      <option value="<%= minute %>"><%= minute %></option>
-                    <% end %>
-                  </select>
-                </td>
-                <td><button class="button-blue-save" data-skill-id="<%= skill.id %>">学習時間を保存する</button></td>
-                <td><button class="button-red">削除する</button></td>
-              </tr>
-              <tr>
-                <td>Rails</td>
-                <td>
-                  <select class="time-select">
-                    <% (1..60).each do |minute| %>
-                      <option value="<%= minute %>"><%= minute %></option>
-                    <% end %>
-                  </select>
-                </td>
-                <td><button class="button-blue-save">学習時間を保存する</button></td>
-                <td><button class="button-red">削除する</button></td>
-              </tr>
-              <tr>
-                <td>MySQL</td>
-                <td>
-                  <select class="time-select">
-                    <% (1..60).each do |minute| %>
-                      <option value="<%= minute %>"><%= minute %></option>
-                    <% end %>
-                  </select>
-                </td>
-                <td><button class="button-blue-save">学習時間を保存する</button></td>
-                <td><button class="button-red">削除する</button></td>
-              </tr>
-            </tbody>
-          </table>
+    <div class="category">
+      <div class="content">
+        <div class="title-group">
+          <div class="title">バックエンド</div>
+          <button class="button_blue">項目を追加する</button>
         </div>
+        <table class="teble-group">
+          <thead>
+            <tr>
+              <th>項目名</th>
+              <th>学習時間</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ruby</td>
+              <td>
+                <select class="time-select">
+                  <% (1..60).each do |minute| %>
+                    <option value="<%= minute %>"><%= minute %></option>
+                  <% end %>
+                </select>
+              </td>
+              <td><button class="button-blue-save">学習時間を保存する</button></td>
+              <td><button class="button-red">削除する</button></td>
+            </tr>
+            <tr>
+              <td>Rails</td>
+              <td>
+                <select class="time-select">
+                  <% (1..60).each do |minute| %>
+                    <option value="<%= minute %>"><%= minute %></option>
+                  <% end %>
+                </select>
+              </td>
+              <td><button class="button-blue-save">学習時間を保存する</button></td>
+              <td><button class="button-red">削除する</button></td>
+            </tr>
+            <tr>
+              <td>MySQL</td>
+              <td>
+                <select class="time-select">
+                  <% (1..60).each do |minute| %>
+                    <option value="<%= minute %>"><%= minute %></option>
+                  <% end %>
+                </select>
+              </td>
+              <td><button class="button-blue-save">学習時間を保存する</button></td>
+              <td><button class="button-red">削除する</button></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-
-      <div class="category">
-        <div class="content">
-          <div class="title-group">
-            <div class="title">フロントエンド</div>
-            <button class="button_blue">項目を追加する</button>
-          </div>
-          <table class="teble-group">
-            <thead>
-              <tr>
-                <th>項目名</th>
-                <th>学習時間</th>
-                <th></th>
-               <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>HTML</td>
-                <td>
-                  <select class="time-select">
-                    <% (1..60).each do |minute| %>
-                      <option value="<%= minute %>"><%= minute %></option>
-                    <% end %>
-                  </select>
-                </td>
-                <td><button class="button-blue-save">学習時間を保存する</button></td>
-                <td><button class="button-red">削除する</button></td>
-              </tr>
-            </tbody>
-          </table>
+    </div>
+    <div class="category">
+      <div class="content">
+        <div class="title-group">
+          <div class="title">フロントエンド</div>
+          <button class="button_blue">項目を追加する</button>
         </div>
+        <table class="teble-group">
+          <thead>
+            <tr>
+              <th>項目名</th>
+              <th>学習時間</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>HTML</td>
+              <td>
+                <select class="time-select">
+                  <% (1..60).each do |minute| %>
+                    <option value="<%= minute %>"><%= minute %></option>
+                  <% end %>
+                </select>
+              </td>
+              <td><button class="button-blue-save">学習時間を保存する</button></td>
+              <td><button class="button-red">削除する</button></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+    </div>
 
-      <div class="category">
-        <div class="content">
-          <div class="title-group">
-            <div class="title">インフラ</div>
-            <button class="button_blue">項目を追加する</button>
-          </div>
-          <table class="teble-group">
-            <thead>
-              <tr>
-                <th>項目名</th>
-                <th>学習時間</th>
-                <th></th>
-               <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Heroku</td>
-                <td>
-                  <select class="time-select">
-                    <% (1..60).each do |minute| %>
-                      <option value="<%= minute %>"><%= minute %></option>
-                    <% end %>
-                  </select>
-                </td>
-                <td><button class="button-blue-save">学習時間を保存する</button></td>
-                <td><button class="button-red">削除する</button></td>
-              </tr>
-            </tbody>
-          </table>
+    <div class="category">
+      <div class="content">
+        <div class="title-group">
+          <div class="title">インフラ</div>
+          <button class="button_blue">項目を追加する</button>
         </div>
+        <table class="teble-group">
+          <thead>
+            <tr>
+              <th>項目名</th>
+              <th>学習時間</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Heroku</td>
+              <td>
+                <select class="time-select">
+                  <% (1..60).each do |minute| %>
+                    <option value="<%= minute %>"><%= minute %></option>
+                  <% end %>
+                </select>
+              </td>
+              <td><button class="button-blue-save">学習時間を保存する</button></td>
+              <td><button class="button-red">削除する</button></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-
+    </div>
   </div>
-  <footer>
-    <p>portfolio site</p>
-  </footer>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      function populateMonthSelect() {
-        const monthSelect = document.getElementById('month-select');
-        const now = new Date();
-        const months = ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"];
-        for (let i = 0; i < 3; i++) {
-          const month = new Date(now.getFullYear(), now.getMonth() - i, 1);
-          const option = document.createElement('option');
-          option.value = month.getMonth() + 1;
-          option.textContent = months[month.getMonth()];
-          monthSelect.appendChild(option);
-        }
-        monthSelect.value = now.getMonth() + 1;
-      }
-
-      function updateTables(month) {
-        // ここでAJAXリクエストを使用してサーバーからデータを取得し、テーブルを更新する処理を実装します。
-        console.log(`Selected month: ${month}`);
-        // デモ用にコンソールに出力していますが、ここでデータを更新する処理を追加します。
-      }
-
-      populateMonthSelect();
-
-      document.getElementById('month-select').addEventListener('change', function() {
-        updateTables(this.value);
-      });
-
-      updateTables(document.getElementById('month-select').value);
-
-      document.querySelectorAll('.button-blue-save').forEach(button => {
-        button.addEventListener('click', function() {
-          const skillId = this.dataset.skillId;
-          const timeSelect = document.querySelector(`.time-select[data-skill-id='${skillId}']`);
-          const time = timeSelect.value;
-          const monthSelect = document.getElementById('month-select');
-          const month = monthSelect.value;
-
-          fetch('/skills/create_learning_data', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
-            },
-            body: JSON.stringify({
-              learning_data: {
-                skill: skillId,
-                time: time,
-                month: month
-              }
-            })
-          })
-          .then(response => response.json())
-          .then(data => {
-            if (data.success) {
-              alert('学習時間が保存されました。');
-            } else {
-              alert('エラーが発生しました: ' + data.errors.join(', '));
-            }
-          })
-          .catch(error => console.error('Error:', error));
-        });
-      });
-    });
-  </script>
 </body>
 </html>

@@ -5,27 +5,58 @@
   <%= stylesheet_link_tag 'custom', media: 'all', 'data-turbolinks-track': 'reload' %>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const monthSelect = document.getElementById('month-select');
+      const pullDownButton = document.querySelector('.pull-down-button');
+      const dropdownContent = document.createElement('div');
+      dropdownContent.className = 'dropdown-content';
       const currentDate = new Date();
       const currentMonth = currentDate.getMonth() + 1;
 
+      // 当月の月表示
+      pullDownButton.textContent = currentMonth + '月';
+
+      // プルダウンの中身を設定
       for (let i = 0; i < 3; i++) {
-        const option = document.createElement('option');
+        const button = document.createElement('button');
         let displayMonth = currentMonth - i;
 
         if (displayMonth <= 0) {
           displayMonth += 12;
         }
 
-        option.value = displayMonth;
-        option.text = displayMonth + '月';
+        button.value = displayMonth;
+        button.textContent = displayMonth + '月';
+        button.addEventListener('click', function() {
+          pullDownButton.textContent = displayMonth + '月';
+          dropdownContent.style.display = 'none';
+          // 選択した月の処理をここに追加
+          filterContentByMonth(displayMonth);
+        });
 
-        if (i === 0) {
-          option.selected = true;
-        }
-
-        monthSelect.appendChild(option);
+        dropdownContent.appendChild(button);
       }
+
+      // ボタンをクリックするとドロップダウンを表示/非表示
+      pullDownButton.addEventListener('click', function() {
+        dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+      });
+
+      document.querySelector('.dropdown').appendChild(dropdownContent);
+
+      // 選択した月に基づいてコンテンツをフィルタリングする関数
+      function filterContentByMonth(month) {
+        const allRows = document.querySelectorAll('.table-group tbody tr');
+        allRows.forEach(row => {
+          const monthData = row.querySelector('.month-data');
+          if (monthData && monthData.getAttribute('data-month') == month) {
+            row.style.display = '';
+          } else {
+            row.style.display = 'none';
+          }
+        });
+      }
+
+      // 初期表示時に当月のデータを表示する
+      displayContentByMonth(currentMonth);
     });
   </script>
 </head>
@@ -35,8 +66,8 @@
     <%= link_to "ログアウト", logout_path, class: "button_logout", data: { "turbo-method": :delete } %>
   </header>
   <div class="wrapper-skill">
-    <div class="month-select-area">
-      <select id="month-select"></select>
+    <div class="month-select-area dropdown">
+      <button class="pull-down-button"></button>
     </div>
 
     <div class="category">
@@ -88,11 +119,13 @@
             <tr>
               <td>MySQL</td>
               <td>
-                <select class="time-select">
-                  <% (1..60).each do |minute| %>
-                    <option value="<%= minute %>"><%= minute %></option>
-                  <% end %>
-                </select>
+                <div class="time-select-area">
+                  <select class="time-select">
+                    <% (1..60).each do |minute| %>
+                      <option value="<%= minute %>"><%= minute %></option>
+                    <% end %>
+                  </select>
+                </div>
               </td>
               <td><button class="button-blue-save">学習時間を保存する</button></td>
               <td><button class="button-red">削除する</button></td>
@@ -120,11 +153,13 @@
             <tr>
               <td>HTML</td>
               <td>
-                <select class="time-select">
-                  <% (1..60).each do |minute| %>
-                    <option value="<%= minute %>"><%= minute %></option>
-                  <% end %>
-                </select>
+                <div class="time-select-area">
+                  <select class="time-select">
+                    <% (1..60).each do |minute| %>
+                      <option value="<%= minute %>"><%= minute %></option>
+                    <% end %>
+                  </select>
+                </div>
               </td>
               <td><button class="button-blue-save">学習時間を保存する</button></td>
               <td><button class="button-red">削除する</button></td>
@@ -153,11 +188,13 @@
             <tr>
               <td>Heroku</td>
               <td>
-                <select class="time-select">
-                  <% (1..60).each do |minute| %>
-                    <option value="<%= minute %>"><%= minute %></option>
-                  <% end %>
-                </select>
+                <div class="time-select-area">
+                  <select class="time-select">
+                    <% (1..60).each do |minute| %>
+                      <option value="<%= minute %>"><%= minute %></option>
+                    <% end %>
+                  </select>
+                </div>
               </td>
               <td><button class="button-blue-save">学習時間を保存する</button></td>
               <td><button class="button-red">削除する</button></td>

@@ -443,81 +443,6 @@ header h6 a{
   margin: 40px auto;
 }
 
-.month-select-area{
-  position: relative;
-  width: 100px;
-  cursor: pointer;
-
-  #month-select{
-    font-size: 24px;
-    font-family: Roboto;
-    font-weight: 700;
-    text-align: left;
-    padding-left: 11px;
-  }
-
-  select {
-    appearance: none;
-    border-radius: 4px;
-    height: 44px;
-    padding-left: 10px;
-    width: 94px;
-    cursor: pointer;
-  }
-  select::-ms-expand {
-    display: none;
-  }
-}
-
-.month-select-area::after {
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 9px solid black;
-  content: "";
-  position: absolute;
-  right: 24px;
-  top: 18px;
-  width: 0;
-}
-
-
-.time-select-area{
-  position: relative;
-  width: 100px;
-
-  select {
-    appearance: none;
-    border-radius: 4px;
-    height: 44px;
-    padding-left: 10px;
-    width: 94px;
-  }
-  select::-ms-expand {
-    display: none;
-  }
-}
-
-.time-select-area::before {
-  border-bottom: 5px solid rgba(0, 0, 0, 0.54);
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  content: "";
-  position: absolute;
-  right: -52px;
-  top:12px;
-  width: 0;
-}
-.time-select-area::after {
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid rgba(0, 0, 0, 0.54);
-  content: "";
-  position: absolute;
-  right: -52px;
-  top: 22px;
-  width: 0;
-}
-
 .category{
   border: 1px solid rgba(0, 0, 0, 0.5);
   border-radius: 8px;
@@ -613,3 +538,66 @@ header h6 a{
     }
   }
 }
+
+    //ドロップダウンメニューのスタイル
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 100px;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      z-index: 1;
+      border-radius: 4px;
+    }
+
+    .dropdown-content button {
+      color: black;
+      padding: 8px 16px;
+      text-decoration: none;
+      display: block;
+      width: 100%;
+      border: none;
+      background: none;
+      text-align: left;
+      font-size: 24px;
+      font-weight: 400;
+      font-family: Roboto;
+      border-radius: 8px;
+    }
+
+    .dropdown-content button:hover {
+      background-color: rgba(221, 221, 221, 1);
+    }
+
+    .pull-down-button {
+      padding: 8px 16px;
+      background-color: #ffffff;
+      color: black;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      border-radius: 4px;
+      width: 100px;
+      text-align: left;
+      position: relative;
+      font-size: 24px;
+      font-family: Roboto;
+      font-weight: 700;
+    }
+
+    .pull-down-button::after {
+      content: "▼";
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 16px;
+    }
+
+    .pull-down-button:hover {
+      background-color: rgba(221, 221, 221, 1);
+    }

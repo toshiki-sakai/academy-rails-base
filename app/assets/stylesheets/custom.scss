@@ -443,13 +443,79 @@ header h6 a{
   margin: 40px auto;
 }
 
-#month-select{
-  padding: 8px 16px;
-  border-radius: 4px;
-  border: 1px solid rgba(221, 221, 221, 1);
-  font-weight: 700;
-  font-family: Roboto;
-  font-size: 24px;
+.month-select-area{
+  position: relative;
+  width: 100px;
+  cursor: pointer;
+
+  #month-select{
+    font-size: 24px;
+    font-family: Roboto;
+    font-weight: 700;
+    text-align: left;
+    padding-left: 11px;
+  }
+
+  select {
+    appearance: none;
+    border-radius: 4px;
+    height: 44px;
+    padding-left: 10px;
+    width: 94px;
+    cursor: pointer;
+  }
+  select::-ms-expand {
+    display: none;
+  }
+}
+
+.month-select-area::after {
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 9px solid black;
+  content: "";
+  position: absolute;
+  right: 24px;
+  top: 18px;
+  width: 0;
+}
+
+
+.time-select-area{
+  position: relative;
+  width: 100px;
+
+  select {
+    appearance: none;
+    border-radius: 4px;
+    height: 44px;
+    padding-left: 10px;
+    width: 94px;
+  }
+  select::-ms-expand {
+    display: none;
+  }
+}
+
+.time-select-area::before {
+  border-bottom: 5px solid rgba(0, 0, 0, 0.54);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  content: "";
+  position: absolute;
+  right: -52px;
+  top:12px;
+  width: 0;
+}
+.time-select-area::after {
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid rgba(0, 0, 0, 0.54);
+  content: "";
+  position: absolute;
+  right: -52px;
+  top: 22px;
+  width: 0;
 }
 
 .category{

@@ -35,7 +35,7 @@
     <%= link_to "ログアウト", logout_path, class: "button_logout", data: { "turbo-method": :delete } %>
   </header>
   <div class="wrapper-skill">
-    <div>
+    <div class="month-select-area">
       <select id="month-select"></select>
     </div>
 
@@ -58,23 +58,29 @@
             <tr>
               <td>Ruby</td>
               <td>
-                <select class="time-select">
-                  <% (1..60).each do |minute| %>
-                    <option value="<%= minute %>"><%= minute %></option>
-                  <% end %>
-                </select>
+                <div class="time-select-area">
+                  <select class="time-select">
+                    <% (1..60).each do |minute| %>
+                      <option value="<%= minute %>"><%= minute %></option>
+                    <% end %>
+                  </select>
+                </div>
               </td>
-              <td><button class="button-blue-save">学習時間を保存する</button></td>
+              <td>
+                <button class="button-blue-save">学習時間を保存する</button>
+              </td>
               <td><button class="button-red">削除する</button></td>
             </tr>
             <tr>
               <td>Rails</td>
               <td>
-                <select class="time-select">
-                  <% (1..60).each do |minute| %>
-                    <option value="<%= minute %>"><%= minute %></option>
-                  <% end %>
-                </select>
+                <div class="time-select-area">
+                  <select class="time-select">
+                    <% (1..60).each do |minute| %>
+                      <option value="<%= minute %>"><%= minute %></option>
+                    <% end %>
+                  </select>
+                </div>
               </td>
               <td><button class="button-blue-save">学習時間を保存する</button></td>
               <td><button class="button-red">削除する</button></td>

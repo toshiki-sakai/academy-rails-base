@@ -71,69 +71,72 @@
     </div>
 
     <div class="category">
-      <div class="content">
-        <div class="title-group">
-          <div class="title">バックエンド</div>
-          <button class="button_blue">項目を追加する</button>
+        <div class="content">
+          <div class="title-group">
+            <div class="title">バックエンド</div>
+            <button class="button_blue">項目を追加する</button>
+          </div>
+          <table class="teble-group">
+            <thead>
+              <tr>
+                <th>項目名</th>
+                <th>学習時間</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <%= form_with model: @learning_data, url: edit_skill_path(@user), method: :patch, local: true do |f| %>
+                <tr>
+                  <td>Ruby</td>
+                  <td>
+                    <div class="time-select-area">
+                      <select name="learning_data[learning_time]" class="time-select">
+                        <% (1..3000).each do |minute| %>
+                          <option value="<%= minute %>"><%= minute %></option>
+                        <% end %>
+                      </select>
+                    </div>
+                  </td>
+                  <td>
+                    <button type="submit" class="button-blue-save">学習時間を保存する</button>
+                  </td>
+                  <td><button class="button-red">削除する</button></td>
+                </tr>
+              <% end %>
+              <tr>
+                <td>Rails</td>
+                <td>
+                  <div class="time-select-area">
+                    <select class="time-select">
+                      <% (1..60).each do |minute| %>
+                        <option value="<%= minute %>"><%= minute %></option>
+                      <% end %>
+                    </select>
+                  </div>
+                </td>
+                <td><button class="button-blue-save">学習時間を保存する</button></td>
+                <td><button class="button-red">削除する</button></td>
+              </tr>
+              <tr>
+                <td>MySQL</td>
+                <td>
+                  <div class="time-select-area">
+                    <select class="time-select">
+                      <% (1..60).each do |minute| %>
+                        <option value="<%= minute %>"><%= minute %></option>
+                      <% end %>
+                    </select>
+                  </div>
+                </td>
+                <td><button class="button-blue-save">学習時間を保存する</button></td>
+                <td><button class="button-red">削除する</button></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <table class="teble-group">
-          <thead>
-            <tr>
-              <th>項目名</th>
-              <th>学習時間</th>
-              <th></th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Ruby</td>
-              <td>
-                <div class="time-select-area">
-                  <select class="time-select">
-                    <% (1..60).each do |minute| %>
-                      <option value="<%= minute %>"><%= minute %></option>
-                    <% end %>
-                  </select>
-                </div>
-              </td>
-              <td>
-                <button class="button-blue-save">学習時間を保存する</button>
-              </td>
-              <td><button class="button-red">削除する</button></td>
-            </tr>
-            <tr>
-              <td>Rails</td>
-              <td>
-                <div class="time-select-area">
-                  <select class="time-select">
-                    <% (1..60).each do |minute| %>
-                      <option value="<%= minute %>"><%= minute %></option>
-                    <% end %>
-                  </select>
-                </div>
-              </td>
-              <td><button class="button-blue-save">学習時間を保存する</button></td>
-              <td><button class="button-red">削除する</button></td>
-            </tr>
-            <tr>
-              <td>MySQL</td>
-              <td>
-                <div class="time-select-area">
-                  <select class="time-select">
-                    <% (1..60).each do |minute| %>
-                      <option value="<%= minute %>"><%= minute %></option>
-                    <% end %>
-                  </select>
-                </div>
-              </td>
-              <td><button class="button-blue-save">学習時間を保存する</button></td>
-              <td><button class="button-red">削除する</button></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
     </div>
+
     <div class="category">
       <div class="content">
         <div class="title-group">

@@ -488,10 +488,6 @@ header h6 a{
         border-top: 0.3px solid #ddd;
       }
 
-      tr{
-
-      }
-
       th{
         height: 32px;
         width: 240px;
@@ -506,15 +502,20 @@ header h6 a{
         padding: 16px 16px 16px 48px;
         font-family: Roboto;
 
-        .time-select{
-          width: 160px;
-          height: 40px;
-          padding: 5px;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-          cursor: pointer;
-          color: rgba(0, 0, 0, 0.54);
-          font-size: 14px;
+        .time-select-area{
+          overflow-y: auto;
+          max-height: 64px;
+
+          .time-select{
+            width: 160px;
+            height: 40px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            color: rgba(0, 0, 0, 0.54);
+            font-size: 14px;
+          }
         }
 
         .button-blue-save{
@@ -568,6 +569,7 @@ header h6 a{
       font-weight: 400;
       font-family: Roboto;
       border-radius: 8px;
+      cursor: pointer;
     }
 
     .dropdown-content button:hover {

@@ -86,16 +86,12 @@
               </tr>
             </thead>
             <tbody>
-              <%= form_with model: @learning_data, url: edit_skill_path(@user), method: :patch, local: true do |f| %>
+              <%= form_with model: @learning_data, url: edit_user_skill_path(@user, @learning_data), method: :patch, local: true do |f| %>
                 <tr>
                   <td>Ruby</td>
                   <td>
                     <div class="time-select-area">
-                      <select name="learning_data[learning_time]" class="time-select">
-                        <% (1..3000).each do |minute| %>
-                          <option value="<%= minute %>"><%= minute %></option>
-                        <% end %>
-                      </select>
+                      <%= f.select :time, (1..3000).map { |minute| [minute, minute] }, {}, class: "time-select" %>
                     </div>
                   </td>
                   <td>

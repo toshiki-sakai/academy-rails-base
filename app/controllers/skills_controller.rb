@@ -3,9 +3,8 @@ class SkillsController < ApplicationController
   before_action :set_learning_datum, only: [:edit, :update]
 
   def edit
-    @current_month = Date.today.month
+    @selected_month = params[:selected_month] ? params[:selected_month].to_i : Date.today.month
     @categories = Category.all
-    @learning_data = LearningDatum.where(user: @user, month: @current_month).first
   end
 
   def create

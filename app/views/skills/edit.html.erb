@@ -5,11 +5,11 @@
   <%= stylesheet_link_tag 'custom', media: 'all', 'data-turbolinks-track': 'reload' %>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const pullDownButton = document.querySelector('.pull-down-button');
-      const dropdownContent = document.createElement('div');
+      const pullDownButton = document.querySelector('.pull-down-button'); // 月のプルダウンと紐付け
+      const dropdownContent = document.createElement('div');  // ドロップダウンメニューのコンテナを作成
       dropdownContent.className = 'dropdown-content';
-      const currentDate = new Date();
-      const currentMonth = currentDate.getMonth() + 1;
+      const currentMonth = <%= @selected_month %>;
+      const defaultMonth = <%= Date.today.month %>;
 
       // 当月の月表示
       pullDownButton.textContent = currentMonth + '月';
@@ -17,7 +17,7 @@
       // プルダウンの中身を設定
       for (let i = 0; i < 3; i++) {
         const button = document.createElement('button');
-        let displayMonth = currentMonth - i;
+        let displayMonth = defaultMonth - i;
 
         if (displayMonth <= 0) {
           displayMonth += 12;
@@ -26,13 +26,14 @@
         button.value = displayMonth;
         button.textContent = displayMonth + '月';
         button.addEventListener('click', function() {
+          selectedMonth = displayMonth;
           pullDownButton.textContent = displayMonth + '月';
           dropdownContent.style.display = 'none';
-          // 選択した月の処理をここに追加
-          filterContentByMonth(displayMonth);
+          // ここで選択した月をサーバーに送信して再読み込みする
+          window.location.href = `<%= edit_user_skill_path(@user) %>?selected_month=${displayMonth}`;
         });
 
-        dropdownContent.appendChild(button);
+        dropdownContent.appendChild(button);  // コンテナにボタンを追加
       }
 
       // ボタンをクリックするとドロップダウンを表示/非表示
@@ -40,24 +41,22 @@
         dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
       });
 
+      // ドロップダウンのコンテナをDOMに追加
       document.querySelector('.dropdown').appendChild(dropdownContent);
-
-      // 選択した月に基づいてコンテンツをフィルタリングする関数
-      function filterContentByMonth(month) {
-        const allRows = document.querySelectorAll('.table-group tbody tr');
-        allRows.forEach(row => {
-          const monthData = row.querySelector('.month-data');
-          if (monthData && monthData.getAttribute('data-month') == month) {
-            row.style.display = '';
-          } else {
-            row.style.display = 'none';
-          }
-        });
-      }
-
-      // 初期表示時に当月のデータを表示する
-      displayContentByMonth(currentMonth);
     });
+
+    // 選択した月に基づいてコンテンツをフィルタリングする関数
+    function filterContentByMonth(month) {
+      const allRows = document.querySelectorAll('.table-group tbody tr');
+      allRows.forEach(row => {
+        const monthData = row.querySelector('.month-data');
+        if (monthData && monthData.getAttribute('data-month') == month) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    }
   </script>
 </head>
 <body>

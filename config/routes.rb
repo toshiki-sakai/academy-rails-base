@@ -12,8 +12,6 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  get 'skills/:id/edit', to: 'skills#edit'
-
   resources :users do
     resources :skills, only: [:edit, :update, :create]
   end

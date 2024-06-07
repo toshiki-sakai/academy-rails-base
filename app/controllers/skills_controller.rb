@@ -4,7 +4,6 @@ class SkillsController < ApplicationController
 
   def edit
     @selected_month = params[:selected_month] ? params[:selected_month].to_i : Date.today.month
-    @categories = Category.all
   end
 
   def create
@@ -20,7 +19,7 @@ class SkillsController < ApplicationController
 
   def update
     if @learning_data.update(learning_data_params)
-      redirect_to edit_user_skill_path(@user, @learning_data), notice: '学習時間が更新されました。'
+      redirect_to user_skill_path(@user, @learning_data), notice: '学習時間が更新されました。'
     else
       render :edit
     end

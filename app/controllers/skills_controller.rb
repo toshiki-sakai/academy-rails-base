@@ -1,20 +1,22 @@
 class SkillsController < ApplicationController
-  before_action :set_user
+  before_action :set_user, only: [:edit, :update]
   before_action :set_learning_datum, only: [:edit, :update]
 
   def edit
+    @current_month = Date.today.month
     @selected_month = params[:selected_month] ? params[:selected_month].to_i : Date.today.month
+    @month_options = (0..2).map { |i| (@current_month - i - 1) % 12 + 1 }
   end
 
   def create
-    @learning_data = LearningDatum.new(learning_data_params)
-    @learning_data.user = @user
+    # @learning_data = LearningDatum.new(learning_data_params)
+    # @learning_data.user = @user
 
-    if @learning_data.save
-      render json: { success: true, message: '学習時間が保存されました。' }
-    else
-      render json: { success: false, errors: @learning_data.errors.full_messages }
-    end
+    # if @learning_data.save
+    #   render json: { success: true, message: '学習時間が保存されました。' }
+    # else
+    #   render json: { success: false, errors: @learning_data.errors.full_messages }
+    # end
   end
 
   def update

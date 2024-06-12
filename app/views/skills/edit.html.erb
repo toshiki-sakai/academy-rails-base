@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <%= stylesheet_link_tag 'custom', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <script>
+
+</head>
+<body>
+  <%
+=begin%>
+ <script>
     document.addEventListener('DOMContentLoaded', function() {
       const pullDownButton = document.querySelector('.pull-down-button'); // 月のプルダウンと紐付け
       const dropdownContent = document.createElement('div');  // ドロップダウンメニューのコンテナを作成
@@ -58,15 +63,20 @@
       });
     }
   </script>
-</head>
-<body>
+<%
+=end%>
+
   <header>
     <h6><a href="<%= user_path(@user) %>">My Portfolio</a></h6>
     <%= link_to "ログアウト", logout_path, class: "button_logout", data: { "turbo-method": :delete } %>
   </header>
   <div class="wrapper-skill">
-    <div class="month-select-area dropdown">
-      <button class="pull-down-button"></button>
+    <div class="month-select-area">
+      <select class="pull-down-button">
+        <option value="<%= Date.today.month %>"><%= Date.today.month %>月</option>
+        <option value=""><%= Date.today.month % 12 - 1 %>月</option>
+        <option value=""><%= Date.today.month % 12 - 2 %>月</option>
+      </select>
     </div>
 
     <div class="category">
@@ -85,7 +95,7 @@
               </tr>
             </thead>
             <tbody>
-              <%= form_with model: @learning_data, url: user_skill_path(@user, @learning_data), method: :patch, local: true do |f| %>
+              <%= form_with model: @learning_data, url: edit_user_skill_path(@user, @learning_data), method: :patch, local: true do |f| %>
                 <tr>
                   <td>Ruby</td>
                   <td>

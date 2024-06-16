@@ -66,6 +66,52 @@
 <%
 =end%>
 
+  <script>
+    //vanilla jsで親要素探索する用の関数
+    function getParents(el, parentSelector /* optional */) {
+        if (parentSelector === undefined) {
+            return false;
+        }
+
+        var p = el.parentNode;
+
+        while (!p.classList.contains(parentSelector)) {
+            var o = p;
+            p = o.parentNode;
+        }
+        return p;
+    }
+
+    document.addEventListener('click',function(e){
+      e = e || window.event;
+      var target = e.target || e.srcElement,
+          text = target.textContent || target.innerText;
+
+      var val = 0;
+
+      //クリックしたDOMが.js-time-select-upだったら
+      if(target.classList.contains('js-time-select-up')){
+        val = 1;
+      } else if(target.classList.contains('js-time-select-down')) {
+        val = -1;
+      } else {
+        return false;
+      }
+      var parent = getParents(target,'js-time-select-area');//親の.js-time-select-areaを取得して
+      var input = parent.querySelectorAll('.js-time-select');//親の.js-time-select-areaの子の.js-time-selectを取得して
+      //Nodelistを回す
+      for (let i = 0; i < input.length; i++) {
+        if(input[i].classList.contains('js-time-select')){
+          //.js-time-select持ってるDOMに対して
+          var num = parseInt(input[i].value);
+          num = isNaN(num) ? 0 : num;
+          input[i].value = num + val < 0 ? 0 : num + val;
+        }
+      }
+
+    },false);
+  </script>
+
   <header>
     <h6><a href="<%= user_path(@user) %>">My Portfolio</a></h6>
     <%= link_to "ログアウト", logout_path, class: "button_logout", data: { "turbo-method": :delete } %>
@@ -73,9 +119,9 @@
   <div class="wrapper-skill">
     <div class="month-select-area">
       <select class="pull-down-button">
-        <option value="<%= Date.today.month %>"><%= Date.today.month %>月</option>
-        <option value=""><%= Date.today.month % 12 - 1 %>月</option>
-        <option value=""><%= Date.today.month % 12 - 2 %>月</option>
+        <option value="当月"><%= Date.today.month %>月</option>
+        <option value="過去二ヶ月"><%= Date.today.month % 12 - 1 %>月</option>
+        <option value="過去三ヶ月"><%= Date.today.month % 12 - 2 %>月</option>
       </select>
     </div>
 
@@ -99,12 +145,14 @@
                 <tr>
                   <td>Ruby</td>
                   <td>
-                    <div class="time-select-area">
-                      <%= f.select :time, (1..3000).map { |minute| [minute, minute] }, { selected: @learning_data.time }, class: "time-select" %>
+                    <div class="time-select-area js-time-select-area">
+                      <div class="__arrow __up js-time-select-up"></div>
+                      <div class="__arrow __down js-time-select-down"></div>
+                      <input type="number" class="time-select js-time-select" value="0">
                     </div>
                   </td>
                   <td>
-                    <button type="submit" class="button-blue-save">学習時間を保存する</button>
+                    <input type="submit" value="学習時間を保存する" class="button-blue-save">
                   </td>
                   <td><button class="button-red">削除する</button></td>
                 </tr>

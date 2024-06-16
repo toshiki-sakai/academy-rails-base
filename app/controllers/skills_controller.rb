@@ -6,6 +6,7 @@ class SkillsController < ApplicationController
     @current_month = Date.today.month
     @selected_month = params[:selected_month] ? params[:selected_month].to_i : Date.today.month
     @month_options = (0..2).map { |i| (@current_month - i - 1) % 12 + 1 }
+    # @time_options = (1..3000).map { |minute| [minute, minute] }
   end
 
   def create

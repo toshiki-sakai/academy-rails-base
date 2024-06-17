@@ -73,7 +73,7 @@
             <div class="title">バックエンド</div>
             <button class="button_blue">項目を追加する</button>
           </div>
-          <%= form_with model: @learning_datum, url: edit_user_skill_path(@user, @learning_datum), method: :patch, local: true do |f| %>
+          <%= form_with model: @learning_datum, url: user_skill_path(@user, @learning_datum), method: :patch, local: true do |f| %>
             <table class="teble-group">
               <thead>
                 <tr>
@@ -90,7 +90,7 @@
                     <div class="time-select-area js-time-select-area">
                       <div class="__arrow __up js-time-select-up"></div>
                       <div class="__arrow __down js-time-select-down"></div>
-                      <%= f.number_field :time, class:"time-select js-time-select" %>
+                      <%= f.number_field :time, class:"time-select js-time-select", value: @learning_datum.time || 0 %>
                     </div>
                   </td>
                   <td>

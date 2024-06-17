@@ -3,10 +3,6 @@ class SkillsController < ApplicationController
   before_action :set_learning_datum, only: [:edit, :update]
 
   def edit
-    @current_month = Date.today.month
-    @selected_month = params[:selected_month] ? params[:selected_month].to_i : Date.today.month
-    @month_options = (0..2).map { |i| (@current_month - i - 1) % 12 + 1 }
-    # @time_options = (1..3000).map { |minute| [minute, minute] }
   end
 
   def create
@@ -21,8 +17,8 @@ class SkillsController < ApplicationController
   end
 
   def update
-    if @learning_data.update(learning_data_params)
-      redirect_to user_skill_path(@user, @learning_data), notice: '学習時間が更新されました。'
+    if @learning_datum.update(learning_data_params)
+      redirect_to edit_user_skill_path(@user, @learning_datum)
     else
       render :edit
     end
@@ -35,7 +31,7 @@ class SkillsController < ApplicationController
   end
 
   def set_learning_datum
-    @learning_data = LearningDatum.find(params[:id])
+    @learning_datum = LearningDatum.find(params[:id])
   end
 
   def learning_data_params

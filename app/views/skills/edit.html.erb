@@ -6,110 +6,52 @@
 
 </head>
 <body>
-  <%
-=begin%>
- <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const pullDownButton = document.querySelector('.pull-down-button'); // 月のプルダウンと紐付け
-      const dropdownContent = document.createElement('div');  // ドロップダウンメニューのコンテナを作成
-      dropdownContent.className = 'dropdown-content';
-      const currentMonth = <%= @selected_month %>;
-      const defaultMonth = <%= Date.today.month %>;
-
-      // 当月の月表示
-      pullDownButton.textContent = currentMonth + '月';
-
-      // プルダウンの中身を設定
-      for (let i = 0; i < 3; i++) {
-        const button = document.createElement('button');
-        let displayMonth = defaultMonth - i;
-
-        if (displayMonth <= 0) {
-          displayMonth += 12;
-        }
-
-        button.value = displayMonth;
-        button.textContent = displayMonth + '月';
-        button.addEventListener('click', function() {
-          selectedMonth = displayMonth;
-          pullDownButton.textContent = displayMonth + '月';
-          dropdownContent.style.display = 'none';
-          // ここで選択した月をサーバーに送信して再読み込みする
-          window.location.href = `<%= edit_user_skill_path(@user) %>?selected_month=${displayMonth}`;
-        });
-
-        dropdownContent.appendChild(button);  // コンテナにボタンを追加
-      }
-
-      // ボタンをクリックするとドロップダウンを表示/非表示
-      pullDownButton.addEventListener('click', function() {
-        dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
-      });
-
-      // ドロップダウンのコンテナをDOMに追加
-      document.querySelector('.dropdown').appendChild(dropdownContent);
-    });
-
-    // 選択した月に基づいてコンテンツをフィルタリングする関数
-    function filterContentByMonth(month) {
-      const allRows = document.querySelectorAll('.table-group tbody tr');
-      allRows.forEach(row => {
-        const monthData = row.querySelector('.month-data');
-        if (monthData && monthData.getAttribute('data-month') == month) {
-          row.style.display = '';
-        } else {
-          row.style.display = 'none';
-        }
-      });
-    }
-  </script>
-<%
-=end%>
 
   <script>
-    //vanilla jsで親要素探索する用の関数
-    function getParents(el, parentSelector /* optional */) {
-        if (parentSelector === undefined) {
-            return false;
-        }
+      //学習時間の入力フォーム
+      //vanilla jsで親要素探索する用の関数
+      function getParents(el, parentSelector /* optional */) {
+          if (parentSelector === undefined) {
+              return false;
+          }
 
-        var p = el.parentNode;
+          var p = el.parentNode;
 
-        while (!p.classList.contains(parentSelector)) {
-            var o = p;
-            p = o.parentNode;
-        }
-        return p;
-    }
-
-    document.addEventListener('click',function(e){
-      e = e || window.event;
-      var target = e.target || e.srcElement,
-          text = target.textContent || target.innerText;
-
-      var val = 0;
-
-      //クリックしたDOMが.js-time-select-upだったら
-      if(target.classList.contains('js-time-select-up')){
-        val = 1;
-      } else if(target.classList.contains('js-time-select-down')) {
-        val = -1;
-      } else {
-        return false;
-      }
-      var parent = getParents(target,'js-time-select-area');//親の.js-time-select-areaを取得して
-      var input = parent.querySelectorAll('.js-time-select');//親の.js-time-select-areaの子の.js-time-selectを取得して
-      //Nodelistを回す
-      for (let i = 0; i < input.length; i++) {
-        if(input[i].classList.contains('js-time-select')){
-          //.js-time-select持ってるDOMに対して
-          var num = parseInt(input[i].value);
-          num = isNaN(num) ? 0 : num;
-          input[i].value = num + val < 0 ? 0 : num + val;
-        }
+          while (!p.classList.contains(parentSelector)) {
+              var o = p;
+              p = o.parentNode;
+          }
+          return p;
       }
 
-    },false);
+      document.addEventListener('click',function(e){
+        e = e || window.event;
+        var target = e.target || e.srcElement,
+            text = target.textContent || target.innerText;
+
+        var val = 0;
+
+        //クリックしたDOMが.js-time-select-upだったら
+        if(target.classList.contains('js-time-select-up')){
+          val = 1;
+        } else if(target.classList.contains('js-time-select-down')) {
+          val = -1;
+        } else {
+          return false;
+        }
+        var parent = getParents(target,'js-time-select-area');//親の.js-time-select-areaを取得して
+        var input = parent.querySelectorAll('.js-time-select');//親の.js-time-select-areaの子の.js-time-selectを取得して
+        //Nodelistを回す
+        for (let i = 0; i < input.length; i++) {
+          if(input[i].classList.contains('js-time-select')){
+            //.js-time-select持ってるDOMに対して
+            var num = parseInt(input[i].value);
+            num = isNaN(num) ? 0 : num;
+            input[i].value = num + val < 0 ? 0 : num + val;
+          }
+        }
+
+      },false);
   </script>
 
   <header>
@@ -131,19 +73,51 @@
             <div class="title">バックエンド</div>
             <button class="button_blue">項目を追加する</button>
           </div>
-          <table class="teble-group">
-            <thead>
-              <tr>
-                <th>項目名</th>
-                <th>学習時間</th>
-                <th></th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <%= form_with model: @learning_data, url: edit_user_skill_path(@user, @learning_data), method: :patch, local: true do |f| %>
+          <%= form_with model: @learning_datum, url: edit_user_skill_path(@user, @learning_datum), method: :patch, local: true do |f| %>
+            <table class="teble-group">
+              <thead>
+                <tr>
+                  <th>項目名</th>
+                  <th>学習時間</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
                 <tr>
                   <td>Ruby</td>
+                  <td>
+                    <div class="time-select-area js-time-select-area">
+                      <div class="__arrow __up js-time-select-up"></div>
+                      <div class="__arrow __down js-time-select-down"></div>
+                      <%= f.number_field :time, class:"time-select js-time-select" %>
+                    </div>
+                  </td>
+                  <td>
+                    <%= f.submit "学習時間を保存する", class:"button-blue-save" %>
+                  </td>
+                  <td><button class="button-red">削除する</button></td>
+                </tr>
+                <tr>
+                  <td>Rails</td>
+                  <td>
+                    <div class="time-select-area js-time-select-area">
+                      <div class="__arrow __up js-time-select-up"></div>
+                      <div class="__arrow __down js-time-select-down"></div>
+                      <% if @learning_datum.time.present? %>
+                        <p class="time-select js-time-select"><%= @learning_datum.time %></p>
+                      <% else %>
+                        <%= f.number_field :time, class:"time-select js-time-select", value:0 %>
+                      <% end %>
+                    </div>
+                  </td>
+                  <td>
+                    <%= f.submit "学習時間を保存する", class:"button-blue-save" %>
+                  </td>
+                  <td><button class="button-red">削除する</button></td>
+                </tr>
+                <tr>
+                  <td>MySQL</td>
                   <td>
                     <div class="time-select-area js-time-select-area">
                       <div class="__arrow __up js-time-select-up"></div>
@@ -152,41 +126,13 @@
                     </div>
                   </td>
                   <td>
-                    <input type="submit" value="学習時間を保存する" class="button-blue-save">
+                    <%= f.submit "学習時間を保存する", class:"button-blue-save" %>
                   </td>
                   <td><button class="button-red">削除する</button></td>
                 </tr>
-              <% end %>
-              <tr>
-                <td>Rails</td>
-                <td>
-                  <div class="time-select-area">
-                    <select class="time-select">
-                      <% (1..60).each do |minute| %>
-                        <option value="<%= minute %>"><%= minute %></option>
-                      <% end %>
-                    </select>
-                  </div>
-                </td>
-                <td><button class="button-blue-save">学習時間を保存する</button></td>
-                <td><button class="button-red">削除する</button></td>
-              </tr>
-              <tr>
-                <td>MySQL</td>
-                <td>
-                  <div class="time-select-area">
-                    <select class="time-select">
-                      <% (1..60).each do |minute| %>
-                        <option value="<%= minute %>"><%= minute %></option>
-                      <% end %>
-                    </select>
-                  </div>
-                </td>
-                <td><button class="button-blue-save">学習時間を保存する</button></td>
-                <td><button class="button-red">削除する</button></td>
-              </tr>
-            </tbody>
-          </table>
+              </tbody>
+            </table>
+          <% end %>
         </div>
     </div>
 
@@ -206,20 +152,22 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>HTML</td>
-              <td>
-                <div class="time-select-area">
-                  <select class="time-select">
-                    <% (1..60).each do |minute| %>
-                      <option value="<%= minute %>"><%= minute %></option>
-                    <% end %>
-                  </select>
-                </div>
-              </td>
-              <td><button class="button-blue-save">学習時間を保存する</button></td>
-              <td><button class="button-red">削除する</button></td>
-            </tr>
+            <%= form_with model: @learning_datum, url: edit_user_skill_path(@user, @learning_datum), method: :patch, local: true do |f| %>
+                <tr>
+                  <td>HTML</td>
+                  <td>
+                    <div class="time-select-area js-time-select-area">
+                      <div class="__arrow __up js-time-select-up"></div>
+                      <div class="__arrow __down js-time-select-down"></div>
+
+                    </div>
+                  </td>
+                  <td>
+                    <%= f.submit "学習時間を保存する", class:"button-blue-save" %>
+                  </td>
+                  <td><button class="button-red">削除する</button></td>
+                </tr>
+              <% end %>
           </tbody>
         </table>
       </div>
@@ -241,20 +189,22 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Heroku</td>
-              <td>
-                <div class="time-select-area">
-                  <select class="time-select">
-                    <% (1..60).each do |minute| %>
-                      <option value="<%= minute %>"><%= minute %></option>
-                    <% end %>
-                  </select>
-                </div>
-              </td>
-              <td><button class="button-blue-save">学習時間を保存する</button></td>
-              <td><button class="button-red">削除する</button></td>
-            </tr>
+            <%= form_with model: @learning_datum, url: edit_user_skill_path(@user, @learning_datum), method: :patch, local: true do |f| %>
+                <tr>
+                  <td>Heroku</td>
+                  <td>
+                    <div class="time-select-area js-time-select-area">
+                      <div class="__arrow __up js-time-select-up"></div>
+                      <div class="__arrow __down js-time-select-down"></div>
+                      <input type="number" class="time-select js-time-select" value="0">
+                    </div>
+                  </td>
+                  <td>
+                    <input type="submit" value="学習時間を保存する" class="button-blue-save">
+                  </td>
+                  <td><button class="button-red">削除する</button></td>
+                </tr>
+              <% end %>
           </tbody>
         </table>
       </div>

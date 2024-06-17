@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   before_save { self.email = email.downcase }
   has_one_attached :image
-  has_many :learning_data
+  has_many :learning_datum
 
   validates :name, presence: { message: '氏名は必ず入力してください' },
                    length: { maximum: 255, message: '氏名は255文字以内で入力してください' }

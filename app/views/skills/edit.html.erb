@@ -55,18 +55,18 @@
 
     //月選択で画面表示切り替え
       function viewChange(){
-          if(document.getElementById('sample')){
-              id = document.getElementById('sample').value;
-              if(id == 'select-month1'){
+          if(document.getElementById('pull-down-button')){
+              id = document.getElementById('pull-down-button').value;
+              if(id == '<%= @current_month %>'){
                   document.getElementById('Box1').style.display = "";
                   document.getElementById('Box2').style.display = "none";
                   document.getElementById('Box3').style.display = "none";
-              }else if(id == 'select-month2'){
+              }else if(id == '<%= @last_month %>'){
                   document.getElementById('Box1').style.display = "none";
                   document.getElementById('Box2').style.display = "";
                   document.getElementById('Box3').style.display = "none";
               }
-              else if(id == 'select-month3'){
+              else if(id == '<%= @two_months_ago %>'){
                   document.getElementById('Box1').style.display = "none";
                   document.getElementById('Box2').style.display = "none";
                   document.getElementById('Box3').style.display = "";
@@ -81,168 +81,63 @@
     <h6><a href="<%= user_path(@user) %>">My Portfolio</a></h6>
     <%= link_to "ログアウト", logout_path, class: "button_logout", data: { "turbo-method": :delete } %>
   </header>
-  <div class="wrapper-skill">
-    <div class="month-select-area">
-      <select class="pull-down-button" id="sample" onchange="viewChange();">
-        <option value="select-month1"><%= Date.today.month %>月</option>
-        <option value="select-month2"><%= Date.today.month % 12 - 1 %>月</option>
-        <option value="select-month3"><%= Date.today.month % 12 - 2 %>月</option>
-      </select>
-    </div>
+  <%= form_with model: @learning_datum, url: user_skill_path(@user, @learning_datum), method: :patch, local: true do |f| %>
+    <div class="wrapper-skill">
+      <div class="month-select-area">
+        <select class="pull-down-button" id="pull-down-button" name="month" onchange="viewChange();">
+          <option value="<%= @current_month %>"><%= @current_month %>月</option>
+          <option value="<%= @last_month %>"><%= @last_month %>月</option>
+          <option value="<%= @two_months_ago %>"><%= @two_months_ago %>月</option>
+        </select>
+      </div>
 
-    <div id="Box1" class="my-5">
-      <div class="category">
-          <div class="content">
-            <div class="title-group">
-              <div class="title">バックエンド</div>
-              <button class="button_blue">項目を追加する</button>
+      <div id="Box1" class="select-box">
+        <div class="category">
+            <div class="content">
+              <div class="title-group">
+                <div class="title">バックエンド</div>
+                <button class="button_blue">項目を追加する</button>
+              </div>
+                <table class="teble-group">
+                  <thead>
+                    <tr>
+                      <th>項目名</th>
+                      <th>学習時間</th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Ruby</td>
+                      <td>
+                        <div class="time-select-area js-time-select-area">
+                          <div class="__arrow __up js-time-select-up"></div>
+                          <div class="__arrow __down js-time-select-down"></div>
+                          <%= f.number_field :time, class:"time-select js-time-select", value: @learning_datum.time || 0 %>
+                        </div>
+                      </td>
+                      <td>
+                        <%= f.submit "学習時間を保存する", class:"button-blue-save" %>
+                      </td>
+                      <td><button class="button-red">削除する</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-            <%= form_with model: @learning_datum, url: user_skill_path(@user, @learning_datum), method: :patch, local: true do |f| %>
-              <table class="teble-group">
-                <thead>
-                  <tr>
-                    <th>項目名</th>
-                    <th>学習時間</th>
-                    <th></th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Ruby</td>
-                    <td>
-                      <div class="time-select-area js-time-select-area">
-                        <div class="__arrow __up js-time-select-up"></div>
-                        <div class="__arrow __down js-time-select-down"></div>
-                        <%= f.number_field :time, class:"time-select js-time-select", value: @learning_datum.time || 0 %>
-                      </div>
-                    </td>
-                    <td>
-                      <%= f.submit "学習時間を保存する", class:"button-blue-save" %>
-                    </td>
-                    <td><button class="button-red">削除する</button></td>
-                  </tr>
-                  <tr>
-                    <td>Rails</td>
-                    <td>
-                      <div class="time-select-area js-time-select-area">
-                        <div class="__arrow __up js-time-select-up"></div>
-                        <div class="__arrow __down js-time-select-down"></div>
-                        <% if @learning_datum.time.present? %>
-                          <p class="time-select js-time-select"><%= @learning_datum.time %></p>
-                        <% else %>
-                          <%= f.number_field :time, class:"time-select js-time-select", value:0 %>
-                        <% end %>
-                      </div>
-                    </td>
-                    <td>
-                      <%= f.submit "学習時間を保存する", class:"button-blue-save" %>
-                    </td>
-                    <td><button class="button-red">削除する</button></td>
-                  </tr>
-                  <tr>
-                    <td>MySQL</td>
-                    <td>
-                      <div class="time-select-area js-time-select-area">
-                        <div class="__arrow __up js-time-select-up"></div>
-                        <div class="__arrow __down js-time-select-down"></div>
-                        <input type="number" class="time-select js-time-select" value="0">
-                      </div>
-                    </td>
-                    <td>
-                      <%= f.submit "学習時間を保存する", class:"button-blue-save" %>
-                    </td>
-                    <td><button class="button-red">削除する</button></td>
-                  </tr>
-                </tbody>
-              </table>
-            <% end %>
           </div>
-      </div>
-
-      <div class="category">
-        <div class="content">
-          <div class="title-group">
-            <div class="title">フロントエンド</div>
-            <button class="button_blue">項目を追加する</button>
-          </div>
-          <table class="teble-group">
-            <thead>
-              <tr>
-                <th>項目名</th>
-                <th>学習時間</th>
-                <th></th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <%= form_with model: @learning_datum, url: edit_user_skill_path(@user, @learning_datum), method: :patch, local: true do |f| %>
-                  <tr>
-                    <td>HTML</td>
-                    <td>
-                      <div class="time-select-area js-time-select-area">
-                        <div class="__arrow __up js-time-select-up"></div>
-                        <div class="__arrow __down js-time-select-down"></div>
-
-                      </div>
-                    </td>
-                    <td>
-                      <%= f.submit "学習時間を保存する", class:"button-blue-save" %>
-                    </td>
-                    <td><button class="button-red">削除する</button></td>
-                  </tr>
-                <% end %>
-            </tbody>
-          </table>
         </div>
       </div>
 
-      <div class="category">
-        <div class="content">
-          <div class="title-group">
-            <div class="title">インフラ</div>
-            <button class="button_blue">項目を追加する</button>
-          </div>
-          <table class="teble-group">
-            <thead>
-              <tr>
-                <th>項目名</th>
-                <th>学習時間</th>
-                <th></th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <%= form_with model: @learning_datum, url: edit_user_skill_path(@user, @learning_datum), method: :patch, local: true do |f| %>
-                  <tr>
-                    <td>Heroku</td>
-                    <td>
-                      <div class="time-select-area js-time-select-area">
-                        <div class="__arrow __up js-time-select-up"></div>
-                        <div class="__arrow __down js-time-select-down"></div>
-                        <input type="number" class="time-select js-time-select" value="0">
-                      </div>
-                    </td>
-                    <td>
-                      <input type="submit" value="学習時間を保存する" class="button-blue-save">
-                    </td>
-                    <td><button class="button-red">削除する</button></td>
-                  </tr>
-                <% end %>
-            </tbody>
-          </table>
-        </div>
+      <div id="Box2" class="select-box" style="display: none;">
+          <p>two</p>
+      </div>
+
+      <div id="Box3" class="select-box" style="display: none;">
+          <p>three</p>
       </div>
     </div>
-
-    <div id="Box2" class="my-5">
-        <p>two</p>
-    </div>
-
-    <div id="Box3" class="my-5">
-        <p>three</p>
-    </div>
-
-  </div>
+  <% end %>
 </body>
 </html>

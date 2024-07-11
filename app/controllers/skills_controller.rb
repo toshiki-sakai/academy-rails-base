@@ -2,14 +2,13 @@ class SkillsController < ApplicationController
   before_action :set_user, only: [:edit, :update]
   before_action :set_dates, only: [:edit, :update]
   before_action :set_learning_data, only: [:edit, :update]
-  before_action :set_learning_datum, only: [:edit, :update]
   before_action :set_month_data, only: [:edit, :update]
 
   def edit
   end
 
   def create
-    @learning_data = @user.learning_datum.new(learning_data_params)
+    @learning_data = @user.learning_data.new(learning_data_params)
     @learning_data.user = @user
 
     if @learning_data.save
@@ -20,7 +19,7 @@ class SkillsController < ApplicationController
   end
 
   def update
-    if @learning_datum.update(learning_data_params)
+    if @learning_data.update(learning_data_params)
       redirect_to edit_user_skill_path
     else
       @selected_month = selected_month
@@ -47,24 +46,24 @@ class SkillsController < ApplicationController
 
   def set_learning_data
     # 単一の学習時間
-    @learning_data = @user.learning_datum.where(month: @selected_month)
+    # @learning_data = @user.learning_data.where(month: @selected_month)
   end
 
-  def set_learning_datum
+  def set_learning_data
     # 選択した月に紐づいた学習時間
-    @learning_datum = @user.learning_datum.find(params[:id])
+    @learning_data = @user.learning_data.find(params[:id])
   end
 
   def set_month_data
     # 当月に基づいたユーザーの学習時間
-    @current_month_data = @user.learning_datum.where(month: @current_month)
+    @current_month_data = @user.learning_data.where(month: @current_month)
     # 先月に基づいたユーザーの学習時間
-    @last_month_data = @user.learning_datum.where(month: @last_month)
+    @last_month_data = @user.learning_data.where(month: @last_month)
     # 先々月に基づいたユーザーの学習時間
-    @two_months_ago_data = @user.learning_datum.where(month: @two_months_ago)
+    @two_months_ago_data = @user.learning_data.where(month: @two_months_ago)
   end
 
   def learning_data_params
-    params.require(:learning_datum).permit(:category_id, :skill, :time, :month)
+    params.require(:learning_data).permit(:category_id, :skill, :time, :month)
   end
 end

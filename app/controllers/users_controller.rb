@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
   before_action :correct_user, only: [:show, :edit, :update]
-  skip_before_action :authenticate_user, only: [:new, :create]
-  before_action :set_learning_datum, only: [:show]
+  before_action :set_learning_data, only: [:show]
 
   def show
   end
@@ -12,11 +11,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(create_user_params)
     if @user.save
-        redirect_to login_path
+      redirect_to login_path
     else
-        render :new, status: :unprocessable_entity
+      render :new
     end
   end
 
@@ -24,18 +23,21 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
+    if @user.update(update_user_params)
       redirect_to user_path(@user)
     else
-      Rails.logger.info(@user.errors.full_messages)
-      render :edit, status: :unprocessable_entity
+      render :edit
     end
   end
 
   private
 
-    def user_params
-      params.require(:user).permit(:name, :avatar, :image, :introduction)
+    def create_user_params
+      params.require(:user).permit(:name, :email, :password)
+    end
+
+    def update_user_params
+      params.require(:user).permit(:avatar, :image, :introduction)
     end
 
     def set_user
@@ -48,11 +50,7 @@ class UsersController < ApplicationController
       end
     end
 
-    def set_learning_datum
-      @learning_data = LearningDatum.find(params[:id])
-    end
-
-    def set_learning_datum
-      @learning_data = LearningDatum.find(params[:id])
+    def set_learning_data
+      @learning_data = LearningData.find(params[:id])
     end
 end

@@ -1,4 +1,4 @@
-class LearningDatum < ApplicationRecord
+class LearningData < ApplicationRecord
   belongs_to :user
   belongs_to :category
 

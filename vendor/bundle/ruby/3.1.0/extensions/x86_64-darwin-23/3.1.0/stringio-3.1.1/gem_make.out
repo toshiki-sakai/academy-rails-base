@@ -1,0 +1,19 @@
+current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/stringio-3.1.1/ext/stringio
+/Users/sakaitoshiki/.rbenv/versions/3.1.4/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/stringio-3.1.1/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20240727-70828-lemumf sitelibdir\=./.gem.20240727-70828-lemumf clean
+
+current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/stringio-3.1.1/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20240727-70828-lemumf sitelibdir\=./.gem.20240727-70828-lemumf
+compiling stringio.c
+linking shared-object stringio.bundle
+ld: warning: ignoring duplicate libraries: '-lruby.3.1'
+
+current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/stringio-3.1.1/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20240727-70828-lemumf sitelibdir\=./.gem.20240727-70828-lemumf install
+/usr/local/bin/ginstall -c -m 0755 stringio.bundle ./.gem.20240727-70828-lemumf
+
+current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/stringio-3.1.1/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20240727-70828-lemumf sitelibdir\=./.gem.20240727-70828-lemumf clean

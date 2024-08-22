@@ -1,28 +1,43 @@
 class SkillsController < ApplicationController
   before_action :set_user, only: [:edit, :update]
   before_action :set_dates, only: [:edit, :update]
-  before_action :set_learning_data, only: [:edit, :update]
+  before_action :initialize_learning_data, only: [:edit]
   before_action :set_month_data, only: [:edit, :update]
+  before_action :set_month_time, only: [:edit, :update]
 
   def edit
+    # binding.pry
   end
 
-  def create
-    @learning_data = @user.learning_data.new(learning_data_params)
-    @learning_data.user = @user
-
-    if @learning_data.save
-      render json: { success: true, message: '学習時間が保存されました。' }
-    else
-      render json: { success: false, errors: @learning_data.errors.full_messages }
-    end
-  end
+  # def update
+  #   # binding.pry
+  #   if @learning_data.update(learning_data_params)
+  #     redirect_to edit_user_skill_path
+  #   else
+  #     render :edit
+  #   end
+  # end
 
   def update
-    if @learning_data.update(learning_data_params)
-      redirect_to edit_user_skill_path
+
+    binding.pry
+    selected_month = params[:month].present? ? params[:month] : @current_month
+
+    case selected_month
+    when @current_month
+      month_data = @current_month_data.first
+    when @last_month
+      month_data = @last_month_data.first
+    when @two_months_ago
+      month_data = @two_months_ago_data.first
     else
-      @selected_month = selected_month
+      flash[:error] = "無効な月の選択です。"
+      render :edit and return
+    end
+
+    if month_data.update(learning_data_params)
+      redirect_to edit_user_skill_path(@user, month_data), notice: 'データが更新されました。'
+    else
       render :edit
     end
   end
@@ -34,33 +49,32 @@ class SkillsController < ApplicationController
   end
 
   def set_dates
-    # 選択した月
-    @selected_month = params[:month] ? params[:month].to_i : @current_month
-    # 今月
-    @current_month = Date.today.month
-    # 先月
-    @last_month = (Date.today - 1.month).month
-    # 先々月
-    @two_months_ago = (Date.today - 2.months).month
+    @current_month = Date.today.strftime("%Y-%m")
+    @last_month = (Date.today - 1.month).strftime("%Y-%m")
+    @two_months_ago = (Date.today - 2.months).strftime("%Y-%m")
   end
 
-  def set_learning_data
-    # 単一の学習時間
-    # @learning_data = @user.learning_data.where(month: @selected_month)
-  end
-
-  def set_learning_data
-    # 選択した月に紐づいた学習時間
-    @learning_data = @user.learning_data.find(params[:id])
+  def initialize_learning_data
+    # 各月の学習データが存在しない場合、デフォルトのデータを作成
+    [@current_month, @last_month, @two_months_ago].each do |month|
+      unless @user.learning_data.exists?(month: month)
+        @user.learning_data.create!(month: month, time: 0, skill: "Default skill", category_id: 1)
+      end
+    end
   end
 
   def set_month_data
-    # 当月に基づいたユーザーの学習時間
+    # 月に紐づいたユーザーの学習データ
     @current_month_data = @user.learning_data.where(month: @current_month)
-    # 先月に基づいたユーザーの学習時間
     @last_month_data = @user.learning_data.where(month: @last_month)
-    # 先々月に基づいたユーザーの学習時間
     @two_months_ago_data = @user.learning_data.where(month: @two_months_ago)
+  end
+
+  def set_month_time
+    # 月に紐づいた学習時間
+    @current_month_time = @current_month_data.order(updated_at: :desc).pluck(:time).first
+    @last_month_time = @last_month_data.order(updated_at: :desc).pluck(:time).first
+    @two_months_ago_time = @two_months_ago_data.order(updated_at: :desc).pluck(:time).first
   end
 
   def learning_data_params

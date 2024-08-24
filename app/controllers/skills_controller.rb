@@ -9,18 +9,8 @@ class SkillsController < ApplicationController
     # binding.pry
   end
 
-  # def update
-  #   # binding.pry
-  #   if @learning_data.update(learning_data_params)
-  #     redirect_to edit_user_skill_path
-  #   else
-  #     render :edit
-  #   end
-  # end
-
   def update
-
-    binding.pry
+    # binding.pry
     selected_month = params[:month].present? ? params[:month] : @current_month
 
     case selected_month
@@ -32,7 +22,7 @@ class SkillsController < ApplicationController
       month_data = @two_months_ago_data.first
     else
       flash[:error] = "無効な月の選択です。"
-      render :edit and return
+      render :edit
     end
 
     if month_data.update(learning_data_params)

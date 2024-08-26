@@ -12,6 +12,7 @@ class SkillsController < ApplicationController
   def update
     # binding.pry
     selected_month = params[:month].present? ? params[:month] : @current_month
+    month_data = nil
 
     case selected_month
     when @current_month
@@ -22,11 +23,11 @@ class SkillsController < ApplicationController
       month_data = @two_months_ago_data.first
     else
       flash[:error] = "無効な月の選択です。"
-      render :edit
+      render :edit and return
     end
 
     if month_data.update(learning_data_params)
-      redirect_to edit_user_skill_path(@user, month_data), notice: 'データが更新されました。'
+      redirect_to edit_user_skill_path(@user, month_data, month: params[:month]), notice: 'データが更新されました。'
     else
       render :edit
     end

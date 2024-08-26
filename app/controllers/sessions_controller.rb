@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  skip_before_action :authenticate_user, only: [:new, :create]
 
   def new
     @user = User.new
@@ -26,12 +25,12 @@ class SessionsController < ApplicationController
   def destroy
     reset_session
     session.delete(:user_id)
-    redirect_to logout_url, notice: "ログアウトしました。"
+    redirect_to logout_path, notice: "ログアウトしました。"
   end
 
   private
 
   def session_params
-    params.require(:session).permit(:email, :password_digest)
+    params.require(:session).permit(:email, :password)
   end
 end

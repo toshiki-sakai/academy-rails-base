@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
 
   def new
-    @user = User.new
   end
 
   def create
@@ -15,7 +14,6 @@ class SessionsController < ApplicationController
         session[:user_id] = @user.id
         redirect_to user_path(@user)
       else
-        @user = User.new(session_params)
         flash[:danger] = 'メールアドレス、もしくはパスワードが間違っています'
         render :new, status: :unprocessable_entity
       end
@@ -26,11 +24,5 @@ class SessionsController < ApplicationController
     reset_session
     session.delete(:user_id)
     redirect_to logout_path, notice: "ログアウトしました。"
-  end
-
-  private
-
-  def session_params
-    params.require(:session).permit(:email, :password)
   end
 end

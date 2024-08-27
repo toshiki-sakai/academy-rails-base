@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
   before_action :correct_user, only: [:show, :edit, :update]
-  before_action :set_learning_data, only: [:show]
 
   def show
   end
@@ -48,9 +47,5 @@ class UsersController < ApplicationController
       unless @user.id == session[:user_id]
         redirect_to root_path
       end
-    end
-
-    def set_learning_data
-      @learning_data = LearningData.find(params[:id])
     end
 end

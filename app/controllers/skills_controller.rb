@@ -36,6 +36,7 @@ class SkillsController < ApplicationController
   private
 
   def set_user
+    binding.pry
     @user = User.find(params[:user_id])
   end
 
@@ -49,7 +50,7 @@ class SkillsController < ApplicationController
     # 各月の学習データが存在しない場合、デフォルトのデータを作成
     [@current_month, @last_month, @two_months_ago].each do |month|
       unless @user.learning_data.exists?(month: month)
-        @user.learning_data.create!(month: month, time: 0, skill: "Default skill", category_id: 1)
+        @user.learning_data.create!(month: month, time: 0, skill: "Default skill", category_id: nil)
       end
     end
   end

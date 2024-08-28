@@ -6,11 +6,9 @@ class SkillsController < ApplicationController
   before_action :set_month_time, only: [:edit, :update]
 
   def edit
-    # binding.pry
   end
 
   def update
-    # binding.pry
     selected_month = params[:month].present? ? params[:month] : @current_month
     month_data = nil
 
@@ -36,7 +34,6 @@ class SkillsController < ApplicationController
   private
 
   def set_user
-    binding.pry
     @user = User.find(params[:user_id])
   end
 
@@ -47,10 +44,20 @@ class SkillsController < ApplicationController
   end
 
   def initialize_learning_data
+    # デフォルトのカテゴリIDを確認し、存在しない場合は作成
+    default_category = Category.find_or_create_by!(id: 1) do |category|
+      category.name = "Default Category"
+    end
+
     # 各月の学習データが存在しない場合、デフォルトのデータを作成
     [@current_month, @last_month, @two_months_ago].each do |month|
       unless @user.learning_data.exists?(month: month)
-        @user.learning_data.create!(month: month, time: 0, skill: "Default skill", category_id: nil)
+        @user.learning_data.create!(
+          month: month,
+          time: 0,
+          skill: "Default skill",
+          category_id: default_category
+        )
       end
     end
   end

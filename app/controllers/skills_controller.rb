@@ -6,6 +6,7 @@ class SkillsController < ApplicationController
   before_action :set_month_time, only: [:edit, :update]
 
   def edit
+    binding.pry
   end
 
   def update
@@ -56,7 +57,7 @@ class SkillsController < ApplicationController
           month: month,
           time: 0,
           skill: "Default skill",
-          category_id: default_category
+          category_id: default_category.id
         )
       end
     end

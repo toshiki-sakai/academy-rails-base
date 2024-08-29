@@ -1,9 +1,12 @@
 class SkillsController < ApplicationController
-  before_action :set_user, only: [:edit, :update]
-  before_action :set_dates, only: [:edit, :update]
-  before_action :initialize_learning_data, only: [:edit]
-  before_action :set_month_data, only: [:edit, :update]
-  before_action :set_month_time, only: [:edit, :update]
+  before_action :set_user, only: [:new, :edit, :update]
+  before_action :set_dates, only: [:new, :edit, :update]
+  before_action :initialize_learning_data, only: [:new, :edit]
+  before_action :set_month_data, only: [:new, :edit, :update]
+  before_action :set_month_time, only: [:new, :edit, :update]
+
+  def new
+  end
 
   def edit
   end

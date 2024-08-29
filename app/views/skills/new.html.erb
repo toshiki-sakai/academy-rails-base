@@ -6,32 +6,24 @@
 </head>
 <body>
   <header>
-    <h1>My Portfolio</h1>
+    <h6><a href="<%= user_path(@user) %>">My Portfolio</a></h6>
     <%= link_to "ログアウト", logout_path, class: "button_logout", data: { "turbo-method": :delete } %>
   </header>
   <div class="login-container">
     <h2>{カテゴリー名}に項目を追加</h2>
-    <div id="flash-messages">
-      <% if flash[:error].blank? %>
-        <% flash.each do |key, message| %>
-          <div class="flash <%= key %>"><%= message %></div>
-        <% end %>
-      <% end %>
-    </div>
     <div class="input-group">
-      <form action="main#index">
-        <div>
-          <span>
-            <label for="introduction">自己紹介文</label>
-            <input type="text" id="introduction">
-          </span>
+      <%= form_with model: @learning_data, url: user_path(@user), method: :patch, local: true, html: { multipart: true } do |form| %>
+        <div class="skill-field">
+          <span class="skill-title">項目名</span>
+          <%= form.text_field :skill, id: "skill" %>
         </div>
-        <span>
-          <label for="image">アバター画像</label>
-          <input type="file" id="image" name="画像ファイルを添付する">
-        </span>
-      </form>
-      <%= link_to "自己紹介を確定する", root_path, class: "button-edit" %>
+        <div class="image-field">
+          <span class="skill-title">学習時間</span>
+          <%= form.text_field :time, id: "skill" %>
+          <span class="skill-title">分単位で入力してください</span>
+        </div>
+        <%= form.submit "追加する", class: "button-profile" %>
+      <% end %>
     </div>
   </div>
   <footer>

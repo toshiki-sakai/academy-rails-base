@@ -6,7 +6,6 @@ class SkillsController < ApplicationController
   before_action :set_month_time, only: [:edit, :update]
 
   def edit
-    binding.pry
   end
 
   def update

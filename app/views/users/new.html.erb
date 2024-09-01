@@ -27,6 +27,8 @@
             <span class="error-message"><%= @user.errors[:email].first %></span>
           <% end %>
         </div>
+        <div class="error-message">
+        </div>
         <div class="input">
           <%= f.label :password, 'パスワード' %>
           <%= f.password_field :password, id: 'user_password', required: true %>

@@ -20,7 +20,6 @@ class SkillsController < ApplicationController
     when @two_months_ago
       month_data = @two_months_ago_data.first
     else
-      flash[:error] = "無効な月の選択です。"
       render :edit and return
     end
 

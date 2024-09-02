@@ -1,11 +1,22 @@
 class SkillsController < ApplicationController
-  before_action :set_user, only: [:new, :edit, :update]
+  before_action :set_user, only: [:new, :create, :edit, :update]
   before_action :set_dates, only: [:new, :edit, :update]
   before_action :initialize_learning_data, only: [:new, :edit]
   before_action :set_month_data, only: [:new, :edit, :update]
   before_action :set_month_time, only: [:new, :edit, :update]
 
   def new
+    @learning_data = @user.learning_data.new
+  end
+
+  def create
+    binding.pry
+    @learning_data = @user.learning_data.new(learning_data_params)
+    if @learning_data.save
+      redirect_to edit_user_skill_path(@user, month_data, month: params[:month])
+    else
+      render :new
+    end
   end
 
   def edit

@@ -27,7 +27,7 @@
           <div class="content">
             <div class="title-group">
               <div class="title">バックエンド</div>
-              <%= link_to "項目を追加する", new_user_skill_path(@user), class: "button_blue" %>
+              <%= link_to "項目を追加する", new_user_skill_path(@user, month: @current_month_data.first.month), class: "button_blue" %>
             </div>
             <table class="teble-group">
               <thead>

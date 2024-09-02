@@ -23,6 +23,7 @@
           <%= form.text_field :time, id: "skill" %>
           <span class="skill-title">分単位で入力してください</span>
         </div>
+        <%= hidden_field_tag :month, params[:month] %>
         <button type="button" class="button-profile" data-toggle="modal" data-target="#Modal">追加する</button>
       </div>
 

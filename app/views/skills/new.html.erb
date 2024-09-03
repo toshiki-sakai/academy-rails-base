@@ -10,21 +10,33 @@
     <h6><a href="<%= user_path(@user) %>">My Portfolio</a></h6>
     <%= link_to "ログアウト", logout_path, class: "button_logout", data: { "turbo-method": :delete } %>
   </header>
-  <%= form_with model: @learning_data, url: user_skills_path, method: :post, local: true, html: { multipart: true } do |form| %>
+
+  <%= form_with model: @learning_data, url: user_skills_path, method: :post, local: true, id: 'learning-data-form', html: { multipart: true } do |form| %>
     <div class="login-container">
       <h2>{カテゴリー名}に項目を追加</h2>
       <div class="input-group">
         <div class="skill-field">
           <span class="skill-title">項目名</span>
           <%= form.text_field :skill, id: "skill" %>
+          <% if @learning_data.errors[:skill].any? %>
+            <div class="error-message">
+              <%= @learning_data.errors[:skill].first %>
+            </div>
+          <% end %>
         </div>
         <div class="image-field">
           <span class="skill-title">学習時間</span>
           <%= form.text_field :time, id: "skill" %>
           <span class="skill-title">分単位で入力してください</span>
+          <% if @learning_data.errors[:time].any? %>
+            <div class="error-message">
+              <%= @learning_data.errors[:time].first %>
+            </div>
+          <% end %>
         </div>
         <%= hidden_field_tag :month, params[:month] %>
-        <button type="button" class="button-profile" data-toggle="modal" data-target="#Modal">追加する</button>
+        <button type="button" class="button-profile" data-toggle="modal" data-target="#Modal">追加</button>
+        <%= form.submit "追加する", id: "submit-button", class: "button-profile" %>
       </div>
 
       <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="Modal" aria-hidden="true">
@@ -39,11 +51,29 @@
       </div>
     </div>
   <% end %>
+
   <footer>
     <p>portfolio site</p>
   </footer>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const form = document.getElementById("learning-data-form");
+
+      form.addEventListener("submit", function(event) {
+        // バリデーションエラーメッセージが表示されているかをチェック
+        const hasErrors = document.querySelectorAll(".error-message").length > 0;
+
+        if (!hasErrors) {
+          // エラーメッセージがない場合にのみモーダルを表示
+          event.preventDefault(); // フォームの送信を一時的にキャンセル
+          $('#Modal').modal('show'); // モーダルを表示
+        }
+      });
+    });
+  </script>
 </body>
 </html>

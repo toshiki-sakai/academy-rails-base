@@ -7,15 +7,20 @@ class SkillsController < ApplicationController
 
   def new
     @learning_data = @user.learning_data.new
+    @selected_month = params[:month]
   end
 
   def create
-    binding.pry
     @learning_data = @user.learning_data.new(learning_data_params)
+
+    if params[:month].present?
+      @learning_data.month = params[:month]
+    end
+
     if @learning_data.save
-      redirect_to edit_user_skill_path(@user, month_data, month: params[:month])
+      redirect_to edit_user_skill_path(@user, @learning_data), notice: '学習データが追加されました。'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -39,7 +44,7 @@ class SkillsController < ApplicationController
     end
 
     if month_data.update(learning_data_params)
-      redirect_to edit_user_skill_path(@user, month_data, month: params[:month]), notice: 'データが更新されました。'
+      redirect_to edit_user_skill_path(@user, month_data, month: params[:month])
     else
       render :edit
     end

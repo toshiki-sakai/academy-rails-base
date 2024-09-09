@@ -20,14 +20,14 @@
       </select>
     </div>
 
-    <%= form_with model: @current_month_data.first, url: user_skill_path(@user, @current_month_data.first), method: :patch, local: true do |f| %>
+    <%= form_with model: @current_month_data.first, url: user_skill_path(@user, @current_month_data.first, @category), method: :patch, local: true do |f| %>
       <%= hidden_field_tag :month, @current_month_data.first.month %>
       <div id="Box1" class="select-box">
         <div class="category">
           <div class="content">
             <div class="title-group">
               <div class="title">バックエンド</div>
-              <%= link_to "項目を追加する", new_user_skill_path(@user, month: @current_month_data.first.month), class: "button_blue" %>
+              <%= link_to "項目を追加する", new_user_skill_path(@user, month: @current_month_data.first.month, category_id: @category_id), class: "button_blue" %>
             </div>
             <table class="teble-group">
               <thead>
@@ -60,7 +60,7 @@
       </div>
     <% end %>
 
-    <%= form_with model: @last_month_data.first, url: user_skill_path(@user, @last_month_data.first), method: :patch, local: true do |f| %>
+    <%= form_with model: @last_month_data.first, url: user_skill_path(@user, @last_month_data.first, @category), method: :patch, local: true do |f| %>
       <%= hidden_field_tag :month, @last_month_data.first.month %>
       <div id="Box2" class="select-box" style="display: none;">
         <div class="category">
@@ -100,7 +100,7 @@
       </div>
     <% end %>
 
-    <%= form_with model: @two_months_ago_data.first, url: user_skill_path(@user, @two_months_ago_data.first), method: :patch, local: true do |f| %>
+    <%= form_with model: @two_months_ago_data.first, url: user_skill_path(@user, @two_months_ago_data.first, @category), method: :patch, local: true do |f| %>
       <%= hidden_field_tag :month, @two_months_ago_data.first.month %>
       <div id="Box3" class="select-box" style="display: none;">
         <div class="category">

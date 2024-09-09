@@ -27,7 +27,42 @@
           <div class="content">
             <div class="title-group">
               <div class="title">バックエンド</div>
-              <%= link_to "項目を追加する", new_user_skill_path(@user, month: @current_month_data.first.month, category_id: @category_id), class: "button_blue" %>
+              <%= link_to "項目を追加する", new_user_skill_path(@user, month: @current_month_data.first.month, category_id: 1), class: "button_blue" %>
+            </div>
+            <table class="teble-group">
+              <thead>
+                <tr>
+                  <th>項目名</th>
+                  <th>学習時間</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Ruby</td>
+                  <td>
+                    <div class="time-select-area js-time-select-area">
+                      <div class="__arrow __up js-time-select-up"></div>
+                      <div class="__arrow __down js-time-select-down"></div>
+                      <%= f.number_field :time, class:"time-select js-time-select", value: @current_month_time || 0 %>
+                    </div>
+                  </td>
+                  <td>
+                    <%= f.submit "学習時間を保存する", class:"button-blue-save" %>
+                  </td>
+                  <td><button class="button-red">削除する</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="category">
+          <div class="content">
+            <div class="title-group">
+              <div class="title">フロントエンド</div>
+              <%= link_to "項目を追加する", new_user_skill_path(@user, month: @current_month_data.first.month, category_id: 2), class: "button_blue" %>
             </div>
             <table class="teble-group">
               <thead>

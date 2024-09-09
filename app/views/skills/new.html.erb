@@ -36,8 +36,7 @@
         </div>
         <%= hidden_field_tag :month, params[:month] %>
         <%= hidden_field_tag :category_id, params[:category_id]  %>
-        <button type="button" class="button-profile" data-toggle="modal" data-target="#Modal">追加</button>
-        <%= form.submit "追加する", id: "submit-button", class: "button-profile" %>
+        <button type="button" class="button-profile" id="submit-button">追加する</button>
       </div>
 
       <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="Modal" aria-hidden="true">
@@ -46,7 +45,7 @@
             <div class="modal-header">
               追加しました！
             </div>
-            <%= form.submit "編集ページに戻る", class: "button_blue"%>
+            <%= link_to "編集ページに戻る", edit_user_skill_path(@user, @category, @learning_data), class: "button_blue" %>
           </div>
         </div>
       </div>
@@ -63,18 +62,29 @@
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const form = document.getElementById("learning-data-form");
+      const modal = $('#Modal');
+      const submitButton = document.getElementById("submit-button");
 
-      form.addEventListener("submit", function(event) {
-        // バリデーションエラーメッセージが表示されているかをチェック
+      submitButton.addEventListener("click", function(event) {
+        // バリデーションエラーチェック
         const hasErrors = document.querySelectorAll(".error-message").length > 0;
 
-        if (!hasErrors) {
-          // エラーメッセージがない場合にのみモーダルを表示
-          event.preventDefault(); // フォームの送信を一時的にキャンセル
-          $('#Modal').modal('show'); // モーダルを表示
+        if (hasErrors) {
+          // バリデーションエラーがある場合は、モーダルを表示せずエラーメッセージを表示
+          event.preventDefault(); // フォームのデフォルト送信をキャンセル
+        } else {
+          // バリデーションエラーがない場合はモーダルを表示
+          event.preventDefault(); // フォームのデフォルト送信をキャンセル
+          form.submit(); // フォームを送信
+          modal.modal('show'); // モーダルを表示
         }
+      });
+
+      // モーダルの「編集ページに戻る」ボタンがクリックされたとき
+      modal.on('hidden.bs.modal', function () {
+        // フォームが送信された後にモーダルが閉じるので、特に追加の処理は不要です
       });
     });
   </script>
-</body>
+<body>
 </html>

@@ -13,7 +13,6 @@ class SkillsController < ApplicationController
   end
 
   def create
-    binding.pry
     @learning_data = @user.learning_data.new(learning_data_params)
 
     if params[:month].present?
@@ -21,6 +20,10 @@ class SkillsController < ApplicationController
     end
 
     if @learning_data.save
+      flash[:notice] = {
+        skill_name: @learning_data.skill,
+        time: @learning_data.time
+      }
       redirect_to edit_user_skill_path(@user, @learning_data), notice: '学習データが追加されました。'
     else
       render :new, status: :unprocessable_entity
@@ -28,7 +31,6 @@ class SkillsController < ApplicationController
   end
 
   def edit
-    binding.pry
   end
 
   def update
@@ -91,7 +93,6 @@ class SkillsController < ApplicationController
   end
 
   def set_learning_data
-    binding.pry
     default_skills = {
       1 => 'Ruby',      # id=1
       2 => 'HTML',      # id=2

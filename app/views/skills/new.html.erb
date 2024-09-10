@@ -11,7 +11,7 @@
     <%= link_to "ログアウト", logout_path, class: "button_logout", data: { "turbo-method": :delete } %>
   </header>
 
-  <%= form_with model: @learning_data, url: user_skills_path, method: :post, local: true, id: 'learning-data-form', html: { multipart: true } do |form| %>
+  <%= form_with model: @learning_data, url: user_skills_path(@user, @category, @learning_data), method: :post, local: true, id: 'learning-data-form', html: { multipart: true } do |form| %>
     <div class="login-container">
       <h2><%= @category.name %>に項目を追加</h2>
       <div class="input-group">
@@ -43,7 +43,10 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              追加しました！
+              <% if flash[:notice] %>
+                <p><%= @category.name %>に<%= flash[:notice][:skill_name] %>を</p>
+                <p><%= flash[:notice][:time] %>分で追加しました！</p>
+              <% end %>
             </div>
             <%= link_to "編集ページに戻る", edit_user_skill_path(@user, @category, @learning_data), class: "button_blue" %>
           </div>
@@ -71,18 +74,17 @@
 
         if (hasErrors) {
           // バリデーションエラーがある場合は、モーダルを表示せずエラーメッセージを表示
-          event.preventDefault(); // フォームのデフォルト送信をキャンセル
+          event.preventDefault(); // デフォルトの動作をキャンセル
         } else {
           // バリデーションエラーがない場合はモーダルを表示
           event.preventDefault(); // フォームのデフォルト送信をキャンセル
-          form.submit(); // フォームを送信
           modal.modal('show'); // モーダルを表示
-        }
-      });
 
-      // モーダルの「編集ページに戻る」ボタンがクリックされたとき
-      modal.on('hidden.bs.modal', function () {
-        // フォームが送信された後にモーダルが閉じるので、特に追加の処理は不要です
+          // モーダルが閉じられた後にフォームを送信
+          modal.on('hidden.bs.modal', function () {
+            form.submit(); // フォームを送信
+          });
+        }
       });
     });
   </script>

@@ -68,25 +68,86 @@
       const modal = $('#Modal');
       const submitButton = document.getElementById("submit-button");
 
+      console.log("here1");
+
       submitButton.addEventListener("click", function(event) {
         // バリデーションエラーチェック
         const hasErrors = document.querySelectorAll(".error-message").length > 0;
 
         if (hasErrors) {
+          console.log("here2");
           // バリデーションエラーがある場合は、モーダルを表示せずエラーメッセージを表示
           event.preventDefault(); // デフォルトの動作をキャンセル
         } else {
+          console.log("here3");
           // バリデーションエラーがない場合はモーダルを表示
           event.preventDefault(); // フォームのデフォルト送信をキャンセル
           modal.modal('show'); // モーダルを表示
 
           // モーダルが閉じられた後にフォームを送信
           modal.on('hidden.bs.modal', function () {
+            console.log("here4");
             form.submit(); // フォームを送信
           });
         }
       });
     });
+
+    // document.addEventListener("DOMContentLoaded", function() {
+    //   const submitLink = document.getElementById("submit-link");
+    //   const form = document.getElementById("learning-data-form");
+    //   const modal = $('#Modal');
+    //   console.log("here1");
+
+    //   submitLink.addEventListener("click", function(event) {
+
+    //     event.preventDefault(); // デフォルトのリンク動作を無効化
+    //     console.log("here2");
+
+    //     // FormDataを使ってフォームのデータを取得
+    //     const formData = new FormData(form);
+
+    //     // AJAXでフォームを送信
+    //     fetch(form.action, {
+    //       method: "POST",
+    //       body: formData,
+    //       headers: {
+    //         'X-Requested-With': 'XMLHttpRequest'
+    //       }
+    //     })
+    //     .then(response => response.json()) // レスポンスをJSONとして処理
+    //     .then(data => {
+    //       // バリデーションに失敗した場合
+    //       if (data.errors) {
+    //         displayValidationErrors(data.errors);
+    //       } else {
+    //         // 成功した場合はモーダルを表示
+    //         modal.modal('show');
+    //         console.log("here3");
+    //       }
+    //     })
+    //     .catch(error => {
+    //       console.error('Error:', error);
+    //     });
+    //   });
+
+    //   // バリデーションエラーを表示する関数
+    //   function displayValidationErrors(errors) {
+    //     const errorMessages = document.querySelectorAll(".error-message");
+    //     errorMessages.forEach(function(message) {
+    //       message.textContent = ""; // 既存のエラーメッセージをクリア
+    //     });
+
+    //     // 各フィールドにエラーメッセージを表示
+    //     for (const field in errors) {
+    //       const errorElement = document.querySelector(`#${field}`).nextElementSibling;
+    //       if (errorElement) {
+    //         errorElement.textContent = errors[field][0];
+    //       }
+    //     }
+    //   }
+    // });
+
   </script>
 <body>
 </html>

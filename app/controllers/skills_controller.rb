@@ -15,16 +15,25 @@ class SkillsController < ApplicationController
   def create
     @learning_data = @user.learning_data.new(learning_data_params)
 
+    Rails.logger.debug "here1"
+
     if params[:month].present?
       @learning_data.month = params[:month]
     end
 
     if @learning_data.save
-      flash[:notice] = {
-        skill_name: @learning_data.skill,
-        time: @learning_data.time
+      Rails.logger.debug "here2"
+      # モーダルに渡すデータを設定
+      flash[:modal_data] = {
+        skill: @learning_data.skill,
+        time: @learning_data.time,
+        month: @learning_data.month
       }
-      redirect_to edit_user_skill_path(@user, @learning_data), notice: '学習データが追加されました。'
+
+      # リクエストのフォーマットに応じてレスポンスを返す
+      respond_to do |format|
+        format.turbo_stream
+      end
     else
       render :new, status: :unprocessable_entity
     end

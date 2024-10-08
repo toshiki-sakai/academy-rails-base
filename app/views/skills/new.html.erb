@@ -11,160 +11,40 @@
     <%= link_to "ログアウト", logout_path, class: "button_logout", data: { "turbo-method": :delete } %>
   </header>
 
-  <%= form_with model: @learning_data, url: user_skills_path(@user, @category, @learning_data), method: :post, remote: true, id: 'learning-data-form', html: { multipart: true } do |form| %>
+  <%= form_with model: @learning_data, url: user_skills_path(@user), id: 'learning-data-form' do |form| %>
     <div class="login-container">
       <h2><%= @category.name %>に項目を追加</h2>
       <div class="input-group">
         <div class="skill-field">
           <span class="skill-title">項目名</span>
           <%= form.text_field :skill, id: "skill" %>
-          <div class="error-message" id="skill-error"></div>
+          <% if @learning_data.errors[:skill].any? %>
+            <div class="error-message">
+              <%= @learning_data.errors[:skill].first %>
+            </div>
+          <% end %>
         </div>
         <div class="image-field">
           <span class="skill-title">学習時間</span>
           <%= form.text_field :time, id: "time" %>
           <span class="skill-title">分単位で入力してください</span>
-          <div class="error-message" id="time-error"></div>
+          <% if @learning_data.errors[:time].any? %>
+            <div class="error-message">
+              <%= @learning_data.errors[:time].first %>
+            </div>
+          <% end %>
         </div>
         <%= form.hidden_field :month, value: params[:month] %>
         <%= form.hidden_field :category_id, value: params[:category_id] %>
         <button type="submit" class="button-profile" id="submit-button">追加する</button>
       </div>
-
-      <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="Modal" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <% if flash[:modal_data] %>
-                <p><%= @category.name %>に<%= flash[:modal_data][:skill] %>を</p>
-                <p><%= flash[:modal_data][:time] %>分で追加しました！</p>
-              <% end %>
-            </div>
-            <%= link_to "編集ページに戻る", edit_user_skill_path(@user, @category, @learning_data), class: "button_blue" %>
-          </div>
-        </div>
-      </div>
     </div>
   <% end %>
+
+  <%= render 'modal' %>
 
   <footer>
     <p>portfolio site</p>
   </footer>
-
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-  <script>
-    // document.addEventListener("DOMContentLoaded", function() {
-    //   const form = document.getElementById("learning-data-form");
-    //   const modal = $('#Modal');
-    //   const submitButton = document.getElementById("submit-button");
-
-    //   console.log("here1");
-
-    //   submitButton.addEventListener("click", function(event) {
-    //     // バリデーションエラーチェック
-    //     const hasErrors = document.querySelectorAll(".error-message").length > 0;
-    //     form.submit();
-
-    //     if (hasErrors) {
-    //       console.log("here2");
-    //       // バリデーションエラーがある場合は、モーダルを表示せずエラーメッセージを表示
-    //       // event.preventDefault(); // デフォルトの動作をキャンセル
-    //     } else {
-    //       console.log("here3");
-    //       // バリデーションエラーがない場合はモーダルを表示
-    //       event.preventDefault(); // フォームのデフォルト送信をキャンセル
-    //       modal.modal('show'); // モーダルを表示
-
-    //       // モーダルが閉じられた後にフォームを送信
-    //       modal.on('hidden.bs.modal', function () {
-    //         console.log("here4");
-    //         form.submit(); // フォームを送信
-    //       });
-    //     }
-    //   });
-    // });
-
-    // document.addEventListener("DOMContentLoaded", function() {
-    //   const submitLink = document.getElementById("submit-link");
-    //   const form = document.getElementById("learning-data-form");
-    //   const modal = $('#Modal');
-    //   console.log("here1");
-
-    //   submitLink.addEventListener("click", function(event) {
-
-    //     event.preventDefault(); // デフォルトのリンク動作を無効化
-    //     console.log("here2");
-
-    //     // FormDataを使ってフォームのデータを取得
-    //     const formData = new FormData(form);
-
-    //     // AJAXでフォームを送信
-    //     fetch(form.action, {
-    //       method: "POST",
-    //       body: formData,
-    //       headers: {
-    //         'X-Requested-With': 'XMLHttpRequest'
-    //       }
-    //     })
-    //     .then(response => response.json()) // レスポンスをJSONとして処理
-    //     .then(data => {
-    //       // バリデーションに失敗した場合
-    //       if (data.errors) {
-    //         displayValidationErrors(data.errors);
-    //       } else {
-    //         // 成功した場合はモーダルを表示
-    //         modal.modal('show');
-    //         console.log("here3");
-    //       }
-    //     })
-    //     .catch(error => {
-    //       console.error('Error:', error);
-    //     });
-    //   });
-
-    //   // バリデーションエラーを表示する関数
-    //   function displayValidationErrors(errors) {
-    //     const errorMessages = document.querySelectorAll(".error-message");
-    //     errorMessages.forEach(function(message) {
-    //       message.textContent = ""; // 既存のエラーメッセージをクリア
-    //     });
-
-    //     // 各フィールドにエラーメッセージを表示
-    //     for (const field in errors) {
-    //       const errorElement = document.querySelector(`#${field}`).nextElementSibling;
-    //       if (errorElement) {
-    //         errorElement.textContent = errors[field][0];
-    //       }
-    //     }
-    //   }
-    // });
-
-    // document.addEventListener('DOMContentLoaded', function() {
-    //   // イベントリスナーがDOMの読み込み完了後に設定される
-    //   document.getElementById('learning-data-form').addEventListener('ajax:success', function(event) {
-    //     const [data, _status, _xhr] = event.detail;
-    //     if (data.success) {
-    //       // 成功時の処理
-    //       document.getElementById('modal-skill').textContent = `項目名: ${data.skill}`;
-    //       document.getElementById('modal-time').textContent = `学習時間: ${data.time}`;
-
-    //       // モーダルを表示
-    //       const modal = new bootstrap.Modal(document.getElementById('Modal'));
-    //       modal.show();
-    //     }
-    //   });
-
-    //   document.getElementById('learning-data-form').addEventListener('ajax:error', function(event) {
-    //     const [data, _status, _xhr] = event.detail;
-    //     if (!data.success) {
-    //       // エラー時の処理
-    //       document.getElementById('skill-error').textContent = data.errors.skill ? data.errors.skill.join(', ') : '';
-    //       document.getElementById('time-error').textContent = data.errors.time ? data.errors.time.join(', ') : '';
-    //     }
-    //   });
-    // });
-  </script>
 <body>
 </html>

@@ -52,7 +52,7 @@ gem 'gravtastic'
 
 gem "active_storage_validations"
 
-# gem 'turbo-rails'
+gem 'turbo-rails'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

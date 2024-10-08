@@ -1,0 +1,8 @@
+<%= turbo_stream.replace 'modal', partial: 'modal', locals: { learning_data: flash[:modal_data] } %>
+
+<%= turbo_stream.append "body" do %>
+  <script>
+    // モーダルを表示する
+    $('#modal').modal('show');
+  </script>
+<% end %>

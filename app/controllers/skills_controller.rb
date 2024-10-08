@@ -1,9 +1,43 @@
 class SkillsController < ApplicationController
-  before_action :set_user, only: [:edit, :update]
-  before_action :set_dates, only: [:edit, :update]
-  before_action :initialize_learning_data, only: [:edit]
-  before_action :set_month_data, only: [:edit, :update]
-  before_action :set_month_time, only: [:edit, :update]
+  before_action :set_user
+  before_action :set_dates
+  before_action :set_month_data
+  before_action :set_month_time
+  before_action :set_category
+  before_action :set_learning_data, only: [:edit, :new]
+  before_action :set_category_id
+
+  def new
+    @learning_data = @user.learning_data.new
+    @selected_month = params[:month]
+  end
+
+  def create
+    @learning_data = @user.learning_data.new(learning_data_params)
+
+    Rails.logger.debug "here1"
+
+    if params[:month].present?
+      @learning_data.month = params[:month]
+    end
+
+    if @learning_data.save
+      Rails.logger.debug "here2"
+      # モーダルに渡すデータを設定
+      flash[:modal_data] = {
+        skill: @learning_data.skill,
+        time: @learning_data.time,
+        month: @learning_data.month
+      }
+
+      # リクエストのフォーマットに応じてレスポンスを返す
+      respond_to do |format|
+        format.turbo_stream
+      end
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
 
   def edit
   end
@@ -24,7 +58,7 @@ class SkillsController < ApplicationController
     end
 
     if month_data.update(learning_data_params)
-      redirect_to edit_user_skill_path(@user, month_data, month: params[:month]), notice: 'データが更新されました。'
+      redirect_to edit_user_skill_path(@user, month_data, month: params[:month])
     else
       render :edit
     end
@@ -36,29 +70,20 @@ class SkillsController < ApplicationController
     @user = User.find(params[:user_id])
   end
 
+  def set_category
+    @category = Category.find_by(id: params[:category_id]) || Category.where(id: [1, 2, 3])
+  end
+
+  def set_category_id
+    @category_id_1 = Category.find_by(id: 1)
+    @category_id_2 = Category.find_by(id: 2)
+    @category_id_3 = Category.find_by(id: 3)
+  end
+
   def set_dates
     @current_month = Date.today.strftime("%Y-%m")
     @last_month = (Date.today - 1.month).strftime("%Y-%m")
     @two_months_ago = (Date.today - 2.months).strftime("%Y-%m")
-  end
-
-  def initialize_learning_data
-    # デフォルトのカテゴリIDを確認し、存在しない場合は作成
-    default_category = Category.find_or_create_by!(id: 1) do |category|
-      category.name = "Default Category"
-    end
-
-    # 各月の学習データが存在しない場合、デフォルトのデータを作成
-    [@current_month, @last_month, @two_months_ago].each do |month|
-      unless @user.learning_data.exists?(month: month)
-        @user.learning_data.create!(
-          month: month,
-          time: 0,
-          skill: "Default skill",
-          category_id: default_category.id
-        )
-      end
-    end
   end
 
   def set_month_data
@@ -70,12 +95,45 @@ class SkillsController < ApplicationController
 
   def set_month_time
     # 月に紐づいた学習時間
-    @current_month_time = @current_month_data.order(updated_at: :desc).pluck(:time).first
-    @last_month_time = @last_month_data.order(updated_at: :desc).pluck(:time).first
-    @two_months_ago_time = @two_months_ago_data.order(updated_at: :desc).pluck(:time).first
+    @current_month_time = @current_month_data.order(updated_at: :desc).pluck(:time).first || 0
+    @last_month_time = @last_month_data.order(updated_at: :desc).pluck(:time).first || 0
+    @two_months_ago_time = @two_months_ago_data.order(updated_at: :desc).pluck(:time).first || 0
+  end
+
+  def set_learning_data
+    default_skills = {
+      1 => 'Ruby',      # id=1
+      2 => 'HTML',      # id=2
+      3 => 'Heroku'     # id=3
+    }
+
+    current_month = params[:month] || @current_month
+
+    [@current_month_data, @last_month_data, @two_months_ago_data].each do |data_set|
+      data_set_month = case data_set
+                        when @current_month_data
+                          @current_month
+                        when @last_month_data
+                          @last_month
+                        when @two_months_ago_data
+                          @two_months_ago
+                        end
+
+      default_skills.each do |category_id, skill_name|
+        unless data_set.where(category_id: category_id).exists?
+          data_set.create!(
+            user: @user,
+            category_id: category_id,
+            skill:skill_name,
+            time: 0,
+            month: data_set_month
+          )
+        end
+      end
+    end
   end
 
   def learning_data_params
-    params.require(:learning_data).permit(:category_id, :skill, :time, :month)
+    params.require(:learning_data).permit(:user_id, :category_id, :skill, :time, :month)
   end
 end

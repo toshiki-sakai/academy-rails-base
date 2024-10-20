@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <%= stylesheet_link_tag 'custom', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+  <header>
+    <h6><a href="<%= user_path(@user) %>">My Portfolio</a></h6>
+    <%= link_to "ログアウト", logout_path, class: "button_logout", data: { "turbo-method": :delete } %>
+  </header>
+
+  <%= form_with model: @learning_data, url: user_learning_data_path(@user), id: 'learning-data-form' do |form| %>
+    <div class="login-container">
+      <h2><%= @category.name %>に項目を追加</h2>
+      <div class="input-group">
+        <div class="skill-field">
+          <span class="skill-title">項目名</span>
+          <%= form.text_field :skill, id: "skill" %>
+          <% if @learning_data.errors[:skill].any? %>
+            <div class="error-message">
+              <%= @learning_data.errors[:skill].first %>
+            </div>
+          <% end %>
+        </div>
+        <div class="image-field">
+          <span class="skill-title">学習時間</span>
+          <%= form.text_field :time, id: "time" %>
+          <span class="skill-title">分単位で入力してください</span>
+          <% if @learning_data.errors[:time].any? %>
+            <div class="error-message">
+              <%= @learning_data.errors[:time].first %>
+            </div>
+          <% end %>
+        </div>
+        <%= form.hidden_field :month, value: params[:month] %>
+        <%= form.hidden_field :category_id, value: params[:category_id] %>
+        <button type="submit" class="button-profile" id="submit-button">追加する</button>
+      </div>
+    </div>
+  <% end %>
+
+  <%= render 'modal' %>
+
+  <footer>
+    <p>portfolio site</p>
+  </footer>
+<body>
+</html>

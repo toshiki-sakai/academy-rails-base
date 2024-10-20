@@ -1,0 +1,15 @@
+<tr data-month="<%= data.month %>">
+  <td><%= data.skill %></td>
+  <td>
+    <div class="time-select-area">
+      <%= form_with model: [data.user, data], local: true, html: { class: 'learning-time-form' } do |form| %>
+        <%= form.select :time, (1..60).to_a, selected: data.time, class: 'time-select' %>
+        <%= form.hidden_field :month, value: data.month %>
+        <%= form.hidden_field :category_id, value: data.category_id %>
+        <%= form.hidden_field :skill, value: data.skill %>
+        <button class="button-blue-save" type="submit">学習時間を保存する</button>
+      <% end %>
+    </div>
+  </td>
+  <td><button class="button-red">削除する</button></td>
+</tr>

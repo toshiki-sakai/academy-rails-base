@@ -1,6 +1,7 @@
 class LearningDataController < ApplicationController
   before_action :set_user
   before_action :set_category
+  before_action :set_learning_data, only: [:edit, :update]
   before_action :set_category_id
   before_action :set_dates
   before_action :set_month_data
@@ -8,35 +9,18 @@ class LearningDataController < ApplicationController
   # before_action :set_learning_data, only: [:edit, :new]
 
   def new
-    @learning_data = @user.learning_datum.new
+    @learning_data = LearningDatum.new(user: @user, category: @category)
     @selected_month = params[:month]
   end
 
   def create
-    @learning_data = @user.learning_datum.new(learning_data_params)
-
-    Rails.logger.debug "here1"
-
-    if params[:month].present?
-      @learning_data.month = params[:month]
-    end
+    @learning_data = LearningDatum.new(learning_data_params)
 
     if @learning_data.save
-      Rails.logger.debug "format: #{request.format}"
-      # モーダルに渡すデータを設定
-      # flash[:modal_data] = {
-      #   skill: @learning_data.skill,
-      #   time: @learning_data.time,
-      #   month: @learning_data.month
-      # }
-
       # リクエストのフォーマットに応じてレスポンスを返す
-      respond_to do |format|
-        format.html { redirect_to user_learning_data_path(@user) }
-        format.turbo_stream
-      end
+      render turbo_stream: turbo_stream.replace("modal", partial: "modal", locals: { learning_data: @learning_data })
     else
-      render :new, status: :unprocessable_entity
+      render :new
     end
   end
 
@@ -76,6 +60,10 @@ class LearningDataController < ApplicationController
     @category = Category.find_by(id: params[:category_id]) || Category.where(id: [1, 2, 3])
   end
 
+  def set_learning_data
+    @learning_data = LearningDatum.find(params[:id])
+  end
+
   def set_category_id
     @category_id_1 = Category.find_by(id: 1)
     @category_id_2 = Category.find_by(id: 2)
@@ -93,17 +81,14 @@ class LearningDataController < ApplicationController
     if @current_month_data.blank?
       @current_month_data = [LearningDatum.create(user: @user, month: @current_month)]
     end
-    # @current_month_data = @user.learning_datum.where(month: @current_month)
 
     if @last_month_data.blank?
       @last_month_data = [LearningDatum.create(user: @user, month: @last_month)]
     end
-    # @last_month_data = @user.learning_datum.where(month: @last_month)
 
     if @two_months_ago_data.blank?
       @two_months_ago_data = [LearningDatum.create(user: @user, month: @two_months_ago)]
     end
-    # @two_months_ago_data = @user.learning_datum.where(month: @two_months_ago)
   end
 
 
@@ -152,6 +137,6 @@ class LearningDataController < ApplicationController
   # end
 
   def learning_data_params
-    params.require(:learning_datum).permit(:category_id, :skill, :time, :month)
+    params.require(:learning_datum).permit(:user_id, :category_id, :skill, :time, :month)
   end
 end

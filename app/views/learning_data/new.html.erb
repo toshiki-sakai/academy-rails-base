@@ -4,6 +4,14 @@
   <meta charset="UTF-8">
   <%= stylesheet_link_tag 'custom', media: 'all', 'data-turbolinks-track': 'reload' %>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
 </head>
 <body>
   <header>
@@ -11,7 +19,7 @@
     <%= link_to "ログアウト", logout_path, class: "button_logout", data: { "turbo-method": :delete } %>
   </header>
 
-  <%= form_with model: @learning_data, url: user_learning_data_path(@user), id: 'learning-data-form' do |form| %>
+  <%= form_with model: @learning_data, url: user_learning_data_path(@user), id: 'learning-data-form', data: { turbo: true } do |form| %>
     <div class="login-container">
       <h2><%= @category.name %>に項目を追加</h2>
       <div class="input-group">
@@ -40,8 +48,17 @@
       </div>
     </div>
   <% end %>
+<%
+=begin%>
 
-  <%= render 'modal' %>
+  <div id="modals">
+    <%= turbo_stream.replace 'modal', partial: 'modal', locals: { learning_data: flash[:modal_data] } %>
+  </div>
+<%
+=end%>
+
+  <div id="modal"></div>
+
 
   <footer>
     <p>portfolio site</p>

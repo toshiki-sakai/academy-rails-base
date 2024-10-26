@@ -1,8 +1,15 @@
-<%= turbo_stream.replace 'modal', partial: 'modal', locals: { learning_data: flash[:modal_data] } %>
+<%= turbo_stream.replace 'modal', partial: 'learning_data/modal', locals: { learning_data: @learning_data } %>
 
-<%= turbo_stream.append "body" do %>
+<%
+=begin%>
+ <%= turbo_stream.append "body" do %>
   <script>
-    // モーダルを表示する
-    $('#modal').modal('show');
+    // モーダルが存在することを確認
+    if ($('#modal').length) {
+      //モーダル表示
+      $('#modal').modal('show');
+    }
   </script>
 <% end %>
+<%
+=end%>

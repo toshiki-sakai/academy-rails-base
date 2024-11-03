@@ -42,24 +42,13 @@
             </div>
           <% end %>
         </div>
+        <%= form.hidden_field :category_id, value: @category.id %>
         <%= form.hidden_field :month, value: params[:month] %>
-        <%= form.hidden_field :category_id, value: params[:category_id] %>
         <button type="submit" class="button-profile" id="submit-button">追加する</button>
       </div>
     </div>
   <% end %>
-<%
-=begin%>
-
-  <div id="modals">
-    <%= turbo_stream.replace 'modal', partial: 'modal', locals: { learning_data: flash[:modal_data] } %>
-  </div>
-<%
-=end%>
-
   <div id="modal"></div>
-
-
   <footer>
     <p>portfolio site</p>
   </footer>

@@ -1,0 +1,31 @@
+<div id="learning_data_form">
+  <%= form_with model: learning_data, url: user_learning_data_path(@user), id: 'learning-data-form', data: { turbo_action: "replace" } do |form| %>
+    <div class="login-container">
+      <h2><%= category.name %>に項目を追加</h2>
+      <div class="input-group">
+        <div class="skill-field">
+          <span class="skill-title">項目名</span>
+          <%= form.text_field :skill, id: "skill", class: "form-control" %>
+          <% if learning_data.errors[:skill].any? %>
+            <div class="error-message text-danger">
+              <%= learning_data.errors[:skill].first %>
+            </div>
+          <% end %>
+        </div>
+        <div class="image-field">
+          <span class="skill-title">学習時間</span>
+          <%= form.text_field :time, id: "time", class: "form-control" %>
+          <span class="skill-title">分単位で入力してください</span>
+          <% if learning_data.errors[:time].any? %>
+            <div class="error-message text-danger">
+              <%= learning_data.errors[:time].first %>
+            </div>
+          <% end %>
+        </div>
+        <%= form.hidden_field :category_id, value: category.id %>
+        <%= form.hidden_field :month, value: params[:month] %>
+        <button type="submit" class="button-profile btn btn-primary" id="submit-button">追加する</button>
+      </div>
+    </div>
+  <% end %>
+</div>

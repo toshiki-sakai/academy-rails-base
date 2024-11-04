@@ -1,15 +1,13 @@
-<%= turbo_stream.replace 'modal', partial: 'learning_data/modal', locals: { learning_data: @learning_data } %>
+<% if @learning_data.errors.any? %>
+  <%= turbo_stream.update 'learning_data_form' do %>
+    <%= render partial: 'learning_data/form', locals: { learning_data: @learning_data, category: @category } %>
+  <% end %>
+<% else %>
+  <%= turbo_stream.update 'modal' do %>
+    <%= render partial: 'learning_data/modal', locals: { learning_data: @learning_data, category: @category } %>
+  <% end %>
 
-<%
-=begin%>
- <%= turbo_stream.append "body" do %>
-  <script>
-    // モーダルが存在することを確認
-    if ($('#modal').length) {
-      //モーダル表示
-      $('#modal').modal('show');
-    }
-  </script>
+  <%= turbo_stream.update 'learning_data_form' do %>
+    <%= render partial: 'learning_data/form', locals: { learning_data: LearningDatum.new, category: @category } %>
+  <% end %>
 <% end %>
-<%
-=end%>

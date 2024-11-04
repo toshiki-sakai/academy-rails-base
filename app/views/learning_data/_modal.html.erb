@@ -1,13 +1,13 @@
-<div id="modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true" data-controller="modal" id="responseModal">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-body">
-        <p><%= @category.name %>に<%= @learning_data.skill %>を</p>
-        <p><%= @learning_data.time %>分で追加しました！</p>
+        <p><%= category.name %>に<%= learning_data.skill %>を</p>
+        <p><%= learning_data.time %>分で追加しました！</p>
       </div>
       <div class="modal-footer">
-        <% if @learning_data.persisted? %>
-          <%= link_to "編集ページに戻る", edit_user_learning_datum_path(@learning_data.user, @learning_data), class: "button_blue" %>
+        <% if learning_data.persisted? %>
+          <%= link_to "編集ページに戻る", edit_user_learning_datum_path(learning_data.user, learning_data), class: "button_blue" %>
         <% end %>
       </div>
     </div>

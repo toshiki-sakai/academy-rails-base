@@ -2,7 +2,6 @@ class LearningDataController < ApplicationController
   before_action :set_user
   before_action :set_category, only: [:new, :create]
   before_action :set_learning_data, only: [:edit, :new]
-  # before_action :set_categories
   before_action :set_dates
   before_action :set_month_data
   before_action :set_month_time
@@ -15,18 +14,21 @@ class LearningDataController < ApplicationController
       user_id: params[:user_id],
       month: params[:month]
     )
-    Rails.logger.debug "Category: #{@category.inspect}" # デバッグ用
-    Rails.logger.debug "LearningData: #{@learning_data.inspect}" # デバッグ用
   end
 
   def create
-    @learning_data = current_user.learning_datum.new(learning_data_params)
+    @learning_data = @user.learning_datum.new(learning_data_params)
 
     if @learning_data.save
-      # リクエストのフォーマットに応じてレスポンスを返す
-      render turbo_stream: turbo_stream.replace("modal", partial: "modal", locals: { learning_data: @learning_data })
+      respond_to do |format|
+        format.turbo_stream
+        format.html { redirect_to some_path, notice: 'データが保存されました。' }
+      end
     else
-      render :new, status: :unprocessable_entity
+      respond_to do |format|
+        format.turbo_stream
+        format.html { render :new, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -66,10 +68,6 @@ class LearningDataController < ApplicationController
     category_id = params.dig(:learning_datum, :category_id) || params[:category_id]
     @category = Category.find(category_id)
   end
-
-  # def set_categories
-  #   @categories = Category.where(id: [1, 2, 3])
-  # end
 
   def set_dates
     @current_month = Date.today.strftime("%Y-%m")

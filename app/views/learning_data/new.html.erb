@@ -3,14 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <%= stylesheet_link_tag 'custom', media: 'all', 'data-turbolinks-track': 'reload' %>
-
-  <!-- Bootstrap CSS -->
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
-
-    <!-- Bootstrap JS -->
-    <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
 </head>
-<body>
+<body data-turbo-cache="false">
   <header>
     <h6><a href="<%= user_path(@user) %>">My Portfolio</a></h6>
     <%= link_to "ログアウト", logout_path, class: "button_logout", data: { "turbo-method": :delete } %>

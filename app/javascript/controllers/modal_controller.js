@@ -5,8 +5,4 @@ export default class extends Controller {
     this.modal = new window.bootstrap.Modal(this.element);
     this.modal.show();
   }
-
-  close() {
-    this.modal.hide();
-  }
 }

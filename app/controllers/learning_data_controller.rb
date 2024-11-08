@@ -1,16 +1,16 @@
 class LearningDataController < ApplicationController
   before_action :set_user
   before_action :set_category, only: [:new, :create]
-  before_action :set_learning_data, only: [:edit, :new]
-  before_action :set_dates
-  before_action :set_month_data
-  before_action :set_month_time
+  before_action :set_learning_data, only: [:new, :edit]
+  before_action :set_dates, only: [:new, :edit]
+  before_action :set_month_data, only: [:new, :edit]
+  before_action :set_month_time, only: [:new, :edit]
 
 
   def new
     @category = Category.find_by(id: params[:category_id])
     @learning_data = LearningDatum.new(
-      category_id: @category&.id,
+      category_id: params[:category_id],
       user_id: params[:user_id],
       month: params[:month]
     )
@@ -18,16 +18,13 @@ class LearningDataController < ApplicationController
 
   def create
     @learning_data = @user.learning_datum.new(learning_data_params)
+    @learning_data.category = @category
 
-    if @learning_data.save
-      respond_to do |format|
+    respond_to do |format|
+      if @learning_data.save
         format.turbo_stream
-        format.html { redirect_to some_path, notice: 'データが保存されました。' }
-      end
-    else
-      respond_to do |format|
+      else
         format.turbo_stream
-        format.html { render :new, status: :unprocessable_entity }
       end
     end
   end
@@ -65,8 +62,7 @@ class LearningDataController < ApplicationController
   end
 
   def set_category
-    category_id = params.dig(:learning_datum, :category_id) || params[:category_id]
-    @category = Category.find(category_id)
+    @category = Category.find(params[:category_id])
   end
 
   def set_dates
@@ -78,7 +74,7 @@ class LearningDataController < ApplicationController
   def set_month_data
     # 月に紐づいたユーザーの学習データ
     if @current_month_data.blank?
-      @current_month_data = [LearningDatum.create(user: @user, month: @current_month)]
+      @current_month_data = [LearningDatum.create(user: @user, month: @current_month,)]
     end
 
     if @last_month_data.blank?
@@ -135,6 +131,6 @@ class LearningDataController < ApplicationController
   end
 
   def learning_data_params
-    params.require(:learning_datum).permit(:skill, :time, :month, :category_id)
+    params.require(:learning_datum).permit(:skill, :time, :month)
   end
 end

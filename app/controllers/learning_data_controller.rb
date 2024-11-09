@@ -1,10 +1,10 @@
 class LearningDataController < ApplicationController
   before_action :set_user
   before_action :set_category, only: [:new, :create]
-  before_action :set_learning_data, only: [:new, :edit]
-  before_action :set_dates, only: [:new, :edit]
-  before_action :set_month_data, only: [:new, :edit]
-  before_action :set_month_time, only: [:new, :edit]
+  before_action :set_learning_data, only: [:new, :update]
+  before_action :set_dates, only: [:new, :edit, :update]
+  before_action :set_month_data, only: [:new, :edit, :update]
+  before_action :set_month_time, only: [:new, :edit, :update]
 
 
   def new
@@ -30,6 +30,8 @@ class LearningDataController < ApplicationController
   end
 
   def edit
+    @categories = Category.all
+    @learning_data = LearningDatum.all
   end
 
   def update

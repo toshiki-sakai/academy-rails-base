@@ -89,16 +89,15 @@ h2 {
 }
 
 .button_blue {
-  display: block;
   width: 232px!important;
   height: 53px!important;
-  margin: 12px auto;
   background-color: #1B5678;
   color: white;
   font-size: 18px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 footer {
@@ -300,7 +299,7 @@ h5 {
   height: 53px!important;
   margin: 0 auto;
   width: 40px;
-  background-color: #1B5678;
+  background-color: #fb0595;
   color: white;
   font-size: 18px;
   border: none;
@@ -471,13 +470,15 @@ header h6 a{
         border-bottom: 2px solid rgba(0, 0, 0, 0.5);
       }
 
-      .button_blue{
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-      }
+      // .button_blue{
+      //   margin: 0;
+      //   display: flex;
+      //   justify-content: center;
+      //   align-items: center;
+      //   cursor: pointer;
+      //   border: none;
+      //   text-decoration: none;
+      // }
     }
 
     .table-group{

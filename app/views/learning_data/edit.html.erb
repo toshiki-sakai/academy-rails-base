@@ -2,8 +2,6 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <%= stylesheet_link_tag 'custom', media: 'all', 'data-turbolinks-track': 'reload' %>
-
 </head>
 <body>
   <header>
@@ -12,6 +10,7 @@
   </header>
 
   <div class="wrapper-skill">
+    <!-- 月のセレクトボックス -->
     <div class="month-select-area">
       <select class="pull-down-button" id="pull-down-button" name="month" onchange="viewChange();">
         <option value="<%= @current_month %>"><%= Date.today.month %>月</option>
@@ -29,7 +28,7 @@
               <div class="title">バックエンド</div>
               <%= link_to "項目を追加する", new_user_learning_datum_path(@user, month: @current_month_data.first.month, category_id: 1), class: "button_blue" %>
             </div>
-            <div style="height:300px; overflow-y:scroll;">
+            <div style="height:300px; overflow-y: auto;">
               <table class="table-group">
                 <thead>
                   <tr>
@@ -40,7 +39,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <% @learning_data.each do |data| %>
+                  <% LearningDatum.where(category_id: 1, month: @current_month).each do |data| %>
                     <tr>
                       <td><%= data.skill %></td>
                       <td>
@@ -68,32 +67,75 @@
               <div class="title">フロントエンド</div>
               <%= link_to "項目を追加する", new_user_learning_datum_path(@user, month: @current_month_data.first.month, category_id: 2), class: "button_blue" %>
             </div>
-            <table class="teble-group">
-              <thead>
-                <tr>
-                  <th>項目名</th>
-                  <th>学習時間</th>
-                  <th></th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Ruby</td>
-                  <td>
-                    <div class="time-select-area js-time-select-area">
-                      <div class="__arrow __up js-time-select-up"></div>
-                      <div class="__arrow __down js-time-select-down"></div>
-                      <%= f.number_field :time, class:"time-select js-time-select", value: @current_month_time || 0 %>
-                    </div>
-                  </td>
-                  <td>
-                    <%= f.submit "学習時間を保存する", class:"button-blue-save" %>
-                  </td>
-                  <td><button class="button-red">削除する</button></td>
-                </tr>
-              </tbody>
-            </table>
+            <div style="height:300px; overflow-y: auto;">
+              <table class="table-group">
+                <thead>
+                  <tr>
+                    <th>項目名</th>
+                    <th>学習時間</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% LearningDatum.where(category_id: 2, month: @current_month).each do |data| %>
+                    <tr>
+                      <td><%= data.skill %></td>
+                      <td>
+                        <div class="time-select-area js-time-select-area">
+                          <div class="__arrow __up js-time-select-up"></div>
+                          <div class="__arrow __down js-time-select-down"></div>
+                          <%= f.number_field :time, class:"time-select js-time-select", value: @current_month_time || 0 %>
+                        </div>
+                      </td>
+                      <td>
+                        <%= f.submit "学習時間を保存する", class:"button-blue-save" %>
+                      </td>
+                      <td><button class="button-red">削除する</button></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="category">
+          <div class="content">
+            <div class="title-group">
+              <div class="title">インフラ</div>
+              <%= link_to "項目を追加する", new_user_learning_datum_path(@user, month: @current_month_data.first.month, category_id: 3), class: "button_blue" %>
+            </div>
+            <div style="height:300px; overflow-y: auto;">
+              <table class="table-group">
+                <thead>
+                  <tr>
+                    <th>項目名</th>
+                    <th>学習時間</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% LearningDatum.where(category_id: 3, month: @current_month).each do |data| %>
+                    <tr>
+                      <td><%= data.skill %></td>
+                      <td>
+                        <div class="time-select-area js-time-select-area">
+                          <div class="__arrow __up js-time-select-up"></div>
+                          <div class="__arrow __down js-time-select-down"></div>
+                          <%= f.number_field :time, class:"time-select js-time-select", value: @current_month_time || 0 %>
+                        </div>
+                      </td>
+                      <td>
+                        <%= f.submit "学習時間を保存する", class:"button-blue-save" %>
+                      </td>
+                      <td><button class="button-red">削除する</button></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
@@ -106,9 +148,10 @@
           <div class="content">
             <div class="title-group">
               <div class="title">バックエンド</div>
-              <button class="button_blue">項目を追加する</button>
+              <%= link_to "項目を追加する", new_user_learning_datum_path(@user, month: @last_month_data.first.month, category_id: 1), class: "button_blue" %>
             </div>
-            <table class="teble-group">
+            <div style="height:300px; overflow-y: auto;">
+              <table class="table-group">
                 <thead>
                   <tr>
                     <th>項目名</th>
@@ -118,22 +161,103 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Ruby</td>
-                    <td>
-                      <div class="time-select-area js-time-select-area">
-                        <div class="__arrow __up js-time-select-up"></div>
-                        <div class="__arrow __down js-time-select-down"></div>
-                        <%= f.number_field :time, class:"time-select js-time-select", value: @last_month_time || 0 %>
-                      </div>
-                    </td>
-                    <td>
-                      <%= f.submit "学習時間を保存する", class:"button-blue-save" %>
-                    </td>
-                    <td><button class="button-red">削除する</button></td>
-                  </tr>
+                  <% LearningDatum.where(category_id: 1, month: @last_month).each do |data| %>
+                    <tr>
+                      <td><%= data.skill %></td>
+                      <td>
+                        <div class="time-select-area js-time-select-area">
+                          <div class="__arrow __up js-time-select-up"></div>
+                          <div class="__arrow __down js-time-select-down"></div>
+                          <%= f.number_field :time, class:"time-select js-time-select", value: @last_month_time || 0 %>
+                        </div>
+                      </td>
+                      <td>
+                        <%= f.submit "学習時間を保存する", class:"button-blue-save" %>
+                      </td>
+                      <td><button class="button-red">削除する</button></td>
+                    </tr>
+                  <% end %>
                 </tbody>
-            </table>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="category">
+          <div class="content">
+            <div class="title-group">
+              <div class="title">フロントエンド</div>
+              <%= link_to "項目を追加する", new_user_learning_datum_path(@user, month: @last_month_data.first.month, category_id: 2), class: "button_blue" %>
+            </div>
+            <div style="height:300px; overflow-y: auto;">
+              <table class="table-group">
+                <thead>
+                  <tr>
+                    <th>項目名</th>
+                    <th>学習時間</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% LearningDatum.where(category_id: 2, month: @last_month).each do |data| %>
+                    <tr>
+                      <td><%= data.skill %></td>
+                      <td>
+                        <div class="time-select-area js-time-select-area">
+                          <div class="__arrow __up js-time-select-up"></div>
+                          <div class="__arrow __down js-time-select-down"></div>
+                          <%= f.number_field :time, class:"time-select js-time-select", value: @last_month_time || 0 %>
+                        </div>
+                      </td>
+                      <td>
+                        <%= f.submit "学習時間を保存する", class:"button-blue-save" %>
+                      </td>
+                      <td><button class="button-red">削除する</button></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="category">
+          <div class="content">
+            <div class="title-group">
+              <div class="title">インフラ</div>
+              <%= link_to "項目を追加する", new_user_learning_datum_path(@user, month: @last_month_data.first.month, category_id: 3), class: "button_blue" %>
+            </div>
+            <div style="height:300px; overflow-y: auto;">
+              <table class="table-group">
+                <thead>
+                  <tr>
+                    <th>項目名</th>
+                    <th>学習時間</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% LearningDatum.where(category_id: 3, month: @last_month).each do |data| %>
+                    <tr>
+                      <td><%= data.skill %></td>
+                      <td>
+                        <div class="time-select-area js-time-select-area">
+                          <div class="__arrow __up js-time-select-up"></div>
+                          <div class="__arrow __down js-time-select-down"></div>
+                          <%= f.number_field :time, class:"time-select js-time-select", value: @last_month_time || 0 %>
+                        </div>
+                      </td>
+                      <td>
+                        <%= f.submit "学習時間を保存する", class:"button-blue-save" %>
+                      </td>
+                      <td><button class="button-red">削除する</button></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
@@ -146,34 +270,116 @@
           <div class="content">
             <div class="title-group">
               <div class="title">バックエンド</div>
-              <button class="button_blue">項目を追加する</button>
+              <%= link_to "項目を追加する", new_user_learning_datum_path(@user, month: @two_months_ago_data.first.month, category_id: 1), class: "button_blue" %>
             </div>
-            <table class="teble-group">
-              <thead>
-                <tr>
-                  <th>項目名</th>
-                  <th>学習時間</th>
-                  <th></th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Ruby</td>
-                  <td>
-                    <div class="time-select-area js-time-select-area">
-                      <div class="__arrow __up js-time-select-up"></div>
-                      <div class="__arrow __down js-time-select-down"></div>
-                      <%= f.number_field :time, class:"time-select js-time-select", value: @two_months_ago_time || 0 %>
-                    </div>
-                  </td>
-                  <td>
-                    <%= f.submit "学習時間を保存する", class:"button-blue-save" %>
-                  </td>
-                  <td><button class="button-red">削除する</button></td>
-                </tr>
-              </tbody>
-            </table>
+            <div style="height:300px; overflow-y: auto;">
+              <table class="table-group">
+                <thead>
+                  <tr>
+                    <th>項目名</th>
+                    <th>学習時間</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% LearningDatum.where(category_id: 1, month: @two_months_ago).each do |data| %>
+                    <tr>
+                      <td><%= data.skill %></td>
+                      <td>
+                        <div class="time-select-area js-time-select-area">
+                          <div class="__arrow __up js-time-select-up"></div>
+                          <div class="__arrow __down js-time-select-down"></div>
+                          <%= f.number_field :time, class:"time-select js-time-select", value: @two_months_ago_time || 0 %>
+                        </div>
+                      </td>
+                      <td>
+                        <%= f.submit "学習時間を保存する", class:"button-blue-save" %>
+                      </td>
+                      <td><button class="button-red">削除する</button></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="category">
+          <div class="content">
+            <div class="title-group">
+              <div class="title">フロントエンド</div>
+              <%= link_to "項目を追加する", new_user_learning_datum_path(@user, month: @two_months_ago_data.first.month, category_id: 2), class: "button_blue" %>
+            </div>
+            <div style="height:300px; overflow-y: auto;">
+              <table class="table-group">
+                <thead>
+                  <tr>
+                    <th>項目名</th>
+                    <th>学習時間</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% LearningDatum.where(category_id: 2, month: @two_months_ago).each do |data| %>
+                    <tr>
+                      <td><%= data.skill %></td>
+                      <td>
+                        <div class="time-select-area js-time-select-area">
+                          <div class="__arrow __up js-time-select-up"></div>
+                          <div class="__arrow __down js-time-select-down"></div>
+                          <%= f.number_field :time, class:"time-select js-time-select", value: @two_months_ago_time || 0 %>
+                        </div>
+                      </td>
+                      <td>
+                        <%= f.submit "学習時間を保存する", class:"button-blue-save" %>
+                      </td>
+                      <td><button class="button-red">削除する</button></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="category">
+          <div class="content">
+            <div class="title-group">
+              <div class="title">インフラ</div>
+              <%= link_to "項目を追加する", new_user_learning_datum_path(@user, month: @two_months_ago_data.first.month, category_id: 3), class: "button_blue" %>
+            </div>
+            <div style="height:300px; overflow-y: auto;">
+              <table class="table-group">
+                <thead>
+                  <tr>
+                    <th>項目名</th>
+                    <th>学習時間</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% LearningDatum.where(category_id: 3, month: @two_months_ago).each do |data| %>
+                    <tr>
+                      <td><%= data.skill %></td>
+                      <td>
+                        <div class="time-select-area js-time-select-area">
+                          <div class="__arrow __up js-time-select-up"></div>
+                          <div class="__arrow __down js-time-select-down"></div>
+                          <%= f.number_field :time, class:"time-select js-time-select", value: @two_months_ago_time || 0 %>
+                        </div>
+                      </td>
+                      <td>
+                        <%= f.submit "学習時間を保存する", class:"button-blue-save" %>
+                      </td>
+                      <td><button class="button-red">削除する</button></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>

@@ -52,8 +52,6 @@ gem 'gravtastic'
 
 gem "active_storage_validations"
 
-gem 'turbo-rails'
-
 gem 'bootstrap', '~> 5.0.0'
 
 group :development, :test do

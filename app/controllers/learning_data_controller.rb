@@ -121,13 +121,13 @@ class LearningDataController < ApplicationController
         learning_data = LearningDatum.find_or_initialize_by(
           user: @user,
           category_id: category_id,
-          skill: skill_name
+          skill: skill_name,
+          month: data_set_month
         )
 
         # 既存データでなければ新規作成
         unless learning_data.persisted?
           learning_data.time = 0
-          learning_data.month = data_set_month
           learning_data.save
         end
       end

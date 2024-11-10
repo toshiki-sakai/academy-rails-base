@@ -1,12 +1,12 @@
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/bcrypt-3.1.20/ext/mri
-/Users/sakaitoshiki/.rbenv/versions/3.1.4/bin/ruby -I /Users/sakaitoshiki/.rbenv/versions/3.1.4/lib/ruby/3.1.0 extconf.rb
+/Users/sakaitoshiki/.rbenv/versions/3.1.4/bin/ruby extconf.rb
 creating Makefile
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/bcrypt-3.1.20/ext/mri
-make DESTDIR\= sitearchdir\=./.gem.20240406-75606-t172r9 sitelibdir\=./.gem.20240406-75606-t172r9 clean
+make DESTDIR\= sitearchdir\=./.gem.20241110-6371-6bx0lt sitelibdir\=./.gem.20241110-6371-6bx0lt clean
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/bcrypt-3.1.20/ext/mri
-make DESTDIR\= sitearchdir\=./.gem.20240406-75606-t172r9 sitelibdir\=./.gem.20240406-75606-t172r9
+make DESTDIR\= sitearchdir\=./.gem.20241110-6371-6bx0lt sitelibdir\=./.gem.20241110-6371-6bx0lt
 compiling bcrypt_ext.c
 bcrypt_ext.c:41:38: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
     args.size   = NIL_P(input) ? 0 : RSTRING_LEN(input);
@@ -27,5 +27,8 @@ linking shared-object bcrypt_ext.bundle
 ld: warning: ignoring duplicate libraries: '-lruby.3.1'
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/bcrypt-3.1.20/ext/mri
-make DESTDIR\= sitearchdir\=./.gem.20240406-75606-t172r9 sitelibdir\=./.gem.20240406-75606-t172r9 install
-/usr/local/bin/ginstall -c -m 0755 bcrypt_ext.bundle ./.gem.20240406-75606-t172r9
+make DESTDIR\= sitearchdir\=./.gem.20241110-6371-6bx0lt sitelibdir\=./.gem.20241110-6371-6bx0lt install
+/usr/local/bin/ginstall -c -m 0755 bcrypt_ext.bundle ./.gem.20241110-6371-6bx0lt
+
+current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/bcrypt-3.1.20/ext/mri
+make DESTDIR\= sitearchdir\=./.gem.20241110-6371-6bx0lt sitelibdir\=./.gem.20241110-6371-6bx0lt clean

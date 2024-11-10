@@ -14,10 +14,10 @@ checking for sys/resource.h... yes
 creating Makefile
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/nio4r-2.7.4/ext/nio4r
-make DESTDIR\= sitearchdir\=./.gem.20241110-99241-z1ty72 sitelibdir\=./.gem.20241110-99241-z1ty72 clean
+make DESTDIR\= sitearchdir\=./.gem.20241110-6371-ybbwrf sitelibdir\=./.gem.20241110-6371-ybbwrf clean
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/nio4r-2.7.4/ext/nio4r
-make DESTDIR\= sitearchdir\=./.gem.20241110-99241-z1ty72 sitelibdir\=./.gem.20241110-99241-z1ty72
+make DESTDIR\= sitearchdir\=./.gem.20241110-6371-ybbwrf sitelibdir\=./.gem.20241110-6371-ybbwrf
 compiling bytebuffer.c
 compiling monitor.c
 compiling nio4r_ext.c
@@ -276,8 +276,8 @@ linking shared-object nio4r_ext.bundle
 ld: warning: ignoring duplicate libraries: '-lruby.3.1'
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/nio4r-2.7.4/ext/nio4r
-make DESTDIR\= sitearchdir\=./.gem.20241110-99241-z1ty72 sitelibdir\=./.gem.20241110-99241-z1ty72 install
-/usr/local/bin/ginstall -c -m 0755 nio4r_ext.bundle ./.gem.20241110-99241-z1ty72
+make DESTDIR\= sitearchdir\=./.gem.20241110-6371-ybbwrf sitelibdir\=./.gem.20241110-6371-ybbwrf install
+/usr/local/bin/ginstall -c -m 0755 nio4r_ext.bundle ./.gem.20241110-6371-ybbwrf
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/nio4r-2.7.4/ext/nio4r
-make DESTDIR\= sitearchdir\=./.gem.20241110-99241-z1ty72 sitelibdir\=./.gem.20241110-99241-z1ty72 clean
+make DESTDIR\= sitearchdir\=./.gem.20241110-6371-ybbwrf sitelibdir\=./.gem.20241110-6371-ybbwrf clean

@@ -1,5 +1,5 @@
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/io-console-0.7.2/ext/io/console
-/Users/sakaitoshiki/.rbenv/versions/3.1.4/bin/ruby -I /Users/sakaitoshiki/.rbenv/versions/3.1.4/lib/ruby/3.1.0 extconf.rb
+/Users/sakaitoshiki/.rbenv/versions/3.1.4/bin/ruby extconf.rb
 checking for rb_io_path()... no
 checking for rb_io_descriptor()... yes
 checking for rb_io_get_write_io()... yes
@@ -12,14 +12,17 @@ checking for HAVE_RUBY_FIBER_SCHEDULER_H... yes
 creating Makefile
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/io-console-0.7.2/ext/io/console
-make DESTDIR\= sitearchdir\=./.gem.20240401-66370-t2m05t sitelibdir\=./.gem.20240401-66370-t2m05t clean
+make DESTDIR\= sitearchdir\=./.gem.20241110-6371-qou9ql sitelibdir\=./.gem.20241110-6371-qou9ql clean
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/io-console-0.7.2/ext/io/console
-make DESTDIR\= sitearchdir\=./.gem.20240401-66370-t2m05t sitelibdir\=./.gem.20240401-66370-t2m05t
+make DESTDIR\= sitearchdir\=./.gem.20241110-6371-qou9ql sitelibdir\=./.gem.20241110-6371-qou9ql
 compiling console.c
 linking shared-object io/console.bundle
 ld: warning: ignoring duplicate libraries: '-lruby.3.1'
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/io-console-0.7.2/ext/io/console
-make DESTDIR\= sitearchdir\=./.gem.20240401-66370-t2m05t sitelibdir\=./.gem.20240401-66370-t2m05t install
-/usr/local/bin/ginstall -c -m 0755 console.bundle ./.gem.20240401-66370-t2m05t/io
+make DESTDIR\= sitearchdir\=./.gem.20241110-6371-qou9ql sitelibdir\=./.gem.20241110-6371-qou9ql install
+/usr/local/bin/ginstall -c -m 0755 console.bundle ./.gem.20241110-6371-qou9ql/io
+
+current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/io-console-0.7.2/ext/io/console
+make DESTDIR\= sitearchdir\=./.gem.20241110-6371-qou9ql sitelibdir\=./.gem.20241110-6371-qou9ql clean

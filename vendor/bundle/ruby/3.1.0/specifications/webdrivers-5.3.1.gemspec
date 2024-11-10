@@ -16,10 +16,10 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT".freeze]
   s.post_install_message = "Webdrivers gem update options\n*****************************\n\nSelenium itself now manages drivers by default: https://www.selenium.dev/documentation/selenium_manager\n* If you are using Ruby 3+ \u2014 please update to Selenium 4.11+ and stop requiring this gem\n* If you are using Ruby 2.6+ and Selenium 4.0+ \u2014 this version will work for now\n* If you use Ruby < 2.6 or Selenium 3, a 6.0 version of this gem with additional support is planned\n\nRestrict your gemfile to \"webdrivers\", \"= 5.3.0\" to stop seeing this message\n".freeze
   s.required_ruby_version = Gem::Requirement.new(">= 2.6.0".freeze)
-  s.rubygems_version = "3.5.9".freeze
+  s.rubygems_version = "3.5.10".freeze
   s.summary = "Easy download and use of browser drivers.".freeze
 
-  s.installed_by_version = "3.5.9".freeze if s.respond_to? :installed_by_version
+  s.installed_by_version = "3.5.10".freeze if s.respond_to? :installed_by_version
 
   s.specification_version = 4
 

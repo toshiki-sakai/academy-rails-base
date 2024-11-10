@@ -1,12 +1,12 @@
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/sassc-2.4.0/ext
-/Users/sakaitoshiki/.rbenv/versions/3.1.4/bin/ruby extconf.rb
+/Users/sakaitoshiki/.rbenv/versions/3.1.4/bin/ruby extconf.rb --disable-march-tune-native
 creating Makefile
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/sassc-2.4.0/ext
-make DESTDIR\= sitearchdir\=./.gem.20240412-90919-3ib08l sitelibdir\=./.gem.20240412-90919-3ib08l clean
+make DESTDIR\= sitearchdir\=./.gem.20241110-6371-mdjlh7 sitelibdir\=./.gem.20241110-6371-mdjlh7 clean
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/sassc-2.4.0/ext
-make DESTDIR\= sitearchdir\=./.gem.20240412-90919-3ib08l sitelibdir\=./.gem.20240412-90919-3ib08l
+make DESTDIR\= sitearchdir\=./.gem.20241110-6371-mdjlh7 sitelibdir\=./.gem.20241110-6371-mdjlh7
 compiling ./libsass/src/ast.cpp
 compiling ./libsass/src/ast2c.cpp
 compiling ./libsass/src/ast_fwd_decl.cpp
@@ -86,8 +86,8 @@ compiling ./libsass/src/values.cpp
 linking shared-object sassc/libsass.bundle
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/sassc-2.4.0/ext
-make DESTDIR\= sitearchdir\=./.gem.20240412-90919-3ib08l sitelibdir\=./.gem.20240412-90919-3ib08l install
-/usr/local/bin/ginstall -c -m 0755 libsass.bundle ./.gem.20240412-90919-3ib08l/sassc
+make DESTDIR\= sitearchdir\=./.gem.20241110-6371-mdjlh7 sitelibdir\=./.gem.20241110-6371-mdjlh7 install
+/usr/local/bin/ginstall -c -m 0755 libsass.bundle ./.gem.20241110-6371-mdjlh7/sassc
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/sassc-2.4.0/ext
-make DESTDIR\= sitearchdir\=./.gem.20240412-90919-3ib08l sitelibdir\=./.gem.20240412-90919-3ib08l clean
+make DESTDIR\= sitearchdir\=./.gem.20241110-6371-mdjlh7 sitelibdir\=./.gem.20241110-6371-mdjlh7 clean

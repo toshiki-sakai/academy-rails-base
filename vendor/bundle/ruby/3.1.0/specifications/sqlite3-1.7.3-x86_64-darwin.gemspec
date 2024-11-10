@@ -3,7 +3,7 @@
 
 Gem::Specification.new do |s|
   s.name = "sqlite3".freeze
-  s.version = "1.7.3"
+  s.version = "1.7.3".freeze
   s.platform = "x86_64-darwin".freeze
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
@@ -18,8 +18,8 @@ Gem::Specification.new do |s|
   s.licenses = ["BSD-3-Clause".freeze]
   s.rdoc_options = ["--main".freeze, "README.md".freeze]
   s.required_ruby_version = Gem::Requirement.new([">= 3.0".freeze, "< 3.4.dev".freeze])
-  s.rubygems_version = "3.3.26".freeze
+  s.rubygems_version = "3.5.10".freeze
   s.summary = "Ruby library to interface with the SQLite3 database engine (http://www.sqlite.org).".freeze
 
-  s.installed_by_version = "3.3.26" if s.respond_to? :installed_by_version
+  s.installed_by_version = "3.5.10".freeze if s.respond_to? :installed_by_version
 end

@@ -14,10 +14,10 @@ checking for Random.bytes... yes
 creating Makefile
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/puma-5.6.9/ext/puma_http11
-make DESTDIR\= sitearchdir\=./.gem.20241010-36038-467rbg sitelibdir\=./.gem.20241010-36038-467rbg clean
+make DESTDIR\= sitearchdir\=./.gem.20241110-6371-c9f2pz sitelibdir\=./.gem.20241110-6371-c9f2pz clean
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/puma-5.6.9/ext/puma_http11
-make DESTDIR\= sitearchdir\=./.gem.20241010-36038-467rbg sitelibdir\=./.gem.20241010-36038-467rbg
+make DESTDIR\= sitearchdir\=./.gem.20241110-6371-c9f2pz sitelibdir\=./.gem.20241110-6371-c9f2pz
 compiling http11_parser.c
 compiling mini_ssl.c
 compiling puma_http11.c
@@ -25,8 +25,8 @@ linking shared-object puma/puma_http11.bundle
 ld: warning: ignoring duplicate libraries: '-lruby.3.1'
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/puma-5.6.9/ext/puma_http11
-make DESTDIR\= sitearchdir\=./.gem.20241010-36038-467rbg sitelibdir\=./.gem.20241010-36038-467rbg install
-/usr/local/bin/ginstall -c -m 0755 puma_http11.bundle ./.gem.20241010-36038-467rbg/puma
+make DESTDIR\= sitearchdir\=./.gem.20241110-6371-c9f2pz sitelibdir\=./.gem.20241110-6371-c9f2pz install
+/usr/local/bin/ginstall -c -m 0755 puma_http11.bundle ./.gem.20241110-6371-c9f2pz/puma
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/puma-5.6.9/ext/puma_http11
-make DESTDIR\= sitearchdir\=./.gem.20241010-36038-467rbg sitelibdir\=./.gem.20241010-36038-467rbg clean
+make DESTDIR\= sitearchdir\=./.gem.20241110-6371-c9f2pz sitelibdir\=./.gem.20241110-6371-c9f2pz clean

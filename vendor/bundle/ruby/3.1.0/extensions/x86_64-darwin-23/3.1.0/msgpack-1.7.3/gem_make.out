@@ -14,10 +14,10 @@ checking for whether -DSTR_UMINUS_DEDUPE_FROZEN=1 is accepted as CFLAGS... yes
 creating Makefile
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/msgpack-1.7.3/ext/msgpack
-make DESTDIR\= sitearchdir\=./.gem.20241010-36038-uyknmj sitelibdir\=./.gem.20241010-36038-uyknmj clean
+make DESTDIR\= sitearchdir\=./.gem.20241110-6371-i3r0r7 sitelibdir\=./.gem.20241110-6371-i3r0r7 clean
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/msgpack-1.7.3/ext/msgpack
-make DESTDIR\= sitearchdir\=./.gem.20241010-36038-uyknmj sitelibdir\=./.gem.20241010-36038-uyknmj
+make DESTDIR\= sitearchdir\=./.gem.20241110-6371-i3r0r7 sitelibdir\=./.gem.20241110-6371-i3r0r7
 compiling buffer.c
 compiling buffer_class.c
 compiling extension_value_class.c
@@ -34,8 +34,8 @@ linking shared-object msgpack/msgpack.bundle
 ld: warning: ignoring duplicate libraries: '-lruby.3.1'
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/msgpack-1.7.3/ext/msgpack
-make DESTDIR\= sitearchdir\=./.gem.20241010-36038-uyknmj sitelibdir\=./.gem.20241010-36038-uyknmj install
-/usr/local/bin/ginstall -c -m 0755 msgpack.bundle ./.gem.20241010-36038-uyknmj/msgpack
+make DESTDIR\= sitearchdir\=./.gem.20241110-6371-i3r0r7 sitelibdir\=./.gem.20241110-6371-i3r0r7 install
+/usr/local/bin/ginstall -c -m 0755 msgpack.bundle ./.gem.20241110-6371-i3r0r7/msgpack
 
 current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/msgpack-1.7.3/ext/msgpack
-make DESTDIR\= sitearchdir\=./.gem.20241010-36038-uyknmj sitelibdir\=./.gem.20241010-36038-uyknmj clean
+make DESTDIR\= sitearchdir\=./.gem.20241110-6371-i3r0r7 sitelibdir\=./.gem.20241110-6371-i3r0r7 clean

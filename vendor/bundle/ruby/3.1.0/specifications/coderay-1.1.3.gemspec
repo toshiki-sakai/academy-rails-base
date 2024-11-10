@@ -3,7 +3,7 @@
 
 Gem::Specification.new do |s|
   s.name = "coderay".freeze
-  s.version = "1.1.3"
+  s.version = "1.1.3".freeze
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib".freeze]
@@ -18,8 +18,8 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT".freeze]
   s.rdoc_options = ["-SNw2".freeze, "-mREADME_INDEX.rdoc".freeze, "-t CodeRay Documentation".freeze]
   s.required_ruby_version = Gem::Requirement.new(">= 1.8.6".freeze)
-  s.rubygems_version = "3.3.26".freeze
+  s.rubygems_version = "3.5.10".freeze
   s.summary = "Fast syntax highlighting for selected languages.".freeze
 
-  s.installed_by_version = "3.3.26" if s.respond_to? :installed_by_version
+  s.installed_by_version = "3.5.10".freeze if s.respond_to? :installed_by_version
 end

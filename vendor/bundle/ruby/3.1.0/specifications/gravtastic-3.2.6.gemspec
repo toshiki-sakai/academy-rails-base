@@ -12,8 +12,8 @@ Gem::Specification.new do |s|
   s.description = "A Ruby wrapper for Gravatar URLs".freeze
   s.email = "christopher.lloyd@gmail.com".freeze
   s.homepage = "http://github.com/chrislloyd/gravtastic".freeze
-  s.rubygems_version = "3.5.9".freeze
+  s.rubygems_version = "3.5.10".freeze
   s.summary = "A Ruby wrapper for Gravatar URLs".freeze
 
-  s.installed_by_version = "3.5.9".freeze if s.respond_to? :installed_by_version
+  s.installed_by_version = "3.5.10".freeze if s.respond_to? :installed_by_version
 end

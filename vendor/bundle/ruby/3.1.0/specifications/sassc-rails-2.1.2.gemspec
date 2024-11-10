@@ -13,10 +13,10 @@ Gem::Specification.new do |s|
   s.email = ["ryan@tanookilabs.com".freeze]
   s.homepage = "https://github.com/sass/sassc-rails".freeze
   s.licenses = ["MIT".freeze]
-  s.rubygems_version = "3.5.7".freeze
+  s.rubygems_version = "3.5.10".freeze
   s.summary = "Integrate SassC-Ruby into Rails.".freeze
 
-  s.installed_by_version = "3.5.7".freeze if s.respond_to? :installed_by_version
+  s.installed_by_version = "3.5.10".freeze if s.respond_to? :installed_by_version
 
   s.specification_version = 4
 

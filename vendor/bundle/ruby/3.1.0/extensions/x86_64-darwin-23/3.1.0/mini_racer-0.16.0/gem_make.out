@@ -1,0 +1,23 @@
+current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/mini_racer-0.16.0/ext/mini_racer_extension
+/Users/sakaitoshiki/.rbenv/versions/3.1.4/bin/ruby extconf.rb
+checking for -lpthread... yes
+checking for -lobjc... yes
+checking for whether -Wl,--exclude-libs=ALL  is accepted as LDFLAGS... no
+creating Makefile
+
+current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/mini_racer-0.16.0/ext/mini_racer_extension
+make DESTDIR\= sitearchdir\=./.gem.20241111-65571-ekb61t sitelibdir\=./.gem.20241111-65571-ekb61t clean
+
+current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/mini_racer-0.16.0/ext/mini_racer_extension
+make DESTDIR\= sitearchdir\=./.gem.20241111-65571-ekb61t sitelibdir\=./.gem.20241111-65571-ekb61t
+compiling mini_racer_extension.cc
+clang: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]
+linking shared-object mini_racer_extension.bundle
+ld: warning: ignoring duplicate libraries: '-lruby.3.1'
+
+current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/mini_racer-0.16.0/ext/mini_racer_extension
+make DESTDIR\= sitearchdir\=./.gem.20241111-65571-ekb61t sitelibdir\=./.gem.20241111-65571-ekb61t install
+/usr/local/bin/ginstall -c -m 0755 mini_racer_extension.bundle ./.gem.20241111-65571-ekb61t
+
+current directory: /Users/sakaitoshiki/git/prum/academy/academy-rails-base/vendor/bundle/ruby/3.1.0/gems/mini_racer-0.16.0/ext/mini_racer_extension
+make DESTDIR\= sitearchdir\=./.gem.20241111-65571-ekb61t sitelibdir\=./.gem.20241111-65571-ekb61t clean

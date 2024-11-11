@@ -1,9 +1,9 @@
 <div id="learning_data_form">
   <%= form_with model: learning_data, url: user_learning_data_path(@user), id: 'learning-data-form', data: { turbo_action: "replace" } do |form| %>
-    <div class="login-container">
+    <div class="form-container">
       <h2><%= category.name %>に項目を追加</h2>
-      <div class="input-group">
-        <div class="skill-field">
+      <div class="form-group">
+        <div class="form-field">
           <span class="skill-title">項目名</span>
           <%= form.text_field :skill, id: "skill", class: "form-control" %>
           <% if learning_data.errors[:skill].any? %>
@@ -12,7 +12,7 @@
             </div>
           <% end %>
         </div>
-        <div class="image-field">
+        <div class="form-field">
           <span class="skill-title">学習時間</span>
           <%= form.text_field :time, id: "time", class: "form-control" %>
           <span class="skill-title">分単位で入力してください</span>

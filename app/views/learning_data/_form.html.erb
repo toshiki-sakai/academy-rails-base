@@ -14,7 +14,11 @@
         </div>
         <div class="form-field">
           <span class="skill-title">学習時間</span>
-          <%= form.text_field :time, id: "time", class: "form-control" %>
+          <div class="time-select-area js-time-select-area">
+            <div class="__arrow __up js-time-select-up"></div>
+            <div class="__arrow __down js-time-select-down"></div>
+            <%= form.text_field :time, id: "time", class: "form-control" %>
+          </div>
           <span class="skill-title">分単位で入力してください</span>
           <% if learning_data.errors[:time].any? %>
             <div class="error-message text-danger">

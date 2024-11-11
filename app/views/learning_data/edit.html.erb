@@ -19,7 +19,7 @@
       </select>
     </div>
 
-    <%= form_with model: @current_month_data.first, url: user_learning_datum_path, local: true do |f| %>
+    <%= form_with model: @learning_data, url: user_learning_datum_path(@user, @learning_data, params[:month]), method: :patch do |f| %>
       <%= hidden_field_tag :month, @current_month_data.first.month %>
       <div id="Box1" class="select-box">
         <div class="category">
@@ -46,7 +46,7 @@
                         <div class="time-select-area js-time-select-area">
                           <div class="__arrow __up js-time-select-up"></div>
                           <div class="__arrow __down js-time-select-down"></div>
-                          <%= f.number_field :time, class:"time-select js-time-select", value: @current_month_time || 0 %>
+                          <%= f.number_field :time, class:"time-select js-time-select", value: data.time %>
                         </div>
                       </td>
                       <td>
@@ -85,7 +85,7 @@
                         <div class="time-select-area js-time-select-area">
                           <div class="__arrow __up js-time-select-up"></div>
                           <div class="__arrow __down js-time-select-down"></div>
-                          <%= f.number_field :time, class:"time-select js-time-select", value: @current_month_time || 0 %>
+                          <%= f.number_field :time, class:"time-select js-time-select", value: data.time %>
                         </div>
                       </td>
                       <td>
@@ -124,7 +124,7 @@
                         <div class="time-select-area js-time-select-area">
                           <div class="__arrow __up js-time-select-up"></div>
                           <div class="__arrow __down js-time-select-down"></div>
-                          <%= f.number_field :time, class:"time-select js-time-select", value: @current_month_time || 0 %>
+                          <%= f.number_field :time, class:"time-select js-time-select", value: data.time %>
                         </div>
                       </td>
                       <td>
@@ -168,7 +168,7 @@
                         <div class="time-select-area js-time-select-area">
                           <div class="__arrow __up js-time-select-up"></div>
                           <div class="__arrow __down js-time-select-down"></div>
-                          <%= f.number_field :time, class:"time-select js-time-select", value: @last_month_time || 0 %>
+                          <%= f.number_field :time, class:"time-select js-time-select", value: data.time %>
                         </div>
                       </td>
                       <td>
@@ -207,7 +207,7 @@
                         <div class="time-select-area js-time-select-area">
                           <div class="__arrow __up js-time-select-up"></div>
                           <div class="__arrow __down js-time-select-down"></div>
-                          <%= f.number_field :time, class:"time-select js-time-select", value: @last_month_time || 0 %>
+                          <%= f.number_field :time, class:"time-select js-time-select", value: data.time %>
                         </div>
                       </td>
                       <td>
@@ -246,7 +246,7 @@
                         <div class="time-select-area js-time-select-area">
                           <div class="__arrow __up js-time-select-up"></div>
                           <div class="__arrow __down js-time-select-down"></div>
-                          <%= f.number_field :time, class:"time-select js-time-select", value: @last_month_time || 0 %>
+                          <%= f.number_field :time, class:"time-select js-time-select", value: data.time %>
                         </div>
                       </td>
                       <td>
@@ -290,7 +290,7 @@
                         <div class="time-select-area js-time-select-area">
                           <div class="__arrow __up js-time-select-up"></div>
                           <div class="__arrow __down js-time-select-down"></div>
-                          <%= f.number_field :time, class:"time-select js-time-select", value: @two_months_ago_time || 0 %>
+                          <%= f.number_field :time, class:"time-select js-time-select", value: data.time %>
                         </div>
                       </td>
                       <td>
@@ -329,7 +329,7 @@
                         <div class="time-select-area js-time-select-area">
                           <div class="__arrow __up js-time-select-up"></div>
                           <div class="__arrow __down js-time-select-down"></div>
-                          <%= f.number_field :time, class:"time-select js-time-select", value: @two_months_ago_time || 0 %>
+                          <%= f.number_field :time, class:"time-select js-time-select", value: data.time %>
                         </div>
                       </td>
                       <td>
@@ -368,7 +368,7 @@
                         <div class="time-select-area js-time-select-area">
                           <div class="__arrow __up js-time-select-up"></div>
                           <div class="__arrow __down js-time-select-down"></div>
-                          <%= f.number_field :time, class:"time-select js-time-select", value: @two_months_ago_time || 0 %>
+                          <%= f.number_field :time, class:"time-select js-time-select", value: data.time %>
                         </div>
                       </td>
                       <td>

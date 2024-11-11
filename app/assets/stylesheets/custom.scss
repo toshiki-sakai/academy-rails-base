@@ -68,6 +68,7 @@ h2 {
 
 .input{
   padding-bottom: 48px;
+  width: 100%;
 }
 
 .input label{
@@ -86,6 +87,21 @@ h2 {
 
 #user_password{
   font-size: 48px;
+}
+
+.button_blue_new {
+  width: 232px!important;
+  height: 53px!important;
+  background-color: #1B5678;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .button_blue {

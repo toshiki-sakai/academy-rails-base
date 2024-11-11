@@ -27,8 +27,8 @@
           <%= f.password_field :password, id: 'user_password' %>
         </div>
         <%= f.submit "ログインする", class: "button_login" %>
+        <%= link_to "新規登録する", signup_path, class: "button_new" %>
       <% end %>
-      <%= link_to "新規登録する", signup_path, class: "button_new" %>
     </div>
   </div>
   <footer>

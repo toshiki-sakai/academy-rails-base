@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body data-turbo-cache="false">
+  <header>
+    <h6><a href="<%= user_path(@user) %>">My Portfolio</a></h6>
+    <%= link_to "ログアウト", logout_path, class: "button_logout", data: { "turbo-method": :delete } %>
+  </header>
+
+  <%= render partial: 'learning_data/form', locals: { learning_data: @learning_data, category: @category } %>
+  <div id="modal"></div>
+
+  <footer>
+    <p>portfolio site</p>
+  </footer>
+
+  <script>
+    //学習時間の入力フォーム
+    //vanilla jsで親要素探索する用の関数
+    function getParents(el, parentSelector /* optional */) {
+      if (parentSelector === undefined) {
+          return false;
+      }
+
+      var p = el.parentNode;
+
+      while (!p.classList.contains(parentSelector)) {
+          var o = p;
+          p = o.parentNode;
+      }
+      return p;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      setupEventListeners();
+    });
+
+    // 学習時間の調整イベントの設定
+    function onTimeAdjustClick(e) {
+      e = e || window.event;
+      var target = e.target || e.srcElement;
+
+      var val = 0;
+
+      // クリックしたDOMが.js-time-select-upだったら
+      if (target.classList.contains("js-time-select-up")) {
+        val = 1;
+      } else if (target.classList.contains("js-time-select-down")) {
+        val = -1;
+      } else {
+        return false;
+      }
+      var parent = getParents(target, "js-time-select-area"); // 親の.js-time-select-areaを取得して
+      var input = parent.querySelectorAll(".js-time-select"); // 親の.js-time-select-areaの子の.js-time-selectを取得して
+      // Nodelistを回す
+      for (let i = 0; i < input.length; i++) {
+        if (input[i].classList.contains("js-time-select")) {
+          //.js-time-select持ってるDOMに対して
+          var num = parseInt(input[i].value);
+          num = isNaN(num) ? 0 : num;
+          input[i].value = num + val < 0 ? 0 : num + val;
+        }
+      }
+    }
+
+    // イベントリスナーの設定
+    function setupEventListeners() {
+      document.addEventListener("click", onTimeAdjustClick, false);
+    }
+
+    // イベントリスナーのリセット
+    function resetEventListeners() {
+      document.removeEventListener("click", onTimeAdjustClick, false);
+      setupEventListeners(); // 再設定
+    }
+  </script>
+<body>
+</html>

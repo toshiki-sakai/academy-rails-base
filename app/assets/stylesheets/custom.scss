@@ -68,6 +68,7 @@ h2 {
 
 .input{
   padding-bottom: 48px;
+  width: 100%;
 }
 
 .input label{
@@ -88,17 +89,31 @@ h2 {
   font-size: 48px;
 }
 
-.button_blue {
-  display: block;
+.button_blue_new {
   width: 232px!important;
   height: 53px!important;
-  margin: 12px auto;
   background-color: #1B5678;
   color: white;
   font-size: 18px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button_blue {
+  width: 232px!important;
+  height: 53px!important;
+  background-color: #1B5678;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 footer {
@@ -150,6 +165,7 @@ h3 {
 
 .button_new{
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 232px!important;
@@ -170,6 +186,14 @@ h3 {
 
 
 // TOPページ
+
+h3 {
+  font-family: Roboto;
+  font-size: 36px;
+  font-weight: 700;
+  color: white;
+  margin: 30px auto;
+}
 
 .button_logout {
   width: 152px;
@@ -281,8 +305,11 @@ h3 {
   margin-bottom: -120px;
 }
 
-.input-group{
+.input-group3{
   width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h5 {
@@ -437,6 +464,8 @@ header h6 a{
   margin-top: 30px;
   cursor: pointer;
   text-decoration: none;
+  display: flex;
+  text-align: center;
 }
 
 .wrapper-skill{
@@ -477,14 +506,16 @@ header h6 a{
         justify-content: center;
         align-items: center;
         cursor: pointer;
+        border: none;
+        text-decoration: none;
       }
     }
 
-    .teble-group{
+    .table-group{
       border-collapse: collapse;
       border-radius: 4px 0px 0px 0px;
       box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.14);
-      margin: 32px auto;
+      margin: 32px 0;
       text-align: left;
 
       th, td {
@@ -612,4 +643,97 @@ header h6 a{
 
 .pull-down-button:hover {
   background-color: rgba(221, 221, 221, 1);
+}
+
+
+//項目追加ページ
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  flex-direction: column;
+  gap: 20px;
+
+  .form-group{
+    width: 480px;
+
+    .form-field{
+      margin-top: 64px;
+
+      .skill-title{
+        color: gray;
+      }
+
+      .form-control {
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid gray;
+        outline: none;
+        background-color: transparent;
+        color: black;
+        font-size: 16px;
+        padding: 5px 0;
+        border-radius: 0;
+      }
+    }
+  }
+}
+
+
+//モーダル表示
+
+#modal{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+.modal-dialog{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .modal-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .modal-body{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+
+      p{
+        font-family: Roboto;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 21.09px;
+        text-align: center;
+      }
+    }
+
+    .modal-footer{
+      .button_blue_modal{
+        width: 192px!important;
+        height: 48px!important;
+        background-color: #1B5678;
+        color: white;
+        font-size: 18px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
 }

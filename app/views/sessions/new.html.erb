@@ -2,7 +2,6 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <%= stylesheet_link_tag 'custom', media: 'all', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
   <header>
@@ -28,8 +27,8 @@
           <%= f.password_field :password, id: 'user_password' %>
         </div>
         <%= f.submit "ログインする", class: "button_login" %>
+        <%= link_to "新規登録する", signup_path, class: "button_new" %>
       <% end %>
-      <%= link_to "新規登録する", signup_path, class: "button_new" %>
     </div>
   </div>
   <footer>

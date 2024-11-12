@@ -3,6 +3,11 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:show, :edit, :update]
 
   def show
+    # if params[:category_id].present?
+    #   @category = Category.find_by(id: params[:category_id])
+    # else
+    #   @category = Category.first # デフォルトのカテゴリを取得
+    # end
   end
 
   def new
@@ -40,7 +45,7 @@ class UsersController < ApplicationController
     end
 
     def set_user
-      @user = User.find(params[:id])
+      @user = current_user
     end
 
     def correct_user

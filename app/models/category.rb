@@ -1,5 +1,5 @@
 class Category < ApplicationRecord
-  has_many :learning_data, class_name: 'LearningData'
+  has_many :learning_datum
 
-  # validates :name, presence: true
+  validates :name, presence: true
 end

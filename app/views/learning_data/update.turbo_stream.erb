@@ -1,0 +1,9 @@
+<% if @learning_data.errors.any? %>
+  <script>
+    window.location.reload();
+  </script>
+<% else %>
+  <%= turbo_stream.update 'modal' do %>
+    <%= render partial: 'learning_data/modal', locals: { learning_data: @learning_data } %>
+  <% end %>
+<% end %>

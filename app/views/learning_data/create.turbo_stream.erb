@@ -6,8 +6,4 @@
   <%= turbo_stream.update 'modal' do %>
     <%= render partial: 'learning_data/modal', locals: { learning_data: @learning_data, category: @category } %>
   <% end %>
-
-  <%= turbo_stream.update 'learning_data_form' do %>
-    <%= render partial: 'learning_data/form', locals: { learning_data: LearningDatum.new, category: @category } %>
-  <% end %>
 <% end %>

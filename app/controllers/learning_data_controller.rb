@@ -34,38 +34,15 @@ class LearningDataController < ApplicationController
     @learning_data = LearningDatum.all
   end
 
-  # def update
-  #   @learning_data = LearningDatum.find(params[:id])
-
-  #   selected_month = params[:month].present? ? params[:month] : @current_month
-  #   month_data = nil
-
-  #   case selected_month
-  #   when @current_month
-  #     month_data = @current_month_data.first
-  #   when @last_month
-  #     month_data = @last_month_data.first
-  #   when @two_months_ago
-  #     month_data = @two_months_ago_data.first
-  #   else
-  #     flash[:error] = "無効な月の選択です。"
-  #     render :edit and return
-  #   end
-
-  #   if month_data.update(learning_data_params)
-  #     redirect_to edit_user_learning_datum_path(@user, month_data, month: params[:month])
-  #   else
-  #     render :edit
-  #   end
-  # end
-
   def update
     @learning_data = LearningDatum.find(params[:id])
 
-    if @learning_data.update(learning_data_params)
-      redirect_to edit_user_learning_datum_path(@user, @learning_data, month: params[:month])
-    else
-      render :edit
+    respond_to do |format|
+      if @learning_data.update(learning_data_params)
+        format.turbo_stream
+      else
+        format.turbo_stream
+      end
     end
   end
 

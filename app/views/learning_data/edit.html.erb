@@ -37,23 +37,27 @@
               </thead>
               <tbody>
                 <% LearningDatum.where(category_id: 1, month: @current_month).each do |data| %>
-                  <%= form_with model: data, url: user_learning_datum_path(@user, data, month: params[:month]) do |f| %>
-                    <%= hidden_field_tag :month, @current_month_data.first.month %>
-                    <tr>
-                      <td><%= data.skill %></td>
+                  <tr>
+                    <td><%= data.skill %></td>
+                    <%= form_with model: data, url: user_learning_datum_path(@user, data, month: params[:month]) do |f| %>
+                      <%= hidden_field_tag :month, @current_month_data.first.month %>
                       <td>
                         <div class="time-select-area js-time-select-area">
                           <div class="__arrow __up js-time-select-up"></div>
                           <div class="__arrow __down js-time-select-down"></div>
-                          <%= f.number_field :time, class:"time-select js-time-select", value: data.time %>
+                          <%= f.number_field :time, class:"time-select js-time-select" %>
                         </div>
                       </td>
                       <td>
                         <%= f.submit "学習時間を保存する", class:"button-blue-save" %>
                       </td>
-                      <td><button class="button-red">削除する</button></td>
-                    </tr>
-                  <% end %>
+                    <% end %>
+                    <td>
+                      <%= form_with model: data, url: user_learning_datum_path(@user, data), method: :delete do %>
+                        <%= button_tag "削除する", class:"button-red" %>
+                      <% end %>
+                    </td>
+                  </tr>
                 <% end %>
               </tbody>
             </table>
@@ -64,7 +68,7 @@
       <div class="category">
         <div class="content">
           <div class="title-group">
-            <div class="title">バックエンド</div>
+            <div class="title">フロントエンド</div>
             <%= link_to "項目を追加する", new_user_learning_datum_path(@user, month: @current_month_data.first.month, category_id: 2), class: "button_blue" %>
           </div>
           <div style="height:300px; overflow-y: auto;">
@@ -79,10 +83,10 @@
               </thead>
               <tbody>
                 <% LearningDatum.where(category_id: 2, month: @current_month).each do |data| %>
-                  <%= form_with model: data, url: user_learning_datum_path(@user, data, month: params[:month]) do |f| %>
-                    <%= hidden_field_tag :month, @current_month_data.first.month %>
-                    <tr>
-                      <td><%= data.skill %></td>
+                  <tr>
+                    <td><%= data.skill %></td>
+                    <%= form_with model: data, url: user_learning_datum_path(@user, data, month: params[:month]) do |f| %>
+                      <%= hidden_field_tag :month, @current_month_data.first.month %>
                       <td>
                         <div class="time-select-area js-time-select-area">
                           <div class="__arrow __up js-time-select-up"></div>
@@ -93,9 +97,13 @@
                       <td>
                         <%= f.submit "学習時間を保存する", class:"button-blue-save" %>
                       </td>
-                      <td><button class="button-red">削除する</button></td>
-                    </tr>
-                  <% end %>
+                    <% end %>
+                    <td>
+                      <%= form_with model: data, url: user_learning_datum_path(@user, data), method: :delete do %>
+                        <%= button_tag "削除する", class:"button-red" %>
+                      <% end %>
+                    </td>
+                  </tr>
                 <% end %>
               </tbody>
             </table>
@@ -106,7 +114,7 @@
       <div class="category">
         <div class="content">
           <div class="title-group">
-            <div class="title">バックエンド</div>
+            <div class="title">インフラ</div>
             <%= link_to "項目を追加する", new_user_learning_datum_path(@user, month: @current_month_data.first.month, category_id: 3), class: "button_blue" %>
           </div>
           <div style="height:300px; overflow-y: auto;">
@@ -121,10 +129,10 @@
               </thead>
               <tbody>
                 <% LearningDatum.where(category_id: 3, month: @current_month).each do |data| %>
-                  <%= form_with model: data, url: user_learning_datum_path(@user, data, month: params[:month]), method: :patch do |f| %>
-                    <%= hidden_field_tag :month, @current_month_data.first.month %>
-                    <tr>
-                      <td><%= data.skill %></td>
+                  <tr>
+                    <td><%= data.skill %></td>
+                    <%= form_with model: data, url: user_learning_datum_path(@user, data, month: params[:month]) do |f| %>
+                      <%= hidden_field_tag :month, @current_month_data.first.month %>
                       <td>
                         <div class="time-select-area js-time-select-area">
                           <div class="__arrow __up js-time-select-up"></div>
@@ -135,9 +143,13 @@
                       <td>
                         <%= f.submit "学習時間を保存する", class:"button-blue-save" %>
                       </td>
-                      <td><button class="button-red">削除する</button></td>
-                    </tr>
-                  <% end %>
+                    <% end %>
+                    <td>
+                      <%= form_with model: data, url: user_learning_datum_path(@user, data), method: :delete do %>
+                        <%= button_tag "削除する", class:"button-red" %>
+                      <% end %>
+                    </td>
+                  </tr>
                 <% end %>
               </tbody>
             </table>
@@ -165,10 +177,10 @@
               </thead>
               <tbody>
                 <% LearningDatum.where(category_id: 1, month: @last_month).each do |data| %>
-                  <%= form_with model: data, url: user_learning_datum_path(@user, data, month: params[:month]) do |f| %>
-                    <%= hidden_field_tag :month, @last_month_data.first.month %>
-                    <tr>
-                      <td><%= data.skill %></td>
+                  <tr>
+                    <td><%= data.skill %></td>
+                    <%= form_with model: data, url: user_learning_datum_path(@user, data, month: params[:month]) do |f| %>
+                      <%= hidden_field_tag :month, @current_month_data.first.month %>
                       <td>
                         <div class="time-select-area js-time-select-area">
                           <div class="__arrow __up js-time-select-up"></div>
@@ -179,9 +191,13 @@
                       <td>
                         <%= f.submit "学習時間を保存する", class:"button-blue-save" %>
                       </td>
-                      <td><button class="button-red">削除する</button></td>
-                    </tr>
-                  <% end %>
+                    <% end %>
+                    <td>
+                      <%= form_with model: data, url: user_learning_datum_path(@user, data), method: :delete do %>
+                        <%= button_tag "削除する", class:"button-red" %>
+                      <% end %>
+                    </td>
+                  </tr>
                 <% end %>
               </tbody>
             </table>
@@ -207,10 +223,10 @@
               </thead>
               <tbody>
                 <% LearningDatum.where(category_id: 2, month: @last_month).each do |data| %>
-                  <%= form_with model: data, url: user_learning_datum_path(@user, data, month: params[:month]) do |f| %>
-                    <%= hidden_field_tag :month, @last_month_data.first.month %>
-                    <tr>
-                      <td><%= data.skill %></td>
+                  <tr>
+                    <td><%= data.skill %></td>
+                    <%= form_with model: data, url: user_learning_datum_path(@user, data, month: params[:month]) do |f| %>
+                      <%= hidden_field_tag :month, @current_month_data.first.month %>
                       <td>
                         <div class="time-select-area js-time-select-area">
                           <div class="__arrow __up js-time-select-up"></div>
@@ -221,9 +237,13 @@
                       <td>
                         <%= f.submit "学習時間を保存する", class:"button-blue-save" %>
                       </td>
-                      <td><button class="button-red">削除する</button></td>
-                    </tr>
-                  <% end %>
+                    <% end %>
+                    <td>
+                      <%= form_with model: data, url: user_learning_datum_path(@user, data), method: :delete do %>
+                        <%= button_tag "削除する", class:"button-red" %>
+                      <% end %>
+                    </td>
+                  </tr>
                 <% end %>
               </tbody>
             </table>
@@ -249,10 +269,10 @@
               </thead>
               <tbody>
                 <% LearningDatum.where(category_id: 3, month: @last_month).each do |data| %>
-                  <%= form_with model: data, url: user_learning_datum_path(@user, data, month: params[:month]) do |f| %>
-                    <%= hidden_field_tag :month, @last_month_data.first.month %>
-                    <tr>
-                      <td><%= data.skill %></td>
+                  <tr>
+                    <td><%= data.skill %></td>
+                    <%= form_with model: data, url: user_learning_datum_path(@user, data, month: params[:month]) do |f| %>
+                      <%= hidden_field_tag :month, @current_month_data.first.month %>
                       <td>
                         <div class="time-select-area js-time-select-area">
                           <div class="__arrow __up js-time-select-up"></div>
@@ -263,9 +283,13 @@
                       <td>
                         <%= f.submit "学習時間を保存する", class:"button-blue-save" %>
                       </td>
-                      <td><button class="button-red">削除する</button></td>
-                    </tr>
-                  <% end %>
+                    <% end %>
+                    <td>
+                      <%= form_with model: data, url: user_learning_datum_path(@user, data), method: :delete do %>
+                        <%= button_tag "削除する", class:"button-red" %>
+                      <% end %>
+                    </td>
+                  </tr>
                 <% end %>
               </tbody>
             </table>
@@ -293,10 +317,10 @@
               </thead>
               <tbody>
                 <% LearningDatum.where(category_id: 1, month: @two_months_ago).each do |data| %>
-                  <%= form_with model: data, url: user_learning_datum_path(@user, data, month: params[:month]) do |f| %>
-                    <%= hidden_field_tag :month, @two_months_ago_data.first.month %>
-                    <tr>
-                      <td><%= data.skill %></td>
+                  <tr>
+                    <td><%= data.skill %></td>
+                    <%= form_with model: data, url: user_learning_datum_path(@user, data, month: params[:month]) do |f| %>
+                      <%= hidden_field_tag :month, @current_month_data.first.month %>
                       <td>
                         <div class="time-select-area js-time-select-area">
                           <div class="__arrow __up js-time-select-up"></div>
@@ -307,9 +331,13 @@
                       <td>
                         <%= f.submit "学習時間を保存する", class:"button-blue-save" %>
                       </td>
-                      <td><button class="button-red">削除する</button></td>
-                    </tr>
-                  <% end %>
+                    <% end %>
+                    <td>
+                      <%= form_with model: data, url: user_learning_datum_path(@user, data), method: :delete do %>
+                        <%= button_tag "削除する", class:"button-red" %>
+                      <% end %>
+                    </td>
+                  </tr>
                 <% end %>
               </tbody>
             </table>
@@ -335,10 +363,10 @@
               </thead>
               <tbody>
                 <% LearningDatum.where(category_id: 2, month: @two_months_ago).each do |data| %>
-                  <%= form_with model: data, url: user_learning_datum_path(@user, data, month: params[:month]) do |f| %>
-                    <%= hidden_field_tag :month, @two_months_ago_data.first.month %>
-                    <tr>
-                      <td><%= data.skill %></td>
+                  <tr>
+                    <td><%= data.skill %></td>
+                    <%= form_with model: data, url: user_learning_datum_path(@user, data, month: params[:month]) do |f| %>
+                      <%= hidden_field_tag :month, @current_month_data.first.month %>
                       <td>
                         <div class="time-select-area js-time-select-area">
                           <div class="__arrow __up js-time-select-up"></div>
@@ -349,9 +377,13 @@
                       <td>
                         <%= f.submit "学習時間を保存する", class:"button-blue-save" %>
                       </td>
-                      <td><button class="button-red">削除する</button></td>
-                    </tr>
-                  <% end %>
+                    <% end %>
+                    <td>
+                      <%= form_with model: data, url: user_learning_datum_path(@user, data), method: :delete do %>
+                        <%= button_tag "削除する", class:"button-red" %>
+                      <% end %>
+                    </td>
+                  </tr>
                 <% end %>
               </tbody>
             </table>
@@ -377,10 +409,10 @@
               </thead>
               <tbody>
                 <% LearningDatum.where(category_id: 3, month: @two_months_ago).each do |data| %>
-                  <%= form_with model: data, url: user_learning_datum_path(@user, data, month: params[:month]) do |f| %>
-                    <%= hidden_field_tag :month, @two_months_ago_data.first.month %>
-                    <tr>
-                      <td><%= data.skill %></td>
+                  <tr>
+                    <td><%= data.skill %></td>
+                    <%= form_with model: data, url: user_learning_datum_path(@user, data, month: params[:month]) do |f| %>
+                      <%= hidden_field_tag :month, @current_month_data.first.month %>
                       <td>
                         <div class="time-select-area js-time-select-area">
                           <div class="__arrow __up js-time-select-up"></div>
@@ -391,9 +423,13 @@
                       <td>
                         <%= f.submit "学習時間を保存する", class:"button-blue-save" %>
                       </td>
-                      <td><button class="button-red">削除する</button></td>
-                    </tr>
-                  <% end %>
+                    <% end %>
+                    <td>
+                      <%= form_with model: data, url: user_learning_datum_path(@user, data), method: :delete do %>
+                        <%= button_tag "削除する", class:"button-red" %>
+                      <% end %>
+                    </td>
+                  </tr>
                 <% end %>
               </tbody>
             </table>

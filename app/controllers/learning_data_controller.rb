@@ -4,7 +4,7 @@ class LearningDataController < ApplicationController
   before_action :set_dates, only: [:new, :edit, :update]
   before_action :set_month_data, only: [:new, :edit, :update]
   before_action :set_month_time, only: [:new, :edit, :update]
-  before_action :set_learning_data, only: [:new, :edit, :update]
+  # before_action :set_learning_data, only: [:new, :edit, :update]
 
 
   def new
@@ -46,6 +46,15 @@ class LearningDataController < ApplicationController
     end
   end
 
+  def destroy
+    @learning_data = LearningDatum.find(params[:id])
+    @learning_data.destroy
+
+    respond_to do |format|
+      format.turbo_stream
+    end
+  end
+
   private
 
   def set_user
@@ -84,42 +93,42 @@ class LearningDataController < ApplicationController
     @two_months_ago_time = @two_months_ago_data.sort_by { |data| data.updated_at }.reverse.pluck(:time).first || 0
   end
 
-  def set_learning_data
-    @learning_data = LearningDatum.find(params[:id]) if params[:id].present?
+  # def set_learning_data
+  #   @learning_data = LearningDatum.find(params[:id]) if params[:id].present?
 
-    default_skills = {
-      1 => 'Ruby',      # id=1
-      2 => 'HTML',      # id=2
-      3 => 'Heroku'     # id=3
-    }
+  #   default_skills = {
+  #     1 => 'Ruby',      # id=1
+  #     2 => 'HTML',      # id=2
+  #     3 => 'Heroku'     # id=3
+  #   }
 
-    [@current_month_data, @last_month_data, @two_months_ago_data].each do |data_set|
-      data_set_month = case data_set
-                        when @current_month_data
-                          @current_month
-                        when @last_month_data
-                          @last_month
-                        when @two_months_ago_data
-                          @two_months_ago
-                        end
+  #   [@current_month_data, @last_month_data, @two_months_ago_data].each do |data_set|
+  #     data_set_month = case data_set
+  #                       when @current_month_data
+  #                         @current_month
+  #                       when @last_month_data
+  #                         @last_month
+  #                       when @two_months_ago_data
+  #                         @two_months_ago
+  #                       end
 
-      default_skills.each do |category_id, skill_name|
-        # 重複データがあるかどうかを確認して新規作成
-        learning_data = LearningDatum.find_or_initialize_by(
-          user: @user,
-          category_id: category_id,
-          skill: skill_name,
-          month: data_set_month
-        )
+  #     default_skills.each do |category_id, skill_name|
+  #       # 重複データがあるかどうかを確認して新規作成
+  #       learning_data = LearningDatum.find_or_initialize_by(
+  #         user: @user,
+  #         category_id: category_id,
+  #         skill: skill_name,
+  #         month: data_set_month
+  #       )
 
-        # 既存データでなければ新規作成
-        unless learning_data.persisted?
-          learning_data.time = 0
-          learning_data.save
-        end
-      end
-    end
-  end
+  #       # 既存データでなければ新規作成
+  #       unless learning_data.persisted?
+  #         learning_data.time = 0
+  #         learning_data.save
+  #       end
+  #     end
+  #   end
+  # end
 
   def learning_data_params
     params.require(:learning_datum).permit(:skill, :time, :month)

@@ -683,18 +683,6 @@ header h6 a{
 
 
 //モーダル表示
-
-// #modal {
-//   position: fixed;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-//   background-color: rgba(0, 0, 0, 0.5);
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-// }
-
 .modal-dialog{
 
   .modal-content{
@@ -708,7 +696,6 @@ header h6 a{
     border: none;
 
     .modal-body{
-      // border: none;
       margin-top: 20px;
 
       p{
@@ -724,8 +711,8 @@ header h6 a{
       margin-bottom: 40px;
       display: flex;
       justify-content: center;
-      // text-decoration: none;
-      // border: none;
+      text-decoration: none;
+      border: none;
 
       .button_blue_modal{
         width: 192px!important;

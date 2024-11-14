@@ -40,9 +40,67 @@
             <h5>学習チャート</h5>
             <%= link_to "編集する", edit_user_learning_datum_path(@user), class: "button-edit" %>
           </div>
-          <div class="chart-title">Chart.js Bar Chart</div>
         </div>
         <div class="chart">
+          <div><canvas id="myChart" width="1000" height="500"></canvas></div>
+
+          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+          <script>
+            const ctx = document.getElementById('myChart');
+
+            // 各カテゴリの学習時間データ
+            const learningData = {
+              backend: [30, 100, 60], // バックエンドのデータ（先々月、先月、今月）
+              frontend: [25, 35, 50], // フロントエンドのデータ
+              infra: [20, 30, 40] // インフラのデータ
+            };
+
+            // Chart.js の設定
+            new Chart(ctx, {
+              type: 'bar',
+              data: {
+                labels: ['先々月', '先月', '今月'], // X軸ラベル
+                datasets: [
+                  {
+                    label: 'バックエンド',
+                    data: learningData.backend,
+                    backgroundColor: 'rgba(255, 99, 132, 0.5)'
+                  },
+                  {
+                    label: 'フロントエンド',
+                    data: learningData.frontend,
+                    backgroundColor: 'rgba(255, 159, 64, 0.5)'
+                  },
+                  {
+                    label: 'インフラ',
+                    data: learningData.infra,
+                    backgroundColor: 'rgba(255, 205, 86, 0.5)'
+                  }
+                ]
+              },
+              options: {
+                responsive: true,
+                plugins: {
+                  legend: {
+                    position: 'top', // 凡例の位置
+                  },
+                  title: {
+                    display: true,
+                    text: 'Chart.js Bar Chart'
+                  }
+                },
+                scales: {
+                  y: {
+                    beginAtZero: true, // Y軸を0から開始
+                    ticks: {
+                      stepSize: 10 // 目盛り間隔
+                    }
+                  }
+                }
+              }
+            });
+          </script>
         </div>
       </div>
     </div>

@@ -302,7 +302,10 @@ h3 {
 .chart-group{
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: -120px;
+  gap: 60px;
 }
 
 .input-group3{
@@ -319,6 +322,7 @@ h5 {
   text-align: center;
   border-bottom: 2px solid rgba(128, 128, 128, 0.75);
   padding-bottom: 10px;
+  margin-bottom: 40px;
 }
 
 .button-edit{
@@ -337,17 +341,6 @@ h5 {
   justify-content: center;
   align-items: center;
   text-decoration: none;
-}
-
-.chart-title{
-  font-family: Roboto;
-  font-size: 12px;
-  font-weight: 900;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  margin-top: 164px;
-  color: rgb(100, 100, 100);
 }
 
 
@@ -729,4 +722,20 @@ header h6 a{
       }
     }
   }
+}
+
+
+// チャート
+.chart{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#myChart{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

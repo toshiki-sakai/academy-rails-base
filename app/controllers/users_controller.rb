@@ -1,13 +1,11 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
   before_action :correct_user, only: [:show, :edit, :update]
+  before_action :set_dates, only: [:show]
+  before_action :set_time_totals, only: [:show]
+  before_action :chart_data, only: [:show]
 
   def show
-    # if params[:category_id].present?
-    #   @category = Category.find_by(id: params[:category_id])
-    # else
-    #   @category = Category.first # デフォルトのカテゴリを取得
-    # end
   end
 
   def new
@@ -36,21 +34,56 @@ class UsersController < ApplicationController
 
   private
 
-    def create_user_params
-      params.require(:user).permit(:name, :email, :password)
-    end
+  def create_user_params
+    params.require(:user).permit(:name, :email, :password)
+  end
 
-    def update_user_params
-      params.require(:user).permit(:avatar, :image, :introduction)
-    end
+  def update_user_params
+    params.require(:user).permit(:avatar, :image, :introduction)
+  end
 
-    def set_user
-      @user = current_user
-    end
+  def set_user
+    @user = current_user
+  end
 
-    def correct_user
-      unless @user.id == session[:user_id]
-        redirect_to root_path
+  def correct_user
+    unless @user.id == session[:user_id]
+      redirect_to root_path
+    end
+  end
+
+  def set_dates
+    @current_month = Date.today.strftime("%Y-%m")
+    @last_month = (Date.today - 1.month).strftime("%Y-%m")
+    @two_months_ago = (Date.today - 2.months).strftime("%Y-%m")
+  end
+
+  def set_time_totals
+    months = [@two_months_ago, @last_month, @current_month]
+    learning_data = LearningDatum.where(user: @user, month: months)
+    totals = learning_data.joins(:category).group('learning_data.month', 'categories.name').sum(:time)
+    @totals_by_month_and_category = {}
+    totals.each do |(month, category_name), total_time|
+      @totals_by_month_and_category[month] ||= {}
+      @totals_by_month_and_category[month][category_name] = total_time
+    end
+  end
+
+  def chart_data
+    categories = {
+      backend: 'バックエンド',
+      frontend: 'フロントエンド',
+      infra: 'インフラ'
+    }
+
+    months = [@two_months_ago, @last_month, @current_month]
+    @learning_data = {}
+
+    categories.each do |key, category_name|
+      totals = months.map do |month|
+        @totals_by_month_and_category.dig(month, category_name) || 0
       end
+      @learning_data[key] = totals
     end
+  end
 end

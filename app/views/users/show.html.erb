@@ -47,20 +47,20 @@
           <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
           <script>
-            const ctx = document.getElementById('myChart');
+            // コントローラからデータを取得
+            const learningData = <%= @learning_data.to_json.html_safe %>;
 
-            // 各カテゴリの学習時間データ
-            const learningData = {
-              backend: [30, 100, 60], // バックエンドのデータ（先々月、先月、今月）
-              frontend: [25, 35, 50], // フロントエンドのデータ
-              infra: [20, 30, 40] // インフラのデータ
-            };
+            // 月のラベルを設定
+            const labels = ['先々月', '先月', '今月'];
+
+            // チャート表示の設定
+            const ctx = document.getElementById('myChart');
 
             // Chart.js の設定
             new Chart(ctx, {
               type: 'bar',
               data: {
-                labels: ['先々月', '先月', '今月'], // X軸ラベル
+                labels: labels, // X軸のラベル（先々月、先月、今月）
                 datasets: [
                   {
                     label: 'バックエンド',

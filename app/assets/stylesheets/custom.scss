@@ -89,6 +89,12 @@ h2 {
   font-size: 48px;
 }
 
+.button_blue_new_wrapper{
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+}
+
 .button_blue_new {
   width: 232px!important;
   height: 53px!important;
@@ -99,9 +105,6 @@ h2 {
   border-radius: 4px;
   cursor: pointer;
   text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .button_blue {
@@ -511,11 +514,6 @@ header h6 a{
       margin: 32px 0;
       text-align: left;
 
-      th, td {
-        border-bottom: 1px solid #ddd;
-        border-top: 0.3px solid #ddd;
-      }
-
       th{
         height: 32px;
         width: 240px;
@@ -523,26 +521,21 @@ header h6 a{
         font-weight: 500;
         color: rgba(0, 0, 0, 0.87);
         font-family: Roboto;
+        border-bottom: 1px solid #ddd;
+        border-top: 0.3px solid #ddd;
       }
 
       td{
         height: 62px;
         padding: 16px 16px 16px 48px;
         font-family: Roboto;
+        border-bottom: 1px solid #ddd;
+        border-top: 0.3px solid #ddd;
 
         .time-select-area{
           position: relative;
           display: inline-block;
-
-          .time-select{
-            -webkit-appearance: none;
-            appearance: none;
-            padding-right: 48px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            color: rgba(0, 0, 0, 0.54);
-            font-size: 14px;
-          }
+          width: auto;
 
           input::-webkit-outer-spin-button,
           input::-webkit-inner-spin-button {
@@ -569,11 +562,15 @@ header h6 a{
           }
 
           .time-select{
-            width: 91px;
             height: 40px;
             border: 1px solid rgb(112, 112, 112);
             border-radius: 5px;
-            padding-left: 25px;
+            appearance: none;
+            padding-right: 48px;
+            padding-left: 24px;
+            color: rgba(0, 0, 0, 0.54);
+            font-size: 14px;
+            max-width: 150px !important;
           }
         }
 
@@ -609,7 +606,7 @@ header h6 a{
 .pull-down-button {
   -webkit-appearance: none;
   appearance: none;
-  padding: 12px 16px;
+  padding: 6px 12px;
   background-color: #ffffff;
   color: black;
   border: 1px solid #ccc;

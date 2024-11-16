@@ -13,13 +13,13 @@
           <% end %>
         </div>
         <div class="form-field">
-          <span class="skill-title">学習時間</span>
-          <div class="time-select-area js-time-select-area">
+          <div class="skill-title">学習時間</div>
+          <div class="time-select-area-2 js-time-select-area">
             <div class="__arrow __up js-time-select-up"></div>
             <div class="__arrow __down js-time-select-down"></div>
-            <%= form.text_field :time, id: "time", class: "form-control" %>
+            <%= form.text_field :time, id: "time", class: "form-control js-time-select", value: 0 %>
           </div>
-          <span class="skill-title">分単位で入力してください</span>
+          <div class="skill-title">分単位で入力してください</div>
           <% if learning_data.errors[:time].any? %>
             <div class="error-message text-danger">
               <%= learning_data.errors[:time].first %>
@@ -33,3 +33,64 @@
     </div>
   </div>
 <% end %>
+
+<script>
+  //学習時間の入力フォーム
+  //vanilla jsで親要素探索する用の関数
+  function getParents(el, parentSelector /* optional */) {
+    if (parentSelector === undefined) {
+        return false;
+    }
+
+    var p = el.parentNode;
+
+    while (!p.classList.contains(parentSelector)) {
+        var o = p;
+        p = o.parentNode;
+    }
+    return p;
+  }
+
+  document.addEventListener("turbo:load", () => {
+    document.addEventListener("click", onTimeAdjustClick);
+  });
+
+  // 学習時間の調整イベントの設定
+  function onTimeAdjustClick(e) {
+    e = e || window.event;
+    var target = e.target || e.srcElement;
+
+    var val = 0;
+
+    // クリックしたDOMが.js-time-select-upだったら
+    if (target.classList.contains("js-time-select-up")) {
+      val = 1;
+    } else if (target.classList.contains("js-time-select-down")) {
+      val = -1;
+    } else {
+      return false;
+    }
+    var parent = getParents(target, "js-time-select-area"); // 親の.js-time-select-areaを取得して
+    var input = parent.querySelectorAll(".js-time-select"); // 親の.js-time-select-areaの子の.js-time-selectを取得して
+    // Nodelistを回す
+    for (let i = 0; i < input.length; i++) {
+      if (input[i].classList.contains("js-time-select")) {
+        //.js-time-select持ってるDOMに対して
+        var num = parseInt(input[i].value);
+        num = isNaN(num) ? 0 : num;
+        input[i].value = num + val < 0 ? 0 : num + val;
+      }
+    }
+  }
+
+  // イベントリスナーの設定
+  function setupEventListeners() {
+    document.addEventListener("click", onTimeAdjustClick, false);
+  }
+
+  // イベントリスナーのリセット
+  function resetEventListeners() {
+    document.removeEventListener("click", onTimeAdjustClick, false);
+    setupEventListeners(); // 再設定
+  }
+</script>

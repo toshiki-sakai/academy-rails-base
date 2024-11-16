@@ -16,6 +16,14 @@ header{
   justify-content: space-between;
 }
 
+.login-title{
+  font-family: Roboto;
+  font-size: 36px;
+  font-weight: 700;
+  color: white;
+  margin: auto;
+}
+
 h1{
   font-family: Roboto;
   font-size: 36px;
@@ -272,15 +280,14 @@ h3 {
     height: 58px;
     border-bottom: 2px solid rgba(128, 128, 128, 0.75);
     padding-bottom: 10px;
+    font-weight: bold;
   }
 
   .text{
     font-family: Roboto;
     font-size: 18px;
-    margin-top: -16px;
     color: rgba(0, 0, 0, 0.75);
     width: 520px;
-    // height: 81px;
     overflow-wrap: break-word;
   }
 }
@@ -321,11 +328,22 @@ h3 {
 h5 {
   font-family: Roboto;
   font-size: 36px;
-  font-weight: 400px;
   text-align: center;
-  border-bottom: 2px solid rgba(128, 128, 128, 0.75);
+  position: relative;
   padding-bottom: 10px;
   margin-bottom: 40px;
+  margin-top: 64px;
+  font-weight: bold;
+}
+
+h5::after {
+  content: ""; /* 疑似要素を使用 */
+  position: absolute;
+  bottom: 0; /* h5の下端に配置 */
+  left: -64px; /* 左端から開始 */
+  right: -64px; /* 右端まで伸ばす */
+  height: 2px; /* 線の太さ */
+  background-color: rgba(128, 128, 128, 0.75); /* 線の色 */
 }
 
 .button-edit{

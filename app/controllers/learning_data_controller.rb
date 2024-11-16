@@ -59,6 +59,7 @@ class LearningDataController < ApplicationController
 
   def set_user
     @user = current_user
+    redirect_to root_path if @user.nil?
   end
 
   def set_category

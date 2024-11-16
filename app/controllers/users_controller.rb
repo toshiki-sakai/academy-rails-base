@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
-  before_action :correct_user, only: [:show, :edit, :update]
   before_action :set_dates, only: [:show]
   before_action :set_time_totals, only: [:show]
   before_action :chart_data, only: [:show]
@@ -44,12 +43,7 @@ class UsersController < ApplicationController
 
   def set_user
     @user = current_user
-  end
-
-  def correct_user
-    unless @user.id == session[:user_id]
-      redirect_to root_path
-    end
+    redirect_to root_path if @user.nil?
   end
 
   def set_dates

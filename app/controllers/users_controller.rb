@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to login_path
     else
-      render :new, status: :unprocessable_entity
+      render :new
     end
   end
 
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     if @user.update(update_user_params)
       redirect_to user_path(@user)
     else
-      render :edit, status: :unprocessable_entity
+      render :edit
     end
   end
 

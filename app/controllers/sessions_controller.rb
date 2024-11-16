@@ -23,6 +23,6 @@ class SessionsController < ApplicationController
   def destroy
     reset_session
     session.delete(:user_id)
-    redirect_to logout_path, notice: "ログアウトしました。"
+    redirect_to logout_path
   end
 end

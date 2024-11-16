@@ -1,5 +1,5 @@
-<div id="learning_data_form">
-  <%= form_with model: learning_data, url: user_learning_data_path(@user), id: 'learning-data-form', data: { turbo_action: "replace" } do |form| %>
+<%= form_with model: learning_data, url: user_learning_data_path(@user), id: 'learning-data-form', data: { turbo_action: "replace" } do |form| %>
+  <div id="learning_data_form">
     <div class="form-container">
       <h2><%= category.name %>に項目を追加</h2>
       <div class="form-group">
@@ -31,5 +31,5 @@
         <button type="submit" class="button-profile btn btn-primary" id="submit-button">追加する</button>
       </div>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>

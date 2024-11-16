@@ -9,7 +9,9 @@
     <%= link_to "ログアウト", logout_path, class: "button_logout", data: { "turbo-method": :delete } %>
   </header>
 
-  <%= render partial: 'learning_data/form', locals: { learning_data: @learning_data, category: @category } %>
+  <div id="learning_data_form">
+    <%= render partial: 'learning_data/form', locals: { learning_data: @learning_data, category: @category } %>
+  </div>
   <div id="modal"></div>
 
   <footer>

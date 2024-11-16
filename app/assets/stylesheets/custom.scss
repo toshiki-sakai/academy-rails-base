@@ -701,6 +701,7 @@ header h6 a{
     width: 640px;
     height: 240px;
     display: flex;
+    justify-content: center;
     border: none;
 
     .modal-body{
@@ -711,13 +712,11 @@ header h6 a{
         font-size: 18px;
         font-weight: 700;
         text-align: center;
-        margin-top:20px;
       }
     }
 
     .modal-footer{
       margin-bottom: 40px;
-      display: flex;
       justify-content: center;
       text-decoration: none;
       border: none;

@@ -37,7 +37,7 @@
                 </tr>
               </thead>
               <tbody>
-                <% LearningDatum.where(category_id: 1, month: @current_month).each do |data| %>
+                <% LearningDatum.where(user: @user, category_id: 1, month: @current_month).each do |data| %>
                   <tr>
                     <td><%= data.skill %></td>
                     <%= form_with model: data, url: user_learning_datum_path(@user, data, month: params[:month]) do |f| %>
@@ -83,7 +83,7 @@
                 </tr>
               </thead>
               <tbody>
-                <% LearningDatum.where(category_id: 2, month: @current_month).each do |data| %>
+                <% LearningDatum.where(user: @user, category_id: 2, month: @current_month).each do |data| %>
                   <tr>
                     <td><%= data.skill %></td>
                     <%= form_with model: data, url: user_learning_datum_path(@user, data, month: params[:month]) do |f| %>
@@ -129,7 +129,7 @@
                 </tr>
               </thead>
               <tbody>
-                <% LearningDatum.where(category_id: 3, month: @current_month).each do |data| %>
+                <% LearningDatum.where(user: @user, category_id: 3, month: @current_month).each do |data| %>
                   <tr>
                     <td><%= data.skill %></td>
                     <%= form_with model: data, url: user_learning_datum_path(@user, data, month: params[:month]) do |f| %>
@@ -177,7 +177,7 @@
                 </tr>
               </thead>
               <tbody>
-                <% LearningDatum.where(category_id: 1, month: @last_month).each do |data| %>
+                <% LearningDatum.where(user: @user, category_id: 1, month: @last_month).each do |data| %>
                   <tr>
                     <td><%= data.skill %></td>
                     <%= form_with model: data, url: user_learning_datum_path(@user, data, month: params[:month]) do |f| %>
@@ -223,7 +223,7 @@
                 </tr>
               </thead>
               <tbody>
-                <% LearningDatum.where(category_id: 2, month: @last_month).each do |data| %>
+                <% LearningDatum.where(user: @user, category_id: 2, month: @last_month).each do |data| %>
                   <tr>
                     <td><%= data.skill %></td>
                     <%= form_with model: data, url: user_learning_datum_path(@user, data, month: params[:month]) do |f| %>
@@ -269,7 +269,7 @@
                 </tr>
               </thead>
               <tbody>
-                <% LearningDatum.where(category_id: 3, month: @last_month).each do |data| %>
+                <% LearningDatum.where(user: @user, category_id: 3, month: @last_month).each do |data| %>
                   <tr>
                     <td><%= data.skill %></td>
                     <%= form_with model: data, url: user_learning_datum_path(@user, data, month: params[:month]) do |f| %>
@@ -317,7 +317,7 @@
                 </tr>
               </thead>
               <tbody>
-                <% LearningDatum.where(category_id: 1, month: @two_months_ago).each do |data| %>
+                <% LearningDatum.where(user: @user, category_id: 1, month: @two_months_ago).each do |data| %>
                   <tr>
                     <td><%= data.skill %></td>
                     <%= form_with model: data, url: user_learning_datum_path(@user, data, month: params[:month]) do |f| %>
@@ -363,7 +363,7 @@
                 </tr>
               </thead>
               <tbody>
-                <% LearningDatum.where(category_id: 2, month: @two_months_ago).each do |data| %>
+                <% LearningDatum.where(user: @user, category_id: 2, month: @two_months_ago).each do |data| %>
                   <tr>
                     <td><%= data.skill %></td>
                     <%= form_with model: data, url: user_learning_datum_path(@user, data, month: params[:month]) do |f| %>
@@ -409,7 +409,7 @@
                 </tr>
               </thead>
               <tbody>
-                <% LearningDatum.where(category_id: 3, month: @two_months_ago).each do |data| %>
+                <% LearningDatum.where(user: @user, category_id: 3, month: @two_months_ago).each do |data| %>
                   <tr>
                     <td><%= data.skill %></td>
                     <%= form_with model: data, url: user_learning_datum_path(@user, data, month: params[:month]) do |f| %>

@@ -35,7 +35,7 @@ class LearningDataController < ApplicationController
   end
 
   def update
-    @learning_data = LearningDatum.find(params[:id])
+    @learning_data = @user.learning_datum.find(params[:id])
 
     respond_to do |format|
       if @learning_data.update(learning_data_params)

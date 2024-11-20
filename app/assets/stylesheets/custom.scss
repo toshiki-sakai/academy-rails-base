@@ -510,6 +510,7 @@ header h6 a{
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-bottom: 24px;
 
       .title{
         width: 240px;
@@ -546,6 +547,10 @@ header h6 a{
         font-family: Roboto;
         border-bottom: 1px solid #ddd;
         border-top: 0.3px solid #ddd;
+        position: sticky;
+        top: 0;
+        background-color: white;
+        z-index: 1;
       }
 
       td{

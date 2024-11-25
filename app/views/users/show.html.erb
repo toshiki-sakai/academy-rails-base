@@ -38,7 +38,7 @@
         <div class="chart-frame">
           <div class="input-group3">
             <h5>学習チャート</h5>
-            <%= link_to "編集する", edit_user_learning_datum_path(@user), class: "button-edit" %>
+            <%= link_to "編集する", edit_user_learning_datum_path(@user, month: @current_month), class: "button-edit" %>
           </div>
         </div>
         <div class="chart">

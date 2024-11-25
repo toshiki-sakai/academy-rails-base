@@ -13,9 +13,9 @@
     <!-- 月のセレクトボックス -->
     <div class="month-select-area">
       <select class="pull-down-button" id="pull-down-button" name="month" onchange="viewChange();">
-        <option value="<%= @current_month %>"><%= Date.today.month %>月</option>
-        <option value="<%= @last_month %>"><%= (Date.today - 1.month).month %>月</option>
-        <option value="<%= @two_months_ago %>"><%= (Date.today - 2.months).month %>月</option>
+        <option value="<%= @current_month %>" <%= (params[:month] == @current_month || params[:month].nil?) ? 'selected' : '' %>><%= Date.today.month %>月</option>
+        <option value="<%= @last_month %>" <%= params[:month] == @last_month ? 'selected' : '' %>><%= (Date.today - 1.month).month %>月</option>
+        <option value="<%= @two_months_ago %>" <%= params[:month] == @two_months_ago ? 'selected' : '' %>><%= (Date.today - 2.months).month %>月</option>
       </select>
     </div>
 
@@ -24,7 +24,7 @@
         <div class="content">
           <div class="title-group">
             <div class="title">バックエンド</div>
-            <%= link_to "項目を追加する", new_user_learning_datum_path(@user, month: @current_month_data.first.month, category_id: 1), class: "button_blue" %>
+            <%= link_to "項目を追加する", new_user_learning_datum_path(@user, month: @current_month, category_id: 1), class: "button_blue" %>
           </div>
           <div style="height:300px; overflow-y: auto;">
             <table class="table-group">
@@ -70,7 +70,7 @@
         <div class="content">
           <div class="title-group">
             <div class="title">フロントエンド</div>
-            <%= link_to "項目を追加する", new_user_learning_datum_path(@user, month: @current_month_data.first.month, category_id: 2), class: "button_blue" %>
+            <%= link_to "項目を追加する", new_user_learning_datum_path(@user, month: @current_month, category_id: 2), class: "button_blue" %>
           </div>
           <div style="height:300px; overflow-y: auto;">
             <table class="table-group">
@@ -116,7 +116,7 @@
         <div class="content">
           <div class="title-group">
             <div class="title">インフラ</div>
-            <%= link_to "項目を追加する", new_user_learning_datum_path(@user, month: @current_month_data.first.month, category_id: 3), class: "button_blue" %>
+            <%= link_to "項目を追加する", new_user_learning_datum_path(@user, month: @current_month, category_id: 3), class: "button_blue" %>
           </div>
           <div style="height:300px; overflow-y: auto;">
             <table class="table-group">
@@ -164,7 +164,7 @@
         <div class="content">
           <div class="title-group">
             <div class="title">バックエンド</div>
-            <%= link_to "項目を追加する", new_user_learning_datum_path(@user, month: @last_month_data.first.month, category_id: 1), class: "button_blue" %>
+            <%= link_to "項目を追加する", new_user_learning_datum_path(@user, month: @last_month, category_id: 1), class: "button_blue" %>
           </div>
           <div style="height:300px; overflow-y: auto;">
             <table class="table-group">
@@ -180,7 +180,7 @@
                 <% LearningDatum.where(user: @user, category_id: 1, month: @last_month).each do |data| %>
                   <tr>
                     <td><%= data.skill %></td>
-                    <%= form_with model: data, url: user_learning_datum_path(@user, data, month: params[:month]) do |f| %>
+                    <%= form_with model: data, url: user_learning_datum_path(@user, data, month: @last_month) do |f| %>
                       <%= hidden_field_tag :month, @current_month_data.first.month %>
                       <td>
                         <div class="time-select-area js-time-select-area">
@@ -210,7 +210,7 @@
         <div class="content">
           <div class="title-group">
             <div class="title">フロントエンド</div>
-            <%= link_to "項目を追加する", new_user_learning_datum_path(@user, month: @last_month_data.first.month, category_id: 2), class: "button_blue" %>
+            <%= link_to "項目を追加する", new_user_learning_datum_path(@user, month: @last_month, category_id: 2), class: "button_blue" %>
           </div>
           <div style="height:300px; overflow-y: auto;">
             <table class="table-group">
@@ -226,7 +226,7 @@
                 <% LearningDatum.where(user: @user, category_id: 2, month: @last_month).each do |data| %>
                   <tr>
                     <td><%= data.skill %></td>
-                    <%= form_with model: data, url: user_learning_datum_path(@user, data, month: params[:month]) do |f| %>
+                    <%= form_with model: data, url: user_learning_datum_path(@user, data, month: @last_month) do |f| %>
                       <%= hidden_field_tag :month, @current_month_data.first.month %>
                       <td>
                         <div class="time-select-area js-time-select-area">
@@ -256,7 +256,7 @@
         <div class="content">
           <div class="title-group">
             <div class="title">インフラ</div>
-            <%= link_to "項目を追加する", new_user_learning_datum_path(@user, month: @last_month_data.first.month, category_id: 3), class: "button_blue" %>
+            <%= link_to "項目を追加する", new_user_learning_datum_path(@user, month: @last_month, category_id: 3), class: "button_blue" %>
           </div>
           <div style="height:300px; overflow-y: auto;">
             <table class="table-group">
@@ -272,7 +272,7 @@
                 <% LearningDatum.where(user: @user, category_id: 3, month: @last_month).each do |data| %>
                   <tr>
                     <td><%= data.skill %></td>
-                    <%= form_with model: data, url: user_learning_datum_path(@user, data, month: params[:month]) do |f| %>
+                    <%= form_with model: data, url: user_learning_datum_path(@user, data, month: @last_month) do |f| %>
                       <%= hidden_field_tag :month, @current_month_data.first.month %>
                       <td>
                         <div class="time-select-area js-time-select-area">
@@ -304,7 +304,7 @@
         <div class="content">
           <div class="title-group">
             <div class="title">バックエンド</div>
-            <%= link_to "項目を追加する", new_user_learning_datum_path(@user, month: @two_months_ago_data.first.month, category_id: 1), class: "button_blue" %>
+            <%= link_to "項目を追加する", new_user_learning_datum_path(@user, month: @two_months_ago, category_id: 1), class: "button_blue" %>
           </div>
           <div style="height:300px; overflow-y: auto;">
             <table class="table-group">
@@ -320,7 +320,7 @@
                 <% LearningDatum.where(user: @user, category_id: 1, month: @two_months_ago).each do |data| %>
                   <tr>
                     <td><%= data.skill %></td>
-                    <%= form_with model: data, url: user_learning_datum_path(@user, data, month: params[:month]) do |f| %>
+                    <%= form_with model: data, url: user_learning_datum_path(@user, data, month: @two_months_ago) do |f| %>
                       <%= hidden_field_tag :month, @current_month_data.first.month %>
                       <td>
                         <div class="time-select-area js-time-select-area">
@@ -350,7 +350,7 @@
         <div class="content">
           <div class="title-group">
             <div class="title">フロントエンド</div>
-            <%= link_to "項目を追加する", new_user_learning_datum_path(@user, month: @two_months_ago_data.first.month, category_id: 2), class: "button_blue" %>
+            <%= link_to "項目を追加する", new_user_learning_datum_path(@user, month: @two_months_ago, category_id: 2), class: "button_blue" %>
           </div>
           <div style="height:300px; overflow-y: auto;">
             <table class="table-group">
@@ -366,7 +366,7 @@
                 <% LearningDatum.where(user: @user, category_id: 2, month: @two_months_ago).each do |data| %>
                   <tr>
                     <td><%= data.skill %></td>
-                    <%= form_with model: data, url: user_learning_datum_path(@user, data, month: params[:month]) do |f| %>
+                    <%= form_with model: data, url: user_learning_datum_path(@user, data, month: @two_months_ago) do |f| %>
                       <%= hidden_field_tag :month, @current_month_data.first.month %>
                       <td>
                         <div class="time-select-area js-time-select-area">
@@ -396,7 +396,7 @@
         <div class="content">
           <div class="title-group">
             <div class="title">インフラ</div>
-            <%= link_to "項目を追加する", new_user_learning_datum_path(@user, month: @two_months_ago_data.first.month, category_id: 3), class: "button_blue" %>
+            <%= link_to "項目を追加する", new_user_learning_datum_path(@user, month: @two_months_ago, category_id: 3), class: "button_blue" %>
           </div>
           <div style="height:300px; overflow-y: auto;">
             <table class="table-group">
@@ -412,7 +412,7 @@
                 <% LearningDatum.where(user: @user, category_id: 3, month: @two_months_ago).each do |data| %>
                   <tr>
                     <td><%= data.skill %></td>
-                    <%= form_with model: data, url: user_learning_datum_path(@user, data, month: params[:month]) do |f| %>
+                    <%= form_with model: data, url: user_learning_datum_path(@user, data, month: @two_months_ago) do |f| %>
                       <%= hidden_field_tag :month, @current_month_data.first.month %>
                       <td>
                         <div class="time-select-area js-time-select-area">
@@ -507,24 +507,30 @@
     }
 
     //月選択で画面表示切り替え
-    function viewChange(){
-        if(document.getElementById('pull-down-button')){
-            id = document.getElementById('pull-down-button').value;
-            if(id == '<%= @current_month %>'){
-                document.getElementById('Box1').style.display = "block";
-                document.getElementById('Box2').style.display = "none";
-                document.getElementById('Box3').style.display = "none";
-            }else if(id == '<%= @last_month %>'){
-                document.getElementById('Box1').style.display = "none";
-                document.getElementById('Box2').style.display = "block";
-                document.getElementById('Box3').style.display = "none";
-            }
-            else if(id == '<%= @two_months_ago %>'){
-                document.getElementById('Box1').style.display = "none";
-                document.getElementById('Box2').style.display = "none";
-                document.getElementById('Box3').style.display = "block";
-            }
-        }
+    var paramsMonth = '<%= params[:month] || @current_month %>';
+
+    document.addEventListener('DOMContentLoaded', function() {
+      setupEventListeners();
+      viewChange(paramsMonth); // ページロード時にparamsMonthを渡す
+    });
+
+    function viewChange(selectedMonth) {
+      if (!selectedMonth && document.getElementById('pull-down-button')) {
+        selectedMonth = document.getElementById('pull-down-button').value;
+      }
+      if (selectedMonth == '<%= @current_month %>') {
+        document.getElementById('Box1').style.display = "block";
+        document.getElementById('Box2').style.display = "none";
+        document.getElementById('Box3').style.display = "none";
+      } else if (selectedMonth == '<%= @last_month %>') {
+        document.getElementById('Box1').style.display = "none";
+        document.getElementById('Box2').style.display = "block";
+        document.getElementById('Box3').style.display = "none";
+      } else if (selectedMonth == '<%= @two_months_ago %>') {
+        document.getElementById('Box1').style.display = "none";
+        document.getElementById('Box2').style.display = "none";
+        document.getElementById('Box3').style.display = "block";
+      }
     }
   </script>
 </body>
